@@ -77,6 +77,6 @@ const descriptionSchema = new mongoose.Schema({
   ],
 });
 
-const Description = mongoose.model('description', descriptionSchema);
+const Descriptions = mongoose.model('Description', descriptionSchema);
 
-module.exports = Description;
+module.exports = Descriptions;

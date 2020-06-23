@@ -1,3 +1,5 @@
+const faker = require('faker');
+
 function typeOfPlace() {
   let typesOfPlaces = [
     'House',
@@ -168,8 +170,28 @@ function getRandomAmenities() {
   return amenitiesToPushIn;
 }
 
+function getRandomThingsToDo() {
+  let numberOfThingsToDo = [6, 12, 18, 24, 30, 36, 42, 48];
+  let activities = [];
+  let randomAmount =
+    numberOfThingsToDo[Math.floor(Math.random() * numberOfThingsToDo.length)];
+  for (let i = 0; i < randomAmount; i++) {
+    activities.push({
+      activityPhoto: 'https://picsum.photos/167/227',
+      activityDescription: faker.lorem.sentence(),
+      pricePerPerson: getRandomInt(50, 300),
+      stars: Math.floor(Math.random() * 6),
+    });
+  }
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  return activities;
+}
+
 module.exports = {
   getRandomAmenities,
   getSleepingArrangements,
   typeOfPlace,
+  getRandomThingsToDo,
 };
