@@ -87,7 +87,7 @@ console.log('Data to put in', dataToWrite.length);
 fs.writeFile(
   'database/dummyData.js',
   `let dummyData = ${JSON.stringify(
-    dataToWrite.slice(0, 2)
+    dataToWrite
   )} \n module.exports = dummyData;`,
   (err) => {
     if (err) console.log('Error in generation', err);
