@@ -1,4 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Sample from './components/sample.jsx';
 
-ReactDOM.render(<h1>Hey</h1>, document.getElementById('root'));
+ReactDOM.render(<Sample></Sample>, document.getElementById('root'));
