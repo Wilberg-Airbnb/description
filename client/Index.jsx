@@ -9,7 +9,9 @@ class Index extends React.Component {
 
   componentDidMount() {
     axios.get('/api/description/0').then(({ data }) => {
-      this.setState({ description: data });
+      this.setState({ description: data }).catch((error) => {
+        console.log('Error fetching data', error);
+      });
     });
   }
 
