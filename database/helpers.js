@@ -189,9 +189,23 @@ function getRandomThingsToDo() {
   return activities;
 }
 
+function getRandomDescriptions() {
+  let randomNumberOfDescriptions = Math.floor(Math.random() * 10) + 1;
+  let descriptions = [];
+
+  for (let i = 0; i < randomNumberOfDescriptions; i++) {
+    descriptions.push({
+      header: faker.lorem.sentence(),
+      description: faker.lorem.paragraph(),
+    });
+  }
+  return descriptions;
+}
+
 module.exports = {
   getRandomAmenities,
   getSleepingArrangements,
   typeOfPlace,
   getRandomThingsToDo,
+  getRandomDescriptions,
 };
