@@ -40,12 +40,7 @@ for (let i = 0; i < 100; i++) {
         description: faker.lorem.paragraph(),
       },
     ],
-    description: [
-      {
-        header: faker.lorem.sentence(),
-        description: faker.lorem.paragraph(),
-      },
-    ],
+    description: helpers.getRandomDescriptions(),
     sleepingArrangements: [
       {
         iconLink: 'https://picsum.photos/100',
