@@ -1,5 +1,5 @@
 import React from 'react';
+import Index from './Index.jsx';
 import ReactDOM from 'react-dom';
-import Sample from './components/sample.jsx';
 
-ReactDOM.render(<Sample></Sample>, document.getElementById('root'));
+ReactDOM.render(<Index />, document.getElementById('description'));
