@@ -4,24 +4,32 @@ import MainDescription from './components/MainDescription.jsx';
 class Index extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { description: null };
+    this.state = { descriptions: [] };
   }
 
   componentDidMount() {
-    axios.get('/api/description/0').then(({ data }) => {
-      this.setState({ description: data }).catch((error) => {
-        console.log('Error fetching data', error);
+    axios
+      .get('/api/description/0')
+      .then(({ data }) => {
+        this.setState({ descriptions: data.description }, () => {
+          console.log('Updated state,', this.state);
+        });
+      })
+      .catch((error) => {
+        console.log('Error retrieving data!', error);
       });
-    });
+    // });
   }
 
   render() {
-    return (
-      <div>
-        <h1>Hello, world!</h1>
-        <MainDescription description={this.state.description} />
-      </div>
-    );
+    // console.log(this.state);
+    // const { mainDescriptions } = this.state.descriptions;
+    // if (mainDescriptions === null) {
+    // return <h1>Loading</h1>;
+    // } else {
+    return <MainDescription descriptions={this.state.descriptions} />;
+    // }
   }
 }
+
 export default Index;
