@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount, shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import Amenities from './Amenities';
 import {
   hostAndRoomsEntirePlace,
   hostAndRoomsNotEntirePlace,
