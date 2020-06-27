@@ -8,11 +8,16 @@ class Index extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/api/description/0').then(({ data }) => {
-      this.setState({ descriptions: data.description }, () => {
-        console.log('Updated state,', this.state);
+    axios
+      .get('/api/description/0')
+      .then(({ data }) => {
+        this.setState({ descriptions: data.description }, () => {
+          console.log('Updated state,', this.state);
+        });
+      })
+      .catch((error) => {
+        console.log('Error retrieving data!', error);
       });
-    });
     // });
   }
 
