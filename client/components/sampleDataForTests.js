@@ -211,4 +211,33 @@ const sampleAmenities = [
   },
 ];
 
-export { sampleDescriptions, sampleAmenities };
+const hostAndRoomsEntirePlace = {
+  name: 'Cindy Shields',
+  maxNumberOfGuests: 5,
+  typeOfPlace: 'House',
+  entirePlace: true,
+  bedNumber: 3,
+  bathNumber: 2,
+  rooms: 3,
+  hosts: 'Wilber Jacobi Sr.',
+  photoUrl: 'https://picsum.photos/100',
+};
+
+const hostAndRoomsNotEntirePlace = {
+  name: 'Cindy Shields',
+  maxNumberOfGuests: 5,
+  typeOfPlace: 'House',
+  entirePlace: false,
+  bedNumber: 3,
+  bathNumber: 2,
+  rooms: 3,
+  hosts: 'Wilber Jacobi Sr.',
+  photoUrl: 'https://picsum.photos/100',
+};
+
+export {
+  sampleDescriptions,
+  sampleAmenities,
+  hostAndRoomsEntirePlace,
+  hostAndRoomsNotEntirePlace,
+};
