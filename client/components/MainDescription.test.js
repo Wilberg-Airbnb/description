@@ -2,7 +2,6 @@ import React from 'react';
 import { mount, shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import MainDescription from './MainDescription.jsx';
-import Index from '../Index.jsx';
 import { sampleDescriptions } from './sampleDataForTests';
 configure({ adapter: new Adapter() });
 
