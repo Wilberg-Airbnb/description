@@ -35,7 +35,7 @@ describe('Amenities basic functionality', () => {
     let numberOfSectionsShowing = wrapper.find('section').length;
     expect(numberOfSectionsShowing).toBe(10);
   });
-
+  // sampleAmenities length is 32..... will refactor later....
   test('Have button show many components exist', () => {
     let numOfAmenitiesToShow = showMoreButton.text().split(' ')[2];
     expect(numOfAmenitiesToShow).toBe('32');

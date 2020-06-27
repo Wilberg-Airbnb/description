@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { render } from 'enzyme';
+import React from 'react';
+import Modal from './Modal.jsx';
 
 class Amenities extends React.Component {
   constructor(props) {
@@ -29,14 +29,17 @@ class Amenities extends React.Component {
     return (
       <div>
         {amenitiesToShow}
-        <button
-          id="showMore"
-          onClick={() => {
-            this.toggleModal();
-          }}
-        >
+        <button id="showMore" onClick={this.toggleModal}>
           Show all {this.props.amenities.length} amenities
         </button>
+        {this.state.showModal ? (
+          <Modal
+            toggleModal={this.toggleModal}
+            listItems={this.props.amenities}
+          >
+            This is the secret modal message!
+          </Modal>
+        ) : null}
       </div>
     );
   }
