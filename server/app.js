@@ -3,7 +3,7 @@ const db = require('../database/connection');
 const Document = require('../database/Description');
 const app = express();
 
-app.use(express.static('public'));
+app.use('/:listingId', express.static('public'));
 
 app.get('/api/description/:listingId', (req, res) => {
   Document.findOne({ listingId: req.params.listingId })

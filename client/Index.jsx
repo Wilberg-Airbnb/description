@@ -14,12 +14,14 @@ class Index extends React.Component {
       amenities: [],
       hostAndRooms: {},
       thingsToDo: [],
+      listingId: window.location.href.split('/')[3],
     };
   }
 
   componentDidMount() {
+    console.log('Here is the endpoint', this.state.listingId);
     axios
-      .get('/api/description/0')
+      .get(`/api/description/${this.state.listingId}`)
       .then(({ data }) => {
         this.setState({
           descriptions: data.description,
@@ -31,7 +33,6 @@ class Index extends React.Component {
       .catch((error) => {
         console.log('Error retrieving data!', error);
       });
-    // });
   }
 
   render() {
