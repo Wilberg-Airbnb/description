@@ -37,10 +37,6 @@ class Index extends React.Component {
   render() {
     return (
       <div>
-        <Carousel
-          thingsToDo={this.state.thingsToDo}
-          length={this.state.thingsToDo.length}
-        ></Carousel>
         {/* <Card />
         <Card />
         <Card />
@@ -48,9 +44,13 @@ class Index extends React.Component {
         <Card />
 
         <Card /> */}
-        {/* <HostAndRooms hostAndRooms={this.state.hostAndRooms} />
+        <HostAndRooms hostAndRooms={this.state.hostAndRooms} />
         <Amenities amenities={this.state.amenities} />
-        <MainDescription descriptions={this.state.descriptions} /> */}
+        <MainDescription descriptions={this.state.descriptions} />
+        <Carousel
+          thingsToDo={this.state.thingsToDo}
+          length={this.state.thingsToDo.length}
+        ></Carousel>
       </div>
     );
     // }
