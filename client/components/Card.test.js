@@ -17,7 +17,7 @@ describe('Testing the Card functionality', () => {
   test('Should pass down the props price per person to the text', () => {
     const wrapper = shallow(<Card thingsToDo={thingsToDo[0]} />);
     const price = wrapper
-      .find('#description')
+      .find('.description')
       .text()
       .split('')
       .filter((letter) => Number(letter))

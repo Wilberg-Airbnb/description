@@ -41,7 +41,7 @@ class Card extends React.Component {
       <StyledCard>
         <Photo photo={this.props.thingsToDo.activityPhoto}></Photo>
         <Description>{this.props.thingsToDo.activityDescription}</Description>
-        <Description id="description">
+        <Description className="description">
           From ${this.props.thingsToDo.pricePerPerson}/person · Sports
         </Description>
         <Icon id="likeIcon">
