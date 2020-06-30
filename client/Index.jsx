@@ -4,6 +4,8 @@ import MainDescription from './components/MainDescription.jsx';
 import Amenities from './components/Amenities.jsx';
 import HostAndRooms from './components/HostAndRooms.jsx';
 import Card from './components/Card.jsx';
+import Carousel from './components/Carousel.jsx';
+
 class Index extends React.Component {
   constructor(props) {
     super(props);
@@ -35,7 +37,17 @@ class Index extends React.Component {
   render() {
     return (
       <div>
+        <Carousel
+          thingsToDo={this.state.thingsToDo}
+          length={this.state.thingsToDo.length}
+        ></Carousel>
+        {/* <Card />
         <Card />
+        <Card />
+        <Card />
+        <Card />
+
+        <Card /> */}
         {/* <HostAndRooms hostAndRooms={this.state.hostAndRooms} />
         <Amenities amenities={this.state.amenities} />
         <MainDescription descriptions={this.state.descriptions} /> */}

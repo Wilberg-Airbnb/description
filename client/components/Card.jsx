@@ -5,13 +5,15 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 const StyledCard = styled.div`
   height: 200px;
   width: 150px;
-  padding: 0;
+  margin-left: 30px;
+  margin-right: 30px;
   background-color: #fff;
-  filter: drop-shadow(0px 0px 5px #666);
+  filter: drop-shadow(0px 0px 0px #fff);
+  flex: 1;
 `;
 
 const Photo = styled.div`
-  content: url('https://picsum.photos/150/100');
+  content: url(${(props) => props.photo});
 `;
 
 const Description = styled.p`
@@ -30,13 +32,19 @@ const Icon = styled.div`
 `;
 
 class Card extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <StyledCard>
-        <Photo></Photo>
-        <Description>Porto Accessible Sailing Tour</Description>
-        <Description>From $52/person · Sports</Description>
-        <Icon>
+        <Photo photo={this.props.thingsToDo.activityPhoto}></Photo>
+        <Description>{this.props.thingsToDo.activityDescription}</Description>
+        <Description id="description">
+          From ${this.props.thingsToDo.pricePerPerson}/person · Sports
+        </Description>
+        <Icon id="likeIcon">
           <FavoriteBorderIcon></FavoriteBorderIcon>
         </Icon>
       </StyledCard>
