@@ -277,7 +277,7 @@ function getRandomThingsToDo() {
     numberOfThingsToDo[Math.floor(Math.random() * numberOfThingsToDo.length)];
   for (let i = 0; i < randomAmount; i++) {
     activities.push({
-      activityPhoto: 'https://picsum.photos/167/227',
+      activityPhoto: 'https://picsum.photos/150/100',
       activityDescription: faker.lorem.sentence(),
       pricePerPerson: getRandomInt(50, 300),
       stars: Math.floor(Math.random() * 6),

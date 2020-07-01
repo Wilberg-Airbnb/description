@@ -235,9 +235,237 @@ const hostAndRoomsNotEntirePlace = {
   photoUrl: 'https://picsum.photos/100',
 };
 
+const thingsToDo = [
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription: 'Expedita consequuntur laboriosam.',
+    pricePerPerson: 147,
+    stars: 4,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription: 'Repellat amet rem nulla non.',
+    pricePerPerson: 140,
+    stars: 3,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription: 'Sunt doloribus earum blanditiis totam laboriosam.',
+    pricePerPerson: 77,
+    stars: 4,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription:
+      'Qui quidem debitis quam eum quisquam doloribus totam quod eum.',
+    pricePerPerson: 243,
+    stars: 5,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription: 'Vel sint ipsa voluptatem.',
+    pricePerPerson: 156,
+    stars: 0,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription: 'Praesentium odit facilis exercitationem.',
+    pricePerPerson: 248,
+    stars: 0,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription:
+      'Quo veniam eveniet iusto dolorum rerum magnam nihil provident.',
+    pricePerPerson: 199,
+    stars: 2,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription: 'Quisquam quisquam amet dolores fuga asperiores.',
+    pricePerPerson: 96,
+    stars: 5,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription: 'Adipisci et rerum dolor et repellendus.',
+    pricePerPerson: 185,
+    stars: 4,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription:
+      'Magni sint magnam rerum ea ut soluta quaerat veniam nisi.',
+    pricePerPerson: 219,
+    stars: 3,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription: 'Unde laborum accusantium in nisi commodi.',
+    pricePerPerson: 169,
+    stars: 0,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription: 'Vero soluta sint est id est nobis dicta.',
+    pricePerPerson: 219,
+    stars: 1,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription: 'Hic amet in.',
+    pricePerPerson: 96,
+    stars: 1,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription: 'Animi hic veniam.',
+    pricePerPerson: 196,
+    stars: 0,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription:
+      'Ipsum debitis enim eos nobis voluptatibus beatae delectus et culpa.',
+    pricePerPerson: 166,
+    stars: 3,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription: 'Qui nostrum et.',
+    pricePerPerson: 131,
+    stars: 4,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription: 'Rem velit delectus eum deleniti porro et.',
+    pricePerPerson: 271,
+    stars: 2,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription:
+      'Et ex omnis tempora omnis natus necessitatibus fuga et blanditiis.',
+    pricePerPerson: 299,
+    stars: 1,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription:
+      'Eum nesciunt et eligendi ullam illo deserunt qui pariatur.',
+    pricePerPerson: 299,
+    stars: 1,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription: 'Et odio odio ipsum nesciunt doloremque.',
+    pricePerPerson: 203,
+    stars: 5,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription: 'Magnam optio laborum ut.',
+    pricePerPerson: 239,
+    stars: 4,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription: 'Culpa tenetur ipsum voluptas saepe qui quo eos.',
+    pricePerPerson: 183,
+    stars: 5,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription: 'Rerum illum ea dolor sint unde recusandae.',
+    pricePerPerson: 267,
+    stars: 0,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription: 'Velit amet et doloribus et et dolore veritatis.',
+    pricePerPerson: 97,
+    stars: 2,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription: 'Ea amet neque inventore fugit sequi.',
+    pricePerPerson: 116,
+    stars: 1,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription:
+      'Rerum commodi est necessitatibus deserunt earum autem amet.',
+    pricePerPerson: 53,
+    stars: 5,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription: 'Maxime natus omnis rem et.',
+    pricePerPerson: 123,
+    stars: 3,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription:
+      'Qui sit quia officia aspernatur iusto tempora voluptatem.',
+    pricePerPerson: 261,
+    stars: 2,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription: 'Illo aut impedit a quidem nisi minus sed nobis.',
+    pricePerPerson: 84,
+    stars: 5,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription: 'Repudiandae odio laborum esse dicta unde.',
+    pricePerPerson: 284,
+    stars: 4,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription: 'Et dolorem dolore voluptate.',
+    pricePerPerson: 255,
+    stars: 1,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription: 'Et in sapiente ducimus sint.',
+    pricePerPerson: 193,
+    stars: 4,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription: 'Ducimus fugit aut tempora sed quaerat et ab.',
+    pricePerPerson: 124,
+    stars: 2,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription: 'Sequi culpa sapiente consequuntur omnis non.',
+    pricePerPerson: 80,
+    stars: 0,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription: 'Dolorem qui eos nam sed magni.',
+    pricePerPerson: 237,
+    stars: 5,
+  },
+  {
+    activityPhoto: 'https://picsum.photos/150/100',
+    activityDescription: 'Est autem aliquam minus.',
+    pricePerPerson: 166,
+    stars: 1,
+  },
+];
+
 export {
   sampleDescriptions,
   sampleAmenities,
   hostAndRoomsEntirePlace,
   hostAndRoomsNotEntirePlace,
+  thingsToDo,
 };
