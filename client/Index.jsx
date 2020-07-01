@@ -14,7 +14,7 @@ class Index extends React.Component {
       amenities: [],
       hostAndRooms: {},
       thingsToDo: [],
-      listingId: window.location.href.split('/')[3],
+      listingId: window.location.href.split('/')[3] || 0,
     };
   }
 
