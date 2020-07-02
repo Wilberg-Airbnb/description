@@ -41,7 +41,7 @@ class Index extends React.Component {
     return (
       <div>
         <BedroomCarousel
-          sleepingArrangements={sleepingArrangements}
+          sleepingArrangements={this.state.sleepingArrangements}
         ></BedroomCarousel>
         <HostAndRooms hostAndRooms={this.state.hostAndRooms} />
         <Amenities amenities={this.state.amenities} />

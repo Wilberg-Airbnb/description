@@ -2,7 +2,7 @@ import React from 'react';
 import { mount, shallow, configure } from 'enzyme';
 import 'jest-styled-components';
 import Adapter from 'enzyme-adapter-react-16';
-import BedRoomCard from './BedRoomCard.jsx';
+import BedRoomCard from './BedroomCard.jsx';
 import { sleepingArrangements } from './sampleDataForTests';
 
 configure({ adapter: new Adapter() });

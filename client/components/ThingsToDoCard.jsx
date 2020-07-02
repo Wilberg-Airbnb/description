@@ -31,24 +31,19 @@ const Icon = styled.div`
   }
 `;
 
-class ThingsToDoCard extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const ThingsToDoCard = ({ thingsToDo }) => {
+  return (
+    <StyledCard>
+      <Photo photo={thingsToDo.activityPhoto}></Photo>
+      <Description>{thingsToDo.activityDescription}</Description>
+      <Description className="description">
+        From ${thingsToDo.pricePerPerson}/person · Sports
+      </Description>
+      <Icon id="likeIcon">
+        <FavoriteBorderIcon></FavoriteBorderIcon>
+      </Icon>
+    </StyledCard>
+  );
+};
 
-  render() {
-    return (
-      <StyledCard>
-        <Photo photo={this.props.thingsToDo.activityPhoto}></Photo>
-        <Description>{this.props.thingsToDo.activityDescription}</Description>
-        <Description className="description">
-          From ${this.props.thingsToDo.pricePerPerson}/person · Sports
-        </Description>
-        <Icon id="likeIcon">
-          <FavoriteBorderIcon></FavoriteBorderIcon>
-        </Icon>
-      </StyledCard>
-    );
-  }
-}
 export default ThingsToDoCard;

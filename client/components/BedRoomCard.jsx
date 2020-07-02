@@ -12,36 +12,27 @@ const SleepingArrangementCard = styled.div`
   border-radius: 15px;
 `;
 
-class BedroomCard extends React.Component {
-  constructor(props) {
-    super(props);
+const BedroomCard = ({ bedroomDescription }) => {
+  const arrangementType = bedroomDescription.bedroomDescription
+    .split(' ')
+    .pop();
+  let BedIcon;
+  if (arrangementType === 'bed') {
+    BedIcon = <LocalHotelIcon />;
+  } else {
+    BedIcon = <WeekendIcon />;
   }
-
-  render() {
-    const arrangementType = this.props.bedroomDescription.bedroomDescription
-      .split(' ')
-      .pop();
-    let BedIcon;
-    if (arrangementType === 'bed') {
-      BedIcon = <LocalHotelIcon />;
-    } else {
-      BedIcon = <WeekendIcon />;
-    }
-    console.log('The description', arrangementType);
-    return (
-      <SleepingArrangementCard>
-        <div className="sleepingArrangement">
-          {BedIcon}
-          <div className="header">
-            {this.props.bedroomDescription.bedroomHeader}
-          </div>
-          <div className="description">
-            {this.props.bedroomDescription.bedroomDescription}
-          </div>
+  return (
+    <SleepingArrangementCard>
+      <div className="sleepingArrangement">
+        {BedIcon}
+        <div className="header">{bedroomDescription.bedroomHeader}</div>
+        <div className="description">
+          {bedroomDescription.bedroomDescription}
         </div>
-      </SleepingArrangementCard>
-    );
-  }
-}
+      </div>
+    </SleepingArrangementCard>
+  );
+};
 
 export default BedroomCard;
