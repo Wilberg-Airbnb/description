@@ -4,7 +4,7 @@ import MainDescription from './components/MainDescription.jsx';
 import Amenities from './components/Amenities.jsx';
 import HostAndRooms from './components/HostAndRooms.jsx';
 import Card from './components/Card.jsx';
-import Carousel from './components/Carousel.jsx';
+import ThingsToDoCarousel from './components/ThingsToDoCarousel.jsx';
 import BedRoomCard from './components/BedRoomCard.jsx';
 import { sleepingArrangements } from './components/sampleDataForTests';
 
@@ -45,10 +45,10 @@ class Index extends React.Component {
         <HostAndRooms hostAndRooms={this.state.hostAndRooms} />
         <Amenities amenities={this.state.amenities} />
         <MainDescription descriptions={this.state.descriptions} />
-        <Carousel
+        <ThingsToDoCarousel
           thingsToDo={this.state.thingsToDo}
           length={this.state.thingsToDo.length}
-        ></Carousel>
+        ></ThingsToDoCarousel>
       </div>
     );
     // }

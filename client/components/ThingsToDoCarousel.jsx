@@ -19,7 +19,7 @@ const CenterContainer = styled.div`
   text-align: center;
 `;
 
-class Carousel extends React.Component {
+class ThingsToDoCarousel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -71,4 +71,4 @@ class Carousel extends React.Component {
     );
   }
 }
-export default Carousel;
+export default ThingsToDoCarousel;
