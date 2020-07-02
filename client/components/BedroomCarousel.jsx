@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 
 const Slider = styled.div`
   position: relative;
-  width: 100%;
+  width: 30%;
   margin: 0 auto;
   display: inline-block;
 `;
@@ -65,11 +65,11 @@ class BedroomCarousel extends React.Component {
           Move Right
         </button>
 
-        {/* <Slider className="slider"> */}
-        <Wrapper className="wrap" left={this.state.left}>
-          {bedroomcards}
-        </Wrapper>
-        {/* </Slider> */}
+        <Slider className="slider">
+          <Wrapper className="wrap" left={this.state.left}>
+            {bedroomcards}
+          </Wrapper>
+        </Slider>
       </CenterContainer>
     );
   }
