@@ -25,7 +25,6 @@ class Amenities extends React.Component {
           </section>
         );
       });
-
     return (
       <div>
         {amenitiesToShow}
