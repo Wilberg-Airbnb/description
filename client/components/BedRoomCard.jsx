@@ -10,6 +10,7 @@ const SleepingArrangementCard = styled.div`
   border-width: 2px;
   border-color: #d7e6e8;
   border-radius: 15px;
+  margin-right: auto;
 `;
 
 const IconDiv = styled.div`

@@ -4,7 +4,10 @@ import BedroomCard from './BedroomCard.jsx';
 
 const Wrapper = styled.div`
   display: flex;
-  position: absolute;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  overflow: hidden;
   left: ${(props) => props.left}%;
 `;
 
@@ -49,7 +52,7 @@ class BedroomCarousel extends React.Component {
   }
 
   render() {
-    let cards = this.props.sleepingArrangements.map((card, i) => {
+    let bedroomcards = this.props.sleepingArrangements.map((card, i) => {
       return <BedroomCard bedroomDescription={card}></BedroomCard>;
     });
 
@@ -62,11 +65,11 @@ class BedroomCarousel extends React.Component {
           Move Right
         </button>
 
-        <Slider className="slider">
-          <Wrapper className="wrap" left={this.state.left}>
-            {cards}
-          </Wrapper>
-        </Slider>
+        {/* <Slider className="slider"> */}
+        <Wrapper className="wrap" left={this.state.left}>
+          {bedroomcards}
+        </Wrapper>
+        {/* </Slider> */}
       </CenterContainer>
     );
   }
