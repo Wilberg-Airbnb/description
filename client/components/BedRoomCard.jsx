@@ -32,7 +32,12 @@ class BedRoomCard extends React.Component {
       <SleepingArrangementCard>
         <div className="sleepingArrangement">
           {BedIcon}
-          {this.props.bedroomDescription.bedroomDescription}
+          <div className="header">
+            {this.props.bedroomDescription.bedroomHeader}
+          </div>
+          <div className="description">
+            {this.props.bedroomDescription.bedroomDescription}
+          </div>
         </div>
       </SleepingArrangementCard>
     );

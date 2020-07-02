@@ -12,17 +12,17 @@ describe('Testing the Card functionality', () => {
     const wrapper = shallow(
       <BedRoomCard bedroomDescription={sleepingArrangements[0]} />
     );
-    const Child = wrapper.find('.sleepingArrangement');
-    const sleepingArrangementText = Child.text().split(' ').pop();
-    expect(sleepingArrangementText).toEqual('bed');
+    const BedroomDescription = wrapper.find('.description');
+    const BedroomDescriptionText = Child.text().split(' ').pop();
+    expect(BedroomDescriptionText).toEqual('bed');
   });
 
   test('Should display a couch icon if the description calls for a couch', () => {
     const wrapper = shallow(
       <BedRoomCard bedroomDescription={sleepingArrangements[4]} />
     );
-    const Child = wrapper.find('.sleepingArrangement');
-    const sleepingArrangementText = Child.text().split(' ').pop();
+    const BedroomDescription = wrapper.find('.description');
+    const BedroomDescriptionText = Child.text().split(' ').pop();
     expect(sleepingArrangementText).toEqual('couch');
   });
 });
