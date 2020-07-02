@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ThingsToDoCard from './ThingsToDoCard.jsx';
+import BedRoomCard from './BedRoomCard.jsx';
 
 const Wrapper = styled.div`
   display: flex;
@@ -19,7 +19,7 @@ const CenterContainer = styled.div`
   text-align: center;
 `;
 
-class ThingsToDoCarousel extends React.Component {
+class BedroomCarousel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -49,8 +49,8 @@ class ThingsToDoCarousel extends React.Component {
   }
 
   render() {
-    let cards = this.props.thingsToDo.map((card, i) => {
-      return <ThingsToDoCard thingsToDo={card}></ThingsToDoCard>;
+    let cards = this.props.sleepingArrangements.map((card, i) => {
+      return <BedRoomCard bedroomDescription={card}></BedRoomCard>;
     });
 
     return (
@@ -71,4 +71,4 @@ class ThingsToDoCarousel extends React.Component {
     );
   }
 }
-export default ThingsToDoCarousel;
+export default BedroomCarousel;

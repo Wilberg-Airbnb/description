@@ -3,7 +3,6 @@ import axios from 'axios';
 import MainDescription from './components/MainDescription.jsx';
 import Amenities from './components/Amenities.jsx';
 import HostAndRooms from './components/HostAndRooms.jsx';
-import Card from './components/Card.jsx';
 import ThingsToDoCarousel from './components/ThingsToDoCarousel.jsx';
 import BedRoomCard from './components/BedRoomCard.jsx';
 import { sleepingArrangements } from './components/sampleDataForTests';

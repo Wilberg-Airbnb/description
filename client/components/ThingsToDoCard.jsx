@@ -31,7 +31,7 @@ const Icon = styled.div`
   }
 `;
 
-class Card extends React.Component {
+class ThingsToDoCard extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -51,4 +51,4 @@ class Card extends React.Component {
     );
   }
 }
-export default Card;
+export default ThingsToDoCard;

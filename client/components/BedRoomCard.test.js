@@ -13,7 +13,7 @@ describe('Testing the Card functionality', () => {
       <BedRoomCard bedroomDescription={sleepingArrangements[0]} />
     );
     const BedroomDescription = wrapper.find('.description');
-    const BedroomDescriptionText = Child.text().split(' ').pop();
+    const BedroomDescriptionText = BedroomDescription.text().split(' ').pop();
     expect(BedroomDescriptionText).toEqual('bed');
   });
 
@@ -22,7 +22,7 @@ describe('Testing the Card functionality', () => {
       <BedRoomCard bedroomDescription={sleepingArrangements[4]} />
     );
     const BedroomDescription = wrapper.find('.description');
-    const BedroomDescriptionText = Child.text().split(' ').pop();
-    expect(sleepingArrangementText).toEqual('couch');
+    const BedroomDescriptionText = BedroomDescription.text().split(' ').pop();
+    expect(BedroomDescriptionText).toEqual('couch');
   });
 });
