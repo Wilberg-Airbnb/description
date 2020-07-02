@@ -4,7 +4,7 @@ import MainDescription from './components/MainDescription.jsx';
 import Amenities from './components/Amenities.jsx';
 import HostAndRooms from './components/HostAndRooms.jsx';
 import ThingsToDoCarousel from './components/ThingsToDoCarousel.jsx';
-import BedRoomCard from './components/BedRoomCard.jsx';
+import BedroomCarousel from './components/BedroomCarousel.jsx';
 import { sleepingArrangements } from './components/sampleDataForTests';
 
 class Index extends React.Component {
@@ -40,7 +40,9 @@ class Index extends React.Component {
   render() {
     return (
       <div>
-        <BedRoomCard bedroomDescription={sleepingArrangements[4]}></BedRoomCard>
+        <BedroomCarousel
+          sleepingArrangements={sleepingArrangements}
+        ></BedroomCarousel>
         <HostAndRooms hostAndRooms={this.state.hostAndRooms} />
         <Amenities amenities={this.state.amenities} />
         <MainDescription descriptions={this.state.descriptions} />

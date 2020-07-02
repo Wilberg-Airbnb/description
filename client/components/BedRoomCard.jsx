@@ -12,7 +12,7 @@ const SleepingArrangementCard = styled.div`
   border-radius: 15px;
 `;
 
-class BedRoomCard extends React.Component {
+class BedroomCard extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -44,4 +44,4 @@ class BedRoomCard extends React.Component {
   }
 }
 
-export default BedRoomCard;
+export default BedroomCard;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import BedRoomCard from './BedRoomCard.jsx';
+import BedroomCard from './BedroomCard.jsx';
 
 const Wrapper = styled.div`
   display: flex;
@@ -50,7 +50,7 @@ class BedroomCarousel extends React.Component {
 
   render() {
     let cards = this.props.sleepingArrangements.map((card, i) => {
-      return <BedRoomCard bedroomDescription={card}></BedRoomCard>;
+      return <BedroomCard bedroomDescription={card}></BedroomCard>;
     });
 
     return (
