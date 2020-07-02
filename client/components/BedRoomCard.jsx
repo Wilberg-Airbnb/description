@@ -12,6 +12,9 @@ const SleepingArrangementCard = styled.div`
   border-radius: 15px;
 `;
 
+const IconDiv = styled.div`
+  margin-right: 50%;
+`;
 const BedroomCard = ({ bedroomDescription }) => {
   const arrangementType = bedroomDescription.bedroomDescription
     .split(' ')
@@ -25,7 +28,7 @@ const BedroomCard = ({ bedroomDescription }) => {
   return (
     <SleepingArrangementCard>
       <div className="sleepingArrangement">
-        {BedIcon}
+        <IconDiv>{BedIcon}</IconDiv>
         <div className="header">{bedroomDescription.bedroomHeader}</div>
         <div className="description">
           {bedroomDescription.bedroomDescription}

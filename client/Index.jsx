@@ -43,13 +43,13 @@ class Index extends React.Component {
         <BedroomCarousel
           sleepingArrangements={this.state.sleepingArrangements}
         ></BedroomCarousel>
-        <HostAndRooms hostAndRooms={this.state.hostAndRooms} />
+        {/* <HostAndRooms hostAndRooms={this.state.hostAndRooms} />
         <Amenities amenities={this.state.amenities} />
         <MainDescription descriptions={this.state.descriptions} />
         <ThingsToDoCarousel
           thingsToDo={this.state.thingsToDo}
           length={this.state.thingsToDo.length}
-        ></ThingsToDoCarousel>
+        ></ThingsToDoCarousel> */}
       </div>
     );
     // }
