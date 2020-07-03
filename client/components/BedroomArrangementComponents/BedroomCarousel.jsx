@@ -79,4 +79,5 @@ class BedroomCarousel extends React.Component {
     );
   }
 }
+
 export default BedroomCarousel;
