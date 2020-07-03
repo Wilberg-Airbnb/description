@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
 import SmokeFreeIcon from '@material-ui/icons/SmokeFree';
 import ErrorIcon from '@material-ui/icons/Error';
-
+import AmenitiesModal from '../Modals/AmenitiesModal.jsx';
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
@@ -21,6 +21,10 @@ const Paragaraph = styled.p`
   font-size: 10px;
 `;
 
+const ShowAll = styled.p`
+  text-decoration: underline;
+`;
+
 class ThingsToKnowSection extends React.Component {
   constructor(props) {
     super(props);
@@ -29,10 +33,11 @@ class ThingsToKnowSection extends React.Component {
       showSafetyModal: false,
       showCancellationModal: false,
     };
+    this.toggleModal = this.toggleModal.bind(this);
   }
 
   toggleModal(modalName) {
-    if (modalName === 'houseRules') {
+    if (modalName === 'houseRulesModal') {
       this.setState({ showHouseRulesModal: !this.state.showHouseRulesModal });
     }
     if (modalName === 'safetyModal') {
@@ -82,15 +87,34 @@ class ThingsToKnowSection extends React.Component {
         <IndividualSection className="houseRules">
           <div className="header">House Rules</div>
           {houseRules}
+
+          <ShowAll
+            id="showAllHouseRules"
+            onClick={() => this.toggleModal('houseRulesModal')}
+          >
+            >Show All >
+          </ShowAll>
         </IndividualSection>
 
         <IndividualSection className="safetyProperty">
           <div className="header">Safety & Property</div>
-
           {safetyProperty}
+
+          <ShowAll
+            id="showAllSafetyRules"
+            onClick={() => this.toggleModal('safetyModal')}
+          >
+            Show All >
+          </ShowAll>
         </IndividualSection>
         <IndividualSection className="cancellationPolicy">
           <div className="header">Cancellation policy</div>
+          <ShowAll
+            id="showCancellationPolicy"
+            onClick={() => this.toggleModal('cancellationModal')}
+          >
+            >More Details >
+          </ShowAll>
         </IndividualSection>
       </Container>
     );

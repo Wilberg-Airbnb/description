@@ -44,4 +44,16 @@ describe('Testing the ThingsToKnow  component', () => {
     expect(numberOfHouseRulesShown).toEqual(5);
     expect(numberOfSafetyRulesShown).toEqual(2);
   });
+
+  test('Should change the state of the specififed show all & more details section', () => {
+    const houseRulesShowAll = wrapper.find('#showAllHouseRules');
+    const safetyPropertyShowAll = wrapper.find('#showAllSafetyRules');
+    const canceellationShow = wrapper.find('#showCancellationPolicy');
+    houseRulesShowAll.simulate('click');
+    safetyPropertyShowAll.simulate('click');
+    canceellationShow.simulate('click');
+    expect(wrapper.state().showHouseRulesModal).toBe(true);
+    expect(wrapper.state().showSafetyModal).toBe(true);
+    expect(wrapper.state().showCancellationModal).toBe(true);
+  });
 });
