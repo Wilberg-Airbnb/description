@@ -492,7 +492,6 @@ const sleepingArrangements = [
 
 const cancellationPolicy = [
   {
-    _id: ObjectId('5ef94ff02940e20fa872372d'),
     flexible: false,
     moderate: true,
     strict: true,
@@ -563,8 +562,7 @@ const safety = [
   {
     iconLink: 'https://picsum.photos/100',
     safetyDescription: 'Voluptatem ut ducimus quod ut.',
-    subheader:
-      'Recusandae magnam dolor iusto nobis voluptas laudantium saepe.',
+    subheader: 'Recusandae magnam dolor iusto nobis voluptas laudantium saepe.',
   },
   {
     iconLink: 'https://picsum.photos/100',
@@ -590,12 +588,10 @@ const safety = [
   },
   {
     iconLink: 'https://picsum.photos/100',
-    safetyDescription:
-      'Unde eum unde et quisquam enim sunt deserunt incidunt.',
-    subheader:
-      'Beatae molestiae aut reiciendis atque laudantium labore ipsum.',
+    safetyDescription: 'Unde eum unde et quisquam enim sunt deserunt incidunt.',
+    subheader: 'Beatae molestiae aut reiciendis atque laudantium labore ipsum.',
   },
-],
+];
 
 export {
   sampleDescriptions,

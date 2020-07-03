@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 const modalRoot = document.getElementById('amenities-modal-root');
 
-class Modal extends React.Component {
+class AmenitiesModal extends React.Component {
   render() {
     return ReactDOM.createPortal(
       <div
@@ -50,4 +50,4 @@ class Modal extends React.Component {
   }
 }
 
-export default Modal;
+export default AmenitiesModal;
