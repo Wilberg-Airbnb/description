@@ -1,4 +1,5 @@
 const faker = require('faker');
+const { fake } = require('faker');
 
 function typeOfPlace() {
   let typesOfPlaces = [
@@ -302,10 +303,24 @@ function getRandomDescriptions() {
   return descriptions;
 }
 
+function getRandomSaeftyItemsAndHouseRules() {
+  let numBetween5And10 = Math.floor(Math.random() * 6) + 5;
+  let safetyOrHouseRules = [];
+  for (let i = 0; i < numBetween5And10; i++) {
+    safetyOrHouseRules.push({
+      iconLink: 'https://picsum.photos/100',
+      safetyDescription: faker.lorem.sentence(),
+      subheader: faker.lorem.sentence(),
+    });
+  }
+  return safetyOrHouseRules;
+}
+
 module.exports = {
   getRandomAmenities,
   getSleepingArrangements,
   typeOfPlace,
   getRandomThingsToDo,
   getRandomDescriptions,
+  getRandomSaeftyItemsAndHouseRules,
 };
