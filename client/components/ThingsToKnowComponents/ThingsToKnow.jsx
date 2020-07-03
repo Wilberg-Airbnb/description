@@ -5,6 +5,7 @@ import SmokeFreeIcon from '@material-ui/icons/SmokeFree';
 import ErrorIcon from '@material-ui/icons/Error';
 import HouseRulesModal from '../Modals/HouseRulesModal.jsx';
 import CancellationModal from '../Modals/CancellationModal.jsx';
+import SafetyModal from '../Modals/SafetyModal.jsx';
 
 const Container = styled.div`
   display: flex;
@@ -114,6 +115,12 @@ class ThingsToKnowSection extends React.Component {
           >
             Show All >
           </ShowAll>
+          {this.state.showSafetyModal ? (
+            <SafetyModal
+              toggleModal={this.toggleModal}
+              // listItems={this.props.amenities}
+            ></SafetyModal>
+          ) : null}
         </IndividualSection>
         <IndividualSection className="cancellationPolicy">
           <div className="header">Cancellation policy</div>
