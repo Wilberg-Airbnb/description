@@ -4,6 +4,8 @@ import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
 import SmokeFreeIcon from '@material-ui/icons/SmokeFree';
 import ErrorIcon from '@material-ui/icons/Error';
 import HouseRulesModal from '../Modals/HouseRulesModal.jsx';
+import CancellationModal from '../Modals/CancellationModal.jsx';
+
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
@@ -121,6 +123,12 @@ class ThingsToKnowSection extends React.Component {
           >
             More Details >
           </ShowAll>
+          {this.state.showCancellationModal ? (
+            <CancellationModal
+              toggleModal={this.toggleModal}
+              // listItems={this.props.amenities}
+            ></CancellationModal>
+          ) : null}
         </IndividualSection>
       </Container>
     );
