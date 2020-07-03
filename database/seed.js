@@ -49,20 +49,8 @@ for (let i = 0; i < 100; i++) {
       },
     ],
     amenities: helpers.getRandomAmenities(),
-    houseRules: [
-      {
-        iconLink: 'https://picsum.photos/100',
-        description: faker.lorem.paragraph(),
-        subheader: faker.lorem.sentence(),
-      },
-    ],
-    safety: [
-      {
-        iconLink: 'https://picsum.photos/100',
-        safetyDescription: faker.lorem.paragraph(),
-        subheader: faker.lorem.sentence(),
-      },
-    ],
+    houseRules: helpers.getRandomSaeftyItemsAndHouseRules(),
+    safety: helpers.getRandomSaeftyItemsAndHouseRules(),
     thingsToDo: helpers.getRandomThingsToDo(),
     cancellationPolicy: [
       {
@@ -82,7 +70,7 @@ console.log('Data to put in', dataToWrite.length);
 fs.writeFile(
   'database/dummyData.js',
   `let dummyData = ${JSON.stringify(
-    dataToWrite
+    dataToWrite.slice(0, 10)
   )} \n module.exports = dummyData;`,
   (err) => {
     if (err) console.log('Error in generation', err);
