@@ -490,108 +490,110 @@ const sleepingArrangements = [
   },
 ];
 
-const cancellationPolicy = [
-  {
+const thingsToKnow = {
+  cancellationPolicy: {
     flexible: false,
     moderate: true,
     strict: true,
     timeBeforeCancellation: 24,
     percentRefund: 50,
   },
-];
-
-const houseRules = [
-  {
-    iconLink: 'https://picsum.photos/100',
-    safetyDescription: 'Voluptas a at.',
-    subheader: 'At perspiciatis perferendis.',
-  },
-  {
-    iconLink: 'https://picsum.photos/100',
-    safetyDescription: 'Quos aut distinctio voluptatem nisi quia.',
-    subheader: 'Perspiciatis non ut officia autem modi possimus.',
-  },
-  {
-    iconLink: 'https://picsum.photos/100',
-    safetyDescription: 'Facere ex aperiam sit culpa.',
-    subheader: 'Voluptatem ex eos.',
-  },
-  {
-    iconLink: 'https://picsum.photos/100',
-    safetyDescription: 'Voluptas et accusantium.',
-    subheader: 'Omnis et et et veniam quia dolorem praesentium qui.',
-  },
-  {
-    iconLink: 'https://picsum.photos/100',
-    safetyDescription: 'Totam atque non id aliquam.',
-    subheader: 'Laboriosam sed commodi quis quaerat a debitis.',
-  },
-  {
-    iconLink: 'https://picsum.photos/100',
-    safetyDescription: 'Dignissimos et nostrum recusandae nam voluptate.',
-    subheader:
-      'Dolor quasi eaque qui sit accusamus harum quisquam ea praesentium.',
-  },
-  {
-    iconLink: 'https://picsum.photos/100',
-    safetyDescription: 'Debitis et in ea et culpa fuga et necessitatibus hic.',
-    subheader: 'Vero ea aliquid.',
-  },
-  {
-    iconLink: 'https://picsum.photos/100',
-    safetyDescription: 'Itaque qui ipsam.',
-    subheader: 'Vitae qui voluptatem nemo.',
-  },
-  {
-    iconLink: 'https://picsum.photos/100',
-    safetyDescription:
-      'Rem rerum suscipit debitis suscipit inventore pariatur fuga.',
-    subheader:
-      'Optio quis aspernatur eligendi soluta doloribus amet libero veritatis consequatur.',
-  },
-  {
-    iconLink: 'https://picsum.photos/100',
-    safetyDescription:
-      'Illum vel praesentium corporis et ut et sapiente reiciendis in.',
-    subheader:
-      'Autem sequi quia illo deleniti ea quia recusandae fugit debitis.',
-  },
-];
-
-const safety = [
-  {
-    iconLink: 'https://picsum.photos/100',
-    safetyDescription: 'Voluptatem ut ducimus quod ut.',
-    subheader: 'Recusandae magnam dolor iusto nobis voluptas laudantium saepe.',
-  },
-  {
-    iconLink: 'https://picsum.photos/100',
-    safetyDescription:
-      'Amet sed omnis soluta alias dignissimos magni expedita architecto.',
-    subheader: 'Aut facilis et aut qui.',
-  },
-  {
-    iconLink: 'https://picsum.photos/100',
-    safetyDescription: 'Ad neque qui provident.',
-    subheader: 'Saepe sit veniam quis voluptates illo odio ab.',
-  },
-  {
-    iconLink: 'https://picsum.photos/100',
-    safetyDescription: 'Quod et doloribus hic non minima necessitatibus.',
-    subheader:
-      'Omnis ut praesentium similique et illo suscipit nostrum dolor architecto.',
-  },
-  {
-    iconLink: 'https://picsum.photos/100',
-    safetyDescription: 'Velit adipisci consequatur vel illum est.',
-    subheader: 'Voluptatem corporis neque.',
-  },
-  {
-    iconLink: 'https://picsum.photos/100',
-    safetyDescription: 'Unde eum unde et quisquam enim sunt deserunt incidunt.',
-    subheader: 'Beatae molestiae aut reiciendis atque laudantium labore ipsum.',
-  },
-];
+  houseRules: [
+    {
+      iconLink: 'https://picsum.photos/100',
+      safetyDescription: 'Voluptas a at.',
+      subheader: 'At perspiciatis perferendis.',
+    },
+    {
+      iconLink: 'https://picsum.photos/100',
+      safetyDescription: 'Quos aut distinctio voluptatem nisi quia.',
+      subheader: 'Perspiciatis non ut officia autem modi possimus.',
+    },
+    {
+      iconLink: 'https://picsum.photos/100',
+      safetyDescription: 'Facere ex aperiam sit culpa.',
+      subheader: 'Voluptatem ex eos.',
+    },
+    {
+      iconLink: 'https://picsum.photos/100',
+      safetyDescription: 'Voluptas et accusantium.',
+      subheader: 'Omnis et et et veniam quia dolorem praesentium qui.',
+    },
+    {
+      iconLink: 'https://picsum.photos/100',
+      safetyDescription: 'Totam atque non id aliquam.',
+      subheader: 'Laboriosam sed commodi quis quaerat a debitis.',
+    },
+    {
+      iconLink: 'https://picsum.photos/100',
+      safetyDescription: 'Dignissimos et nostrum recusandae nam voluptate.',
+      subheader:
+        'Dolor quasi eaque qui sit accusamus harum quisquam ea praesentium.',
+    },
+    {
+      iconLink: 'https://picsum.photos/100',
+      safetyDescription:
+        'Debitis et in ea et culpa fuga et necessitatibus hic.',
+      subheader: 'Vero ea aliquid.',
+    },
+    {
+      iconLink: 'https://picsum.photos/100',
+      safetyDescription: 'Itaque qui ipsam.',
+      subheader: 'Vitae qui voluptatem nemo.',
+    },
+    {
+      iconLink: 'https://picsum.photos/100',
+      safetyDescription:
+        'Rem rerum suscipit debitis suscipit inventore pariatur fuga.',
+      subheader:
+        'Optio quis aspernatur eligendi soluta doloribus amet libero veritatis consequatur.',
+    },
+    {
+      iconLink: 'https://picsum.photos/100',
+      safetyDescription:
+        'Illum vel praesentium corporis et ut et sapiente reiciendis in.',
+      subheader:
+        'Autem sequi quia illo deleniti ea quia recusandae fugit debitis.',
+    },
+  ],
+  safety: [
+    {
+      iconLink: 'https://picsum.photos/100',
+      safetyDescription: 'Voluptatem ut ducimus quod ut.',
+      subheader:
+        'Recusandae magnam dolor iusto nobis voluptas laudantium saepe.',
+    },
+    {
+      iconLink: 'https://picsum.photos/100',
+      safetyDescription:
+        'Amet sed omnis soluta alias dignissimos magni expedita architecto.',
+      subheader: 'Aut facilis et aut qui.',
+    },
+    {
+      iconLink: 'https://picsum.photos/100',
+      safetyDescription: 'Ad neque qui provident.',
+      subheader: 'Saepe sit veniam quis voluptates illo odio ab.',
+    },
+    {
+      iconLink: 'https://picsum.photos/100',
+      safetyDescription: 'Quod et doloribus hic non minima necessitatibus.',
+      subheader:
+        'Omnis ut praesentium similique et illo suscipit nostrum dolor architecto.',
+    },
+    {
+      iconLink: 'https://picsum.photos/100',
+      safetyDescription: 'Velit adipisci consequatur vel illum est.',
+      subheader: 'Voluptatem corporis neque.',
+    },
+    {
+      iconLink: 'https://picsum.photos/100',
+      safetyDescription:
+        'Unde eum unde et quisquam enim sunt deserunt incidunt.',
+      subheader:
+        'Beatae molestiae aut reiciendis atque laudantium labore ipsum.',
+    },
+  ],
+};
 
 export {
   sampleDescriptions,
@@ -600,7 +602,5 @@ export {
   hostAndRoomsNotEntirePlace,
   thingsToDo,
   sleepingArrangements,
-  cancellationPolicy,
-  safety,
-  houseRules,
+  thingsToKnow,
 };

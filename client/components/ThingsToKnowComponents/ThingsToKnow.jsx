@@ -29,7 +29,7 @@ const ThingsToKnowSection = ({ thingsToKnow }) => {
     houseRules = thingsToKnow.houseRules
       .map((houseRule, i) => {
         return (
-          <span>
+          <span key={houseRule._id}>
             <Paragaraph>
               <AccessAlarmIcon fontSize="small"></AccessAlarmIcon>
               {houseRule.subheader.split(' ').slice(0, 3).join(' ')}
@@ -44,7 +44,7 @@ const ThingsToKnowSection = ({ thingsToKnow }) => {
     safetyProperty = thingsToKnow.safety
       .map((safetyRule, i) => {
         return (
-          <span>
+          <span key={safetyRule._id}>
             <Paragaraph>
               {' '}
               <ErrorIcon fontSize="small"></ErrorIcon>
@@ -53,10 +53,9 @@ const ThingsToKnowSection = ({ thingsToKnow }) => {
           </span>
         );
       })
-      .slice(0, 3);
+      .slice(0, 2);
   }
 
-  console.log('Here are the props', houseRules);
   return (
     <Container>
       <IndividualSection className="houseRules">
@@ -65,12 +64,12 @@ const ThingsToKnowSection = ({ thingsToKnow }) => {
       </IndividualSection>
 
       <IndividualSection className="safetyProperty">
-        <div className="header">Cancellation policy</div>
+        <div className="header">Safety & Property</div>
 
         {safetyProperty}
       </IndividualSection>
       <IndividualSection className="cancellationPolicy">
-        <div className="header">Safety & Property</div>
+        <div className="header">Cancellation policy</div>
       </IndividualSection>
     </Container>
   );
