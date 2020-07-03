@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
 import SmokeFreeIcon from '@material-ui/icons/SmokeFree';
 import ErrorIcon from '@material-ui/icons/Error';
-import AmenitiesModal from '../Modals/AmenitiesModal.jsx';
+import HouseRulesModal from '../Modals/HouseRulesModal.jsx';
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
@@ -92,8 +92,14 @@ class ThingsToKnowSection extends React.Component {
             id="showAllHouseRules"
             onClick={() => this.toggleModal('houseRulesModal')}
           >
-            >Show All >
+            Show All >
           </ShowAll>
+          {this.state.showHouseRulesModal ? (
+            <HouseRulesModal
+              toggleModal={this.toggleModal}
+              // listItems={this.props.amenities}
+            ></HouseRulesModal>
+          ) : null}
         </IndividualSection>
 
         <IndividualSection className="safetyProperty">
@@ -113,7 +119,7 @@ class ThingsToKnowSection extends React.Component {
             id="showCancellationPolicy"
             onClick={() => this.toggleModal('cancellationModal')}
           >
-            >More Details >
+            More Details >
           </ShowAll>
         </IndividualSection>
       </Container>
