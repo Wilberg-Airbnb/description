@@ -31,6 +31,20 @@ class ThingsToKnowSection extends React.Component {
     };
   }
 
+  toggleModal(modalName) {
+    if (modalName === 'houseRules') {
+      this.setState({ showHouseRulesModal: !this.state.showHouseRulesModal });
+    }
+    if (modalName === 'safetyModal') {
+      this.setState({ showSafetyModal: !this.state.showSafetyModal });
+    }
+    if (modalName === 'cancellationModal') {
+      this.setState({
+        showCancellationModal: !this.state.showCancellationModal,
+      });
+    }
+  }
+
   render() {
     const thingsToKnow = this.props.thingsToKnow;
     let houseRules;
