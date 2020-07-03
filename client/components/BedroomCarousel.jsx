@@ -5,10 +5,9 @@ import BedroomCard from './BedroomCard.jsx';
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row-reverse;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: flex-end;
   overflow: hidden;
-  left: ${(props) => props.left}%;
 `;
 
 const Slider = styled.div`
@@ -28,6 +27,7 @@ class BedroomCarousel extends React.Component {
     this.state = {
       currentSlide: 0,
       left: 0,
+      right: 2,
     };
     this.moveRight = this.moveRight.bind(this);
     this.moveLeft = this.moveLeft.bind(this);
@@ -36,26 +36,32 @@ class BedroomCarousel extends React.Component {
   moveLeft() {
     if (this.state.currentSlide > 0) {
       this.setState({
-        left: this.state.left + 100,
-        currentSlide: this.state.currentSlide - 6,
+        left: this.state.left - 3,
+        right: this.state.right - 3,
+        currentSlide: this.state.currentSlide - 1,
       });
     }
   }
 
   moveRight() {
-    if (this.state.currentSlide < this.props.length) {
+    if (
+      this.state.currentSlide <
+      Math.round(this.props.sleepingArrangements.length / 3)
+    ) {
       this.setState({
-        left: this.state.left - 100,
-        currentSlide: this.state.currentSlide + 6,
+        left: this.state.left + 3,
+        right: this.state.right + 3,
+        currentSlide: this.state.currentSlide + 1,
       });
     }
   }
 
   render() {
-    let bedroomcards = this.props.sleepingArrangements.map((card, i) => {
-      return <BedroomCard bedroomDescription={card}></BedroomCard>;
-    });
-
+    let bedroomcards = this.props.sleepingArrangements
+      .map((card, i) => {
+        return <BedroomCard bedroomDescription={card}></BedroomCard>;
+      })
+      .slice(this.state.left, this.state.right + 1);
     return (
       <CenterContainer>
         <button id="moveLeft" onClick={this.moveLeft}>
@@ -64,7 +70,6 @@ class BedroomCarousel extends React.Component {
         <button id="moveRight" onClick={this.moveRight}>
           Move Right
         </button>
-
         <Slider className="slider">
           <Wrapper className="wrap" left={this.state.left}>
             {bedroomcards}
