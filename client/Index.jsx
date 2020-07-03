@@ -5,6 +5,7 @@ import Amenities from './components/AmenitiesComponents/Amenities.jsx';
 import HostAndRooms from './components/HostAndRoomsComponents/HostAndRooms.jsx';
 import ThingsToDoCarousel from './components/ThingsToDoComponents/ThingsToDoCarousel.jsx';
 import BedroomCarousel from './components/BedroomArrangementComponents/BedroomCarousel.jsx';
+import ThingsToKnowSection from './components/ThingsToKnowComponents/ThingsToKnow.jsx';
 import { sleepingArrangements } from './components/sampleDataForTests';
 
 class Index extends React.Component {
@@ -16,7 +17,7 @@ class Index extends React.Component {
       hostAndRooms: {},
       thingsToDo: [],
       sleepingArrangements: [],
-      thingsToKnow: {},
+      thingsToKnow: [],
       listingId: window.location.href.split('/')[3] || 0,
     };
   }
@@ -46,7 +47,10 @@ class Index extends React.Component {
   render() {
     return (
       <div>
-        <BedroomCarousel
+        <ThingsToKnowSection
+          thingsToKnow={this.state.thingsToKnow}
+        ></ThingsToKnowSection>
+        {/* <BedroomCarousel
           sleepingArrangements={this.state.sleepingArrangements}
         ></BedroomCarousel>
         <HostAndRooms hostAndRooms={this.state.hostAndRooms} />
@@ -55,7 +59,7 @@ class Index extends React.Component {
         <ThingsToDoCarousel
           thingsToDo={this.state.thingsToDo}
           length={this.state.thingsToDo.length}
-        ></ThingsToDoCarousel>
+        ></ThingsToDoCarousel> */}
       </div>
     );
     // }
