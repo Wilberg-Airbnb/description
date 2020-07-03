@@ -462,10 +462,39 @@ const thingsToDo = [
   },
 ];
 
+const sleepingArrangements = [
+  {
+    iconLink: 'https://picsum.photos/50',
+    bedroomHeader: 'Bedroom',
+    bedroomDescription: '1 Single bed',
+  },
+  {
+    iconLink: 'https://picsum.photos/50',
+    bedroomHeader: 'Bedroom',
+    bedroomDescription: '1 Double bed',
+  },
+  {
+    iconLink: 'https://picsum.photos/50',
+    bedroomHeader: 'Bedroom',
+    bedroomDescription: '1 Queen bed',
+  },
+  {
+    iconLink: 'https://picsum.photos/50',
+    bedroomHeader: 'Bedroom',
+    bedroomDescription: '1 King bed',
+  },
+  {
+    iconLink: 'https://picsum.photos/50',
+    bedroomHeader: 'Bedroom',
+    bedroomDescription: '1 couch',
+  },
+];
+
 export {
   sampleDescriptions,
   sampleAmenities,
   hostAndRoomsEntirePlace,
   hostAndRoomsNotEntirePlace,
   thingsToDo,
+  sleepingArrangements,
 };
