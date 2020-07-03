@@ -3,7 +3,7 @@ import { mount, shallow, configure } from 'enzyme';
 import 'jest-styled-components';
 import Adapter from 'enzyme-adapter-react-16';
 import BedRoomCard from './BedroomCard.jsx';
-import { sleepingArrangements } from './sampleDataForTests';
+import { sleepingArrangements } from '../sampleDataForTests.js';
 
 configure({ adapter: new Adapter() });
 

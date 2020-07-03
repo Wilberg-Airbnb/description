@@ -3,7 +3,7 @@ import { mount, shallow, configure } from 'enzyme';
 import 'jest-styled-components';
 import Adapter from 'enzyme-adapter-react-16';
 import ThingsToDoCard from './ThingsToDoCard.jsx';
-import { thingsToDo } from './sampleDataForTests';
+import { thingsToDo } from '../sampleDataForTests.js';
 
 configure({ adapter: new Adapter() });
 

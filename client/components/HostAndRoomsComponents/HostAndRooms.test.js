@@ -4,7 +4,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import {
   hostAndRoomsEntirePlace,
   hostAndRoomsNotEntirePlace,
-} from './sampleDataForTests';
+} from '../sampleDataForTests.js';
 import HostAndRooms from './HostAndRooms';
 
 configure({ adapter: new Adapter() });

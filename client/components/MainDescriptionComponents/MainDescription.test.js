@@ -2,7 +2,7 @@ import React from 'react';
 import { mount, shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import MainDescription from './MainDescription.jsx';
-import { sampleDescriptions } from './sampleDataForTests';
+import { sampleDescriptions } from '../sampleDataForTests.js';
 configure({ adapter: new Adapter() });
 
 describe('Make sure that the component has an array of descriptions as its state', () => {

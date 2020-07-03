@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from './Modal.jsx';
+import AmenitiesModal from '../Modals/AmenitiesModal.jsx';
 
 class Amenities extends React.Component {
   constructor(props) {
@@ -32,12 +32,12 @@ class Amenities extends React.Component {
           Show all {this.props.amenities.length} amenities
         </button>
         {this.state.showModal ? (
-          <Modal
+          <AmenitiesModal
             toggleModal={this.toggleModal}
             listItems={this.props.amenities}
           >
             This is the secret modal message!
-          </Modal>
+          </AmenitiesModal>
         ) : null}
       </div>
     );
