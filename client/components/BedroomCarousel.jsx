@@ -28,6 +28,7 @@ class BedroomCarousel extends React.Component {
       currentSlide: 0,
       left: 0,
       right: 2,
+      slidesShown: 3,
     };
     this.moveRight = this.moveRight.bind(this);
     this.moveLeft = this.moveLeft.bind(this);
@@ -39,19 +40,18 @@ class BedroomCarousel extends React.Component {
         left: this.state.left - 3,
         right: this.state.right - 3,
         currentSlide: this.state.currentSlide - 1,
+        slidesShown: this.state.slidesShown - 3,
       });
     }
   }
 
   moveRight() {
-    if (
-      this.state.currentSlide <
-      Math.round(this.props.sleepingArrangements.length / 3)
-    ) {
+    if (this.state.slidesShown < this.props.sleepingArrangements.length) {
       this.setState({
         left: this.state.left + 3,
         right: this.state.right + 3,
         currentSlide: this.state.currentSlide + 1,
+        slidesShown: this.state.slidesShown + 3,
       });
     }
   }
