@@ -21,57 +21,65 @@ const Paragaraph = styled.p`
   font-size: 10px;
 `;
 
-const ThingsToKnowSection = ({ thingsToKnow }) => {
-  // Logic here
-  let houseRules;
-  let safetyProperty;
-  if (!Array.isArray(thingsToKnow)) {
-    houseRules = thingsToKnow.houseRules
-      .map((houseRule, i) => {
-        return (
-          <span key={houseRule._id}>
-            <Paragaraph>
-              <AccessAlarmIcon fontSize="small"></AccessAlarmIcon>
-              {houseRule.subheader.split(' ').slice(0, 3).join(' ')}
-            </Paragaraph>
-          </span>
-        );
-      })
-      .slice(0, 5);
+class ThingsToKnowSection extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showHouseRulesModal: false,
+      showSafetyModal: false,
+      showCancellationModal: false,
+    };
   }
 
-  if (!Array.isArray(thingsToKnow)) {
-    safetyProperty = thingsToKnow.safety
-      .map((safetyRule, i) => {
-        return (
-          <span key={safetyRule._id}>
-            <Paragaraph>
-              {' '}
-              <ErrorIcon fontSize="small"></ErrorIcon>
-              {safetyRule.subheader.split(' ').slice(0, 3).join(' ')}
-            </Paragaraph>
-          </span>
-        );
-      })
-      .slice(0, 2);
+  render() {
+    const thingsToKnow = this.props.thingsToKnow;
+    let houseRules;
+    let safetyProperty;
+    if (!Array.isArray(thingsToKnow)) {
+      houseRules = this.props.thingsToKnow.houseRules
+        .map((houseRule, i) => {
+          return (
+            <span key={houseRule._id}>
+              <Paragaraph>
+                <AccessAlarmIcon fontSize="small"></AccessAlarmIcon>
+                {houseRule.subheader.split(' ').slice(0, 3).join(' ')}
+              </Paragaraph>
+            </span>
+          );
+        })
+        .slice(0, 5);
+
+      safetyProperty = thingsToKnow.safety
+        .map((safetyRule, i) => {
+          return (
+            <span key={safetyRule._id}>
+              <Paragaraph>
+                {' '}
+                <ErrorIcon fontSize="small"></ErrorIcon>
+                {safetyRule.subheader.split(' ').slice(0, 3).join(' ')}
+              </Paragaraph>
+            </span>
+          );
+        })
+        .slice(0, 2);
+    }
+    return (
+      <Container>
+        <IndividualSection className="houseRules">
+          <div className="header">House Rules</div>
+          {houseRules}
+        </IndividualSection>
+
+        <IndividualSection className="safetyProperty">
+          <div className="header">Safety & Property</div>
+
+          {safetyProperty}
+        </IndividualSection>
+        <IndividualSection className="cancellationPolicy">
+          <div className="header">Cancellation policy</div>
+        </IndividualSection>
+      </Container>
+    );
   }
-
-  return (
-    <Container>
-      <IndividualSection className="houseRules">
-        <div className="header">House Rules</div>
-        {houseRules}
-      </IndividualSection>
-
-      <IndividualSection className="safetyProperty">
-        <div className="header">Safety & Property</div>
-
-        {safetyProperty}
-      </IndividualSection>
-      <IndividualSection className="cancellationPolicy">
-        <div className="header">Cancellation policy</div>
-      </IndividualSection>
-    </Container>
-  );
-};
+}
 export default ThingsToKnowSection;
