@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
 import SmokeFreeIcon from '@material-ui/icons/SmokeFree';
 import ErrorIcon from '@material-ui/icons/Error';
+import Modal from '../Modals/Modal.jsx';
 import HouseRulesModal from '../Modals/HouseRulesModal.jsx';
 import CancellationModal from '../Modals/CancellationModal.jsx';
 import SafetyModal from '../Modals/SafetyModal.jsx';
@@ -85,8 +86,10 @@ class ThingsToKnowSection extends React.Component {
         })
         .slice(0, 2);
     }
+
     return (
       <Container>
+        {/* House Rules Section */}
         <IndividualSection className="houseRules">
           <div className="header">House Rules</div>
           {houseRules}
@@ -97,14 +100,15 @@ class ThingsToKnowSection extends React.Component {
           >
             Show All >
           </ShowAll>
+          {/* Conditional rendering the modal when you  click Show All */}
           {this.state.showHouseRulesModal ? (
-            <HouseRulesModal
-              toggleModal={this.toggleModal}
-              // listItems={this.props.amenities}
-            ></HouseRulesModal>
+            <Modal>
+              <HouseRulesModal toggleModal={this.toggleModal}></HouseRulesModal>
+            </Modal>
           ) : null}
         </IndividualSection>
 
+        {/* Safety Section  */}
         <IndividualSection className="safetyProperty">
           <div className="header">Safety & Property</div>
           {safetyProperty}
@@ -115,13 +119,15 @@ class ThingsToKnowSection extends React.Component {
           >
             Show All >
           </ShowAll>
+          {/* Conditional rendering the modal when you  click Show All */}
           {this.state.showSafetyModal ? (
-            <SafetyModal
-              toggleModal={this.toggleModal}
-              // listItems={this.props.amenities}
-            ></SafetyModal>
+            <Modal>
+              <SafetyModal toggleModal={this.toggleModal}></SafetyModal>
+            </Modal>
           ) : null}
         </IndividualSection>
+
+        {/* Cancellation Section */}
         <IndividualSection className="cancellationPolicy">
           <div className="header">Cancellation policy</div>
           <ShowAll
@@ -130,11 +136,13 @@ class ThingsToKnowSection extends React.Component {
           >
             More Details >
           </ShowAll>
+          {/* Conditional rendering the modal when you  click More Details */}
           {this.state.showCancellationModal ? (
-            <CancellationModal
-              toggleModal={this.toggleModal}
-              // listItems={this.props.amenities}
-            ></CancellationModal>
+            <Modal>
+              <CancellationModal
+                toggleModal={this.toggleModal}
+              ></CancellationModal>
+            </Modal>
           ) : null}
         </IndividualSection>
       </Container>
