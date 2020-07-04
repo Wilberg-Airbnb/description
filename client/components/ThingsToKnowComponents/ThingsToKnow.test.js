@@ -8,15 +8,18 @@ import { thingsToKnow } from '../sampleDataForTests.js';
 configure({ adapter: new Adapter() });
 
 describe('Testing the ThingsToKnow  component', () => {
+  let wrapper;
+  beforeEach(() => {
+    wrapper = shallow(<ThingsToKnowSection thingsToKnow={thingsToKnow} />);
+  });
+
   test('Should test that 3 divs with classNames of "houseRules", "safetyProperty", and "cancellationPolicy" exist', () => {
-    let wrapper = shallow(<ThingsToKnowSection thingsToKnow={thingsToKnow} />);
     expect(wrapper.exists('.houseRules')).toEqual(true);
     expect(wrapper.exists('.safetyProperty')).toEqual(true);
     expect(wrapper.exists('.cancellationPolicy')).toEqual(true);
   });
 
   test('Should test that each section has a header class with text "House Rules", "Safety & Property" and "Cancellation Policy" rescpectively', () => {
-    let wrapper = shallow(<ThingsToKnowSection thingsToKnow={thingsToKnow} />);
     const houseRulesText = wrapper.find('.houseRules').find('.header').text();
     const safetyPropertyText = wrapper
       .find('.safetyProperty')
@@ -33,7 +36,6 @@ describe('Testing the ThingsToKnow  component', () => {
   });
 
   test('Should show 5 rules for House Rules and 2 for Safety & Property', () => {
-    let wrapper = shallow(<ThingsToKnowSection thingsToKnow={thingsToKnow} />);
     const numberOfHouseRulesShown = wrapper.find('.houseRules').find('span')
       .length;
     const numberOfSafetyRulesShown = wrapper
@@ -41,5 +43,17 @@ describe('Testing the ThingsToKnow  component', () => {
       .find('span').length;
     expect(numberOfHouseRulesShown).toEqual(5);
     expect(numberOfSafetyRulesShown).toEqual(2);
+  });
+
+  test('Should change the state of the specififed show all & more details section', () => {
+    const houseRulesShowAll = wrapper.find('#showAllHouseRules');
+    const safetyPropertyShowAll = wrapper.find('#showAllSafetyRules');
+    const canceellationShow = wrapper.find('#showCancellationPolicy');
+    houseRulesShowAll.simulate('click');
+    safetyPropertyShowAll.simulate('click');
+    canceellationShow.simulate('click');
+    expect(wrapper.state().showHouseRulesModal).toBe(true);
+    expect(wrapper.state().showSafetyModal).toBe(true);
+    expect(wrapper.state().showCancellationModal).toBe(true);
   });
 });

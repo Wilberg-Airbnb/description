@@ -1,15 +1,15 @@
 import React from 'react';
-import { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
+import { useState, useEffect, useRef } from 'react';
 
-const SafetyModal = ({ toggleModal }) => {
+const CancellationModal = ({ toggleModal }) => {
   const [clickedOutside, setClickedOutside] = useState(false);
   const myRef = useRef();
 
   const handleClickOutside = (e) => {
     if (!myRef.current.contains(e.target)) {
       setClickedOutside(true);
-      toggleModal('safetyModal');
+      toggleModal('cancellationModal');
     }
   };
 
@@ -50,10 +50,10 @@ const SafetyModal = ({ toggleModal }) => {
           justifySelf: 'center',
         }}
       >
-        SafetyModal
+        Cancellation Modal
       </div>
     </div>
   );
 };
 
-export default SafetyModal;
+export default CancellationModal;
