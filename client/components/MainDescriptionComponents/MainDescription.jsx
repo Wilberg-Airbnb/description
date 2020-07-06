@@ -1,4 +1,15 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const DescriptionContainer = styled.div`
+  padding-top: 15px;
+  width: 33%;
+  overflow-wrap: break-word;
+  padding-bottom: 15px;
+  border-bottom: solid 2px rgb(204, 212, 204);
+  border-top: solid 2px rgb(204, 212, 204);
+  font-size: 12px;
+`;
 
 class MainDescription extends React.Component {
   constructor(props) {
@@ -25,15 +36,15 @@ class MainDescription extends React.Component {
     });
     if (!this.state.showMore) {
       return (
-        <div>
+        <DescriptionContainer>
           {reactSections.slice(0, 1)}
           <span id="seeMore" onClick={() => this.showMore()}>
             ...read More
           </span>
-        </div>
+        </DescriptionContainer>
       );
     } else {
-      return <div>{reactSections}</div>;
+      return <DescriptionContainer>{reactSections}</DescriptionContainer>;
     }
   }
 }
