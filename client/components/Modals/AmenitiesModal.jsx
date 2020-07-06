@@ -80,7 +80,11 @@ const AmenitiesModal = ({ toggleModal, listItems, headers }) => {
     // Looping thru the map with each subHeader
     for (let item in mapOfHeaders) {
       // Pushing the respective subHeader into the organizedHeaders array
-      organizedHeaders.push(<li style={ListItemStyle}>{item}</li>);
+      organizedHeaders.push(
+        <li style={ListItemStyle}>
+          <b> {item}</b>
+        </li>
+      );
       // Pushing the children of THAT subheader into the organizedHeaders array
       mapOfHeaders[item].forEach((item) => {
         organizedHeaders.push(
@@ -95,6 +99,7 @@ const AmenitiesModal = ({ toggleModal, listItems, headers }) => {
   return (
     <div style={PositioningStyle}>
       <div ref={myRef} onClick={handleClickInside} style={ScrollBoxStyle}>
+        <h1>Amenities</h1>
         <ul style={ULStyle}>{organizedHeaders}</ul>
       </div>
     </div>
