@@ -37,6 +37,11 @@ class Amenities extends React.Component {
             <AmenitiesModal
               toggleModal={this.toggleModal}
               listItems={this.props.amenities}
+              headers={[
+                ...new Set(
+                  this.props.amenities.map((element) => element.subheader)
+                ),
+              ]}
             ></AmenitiesModal>
           </Modal>
         ) : null}

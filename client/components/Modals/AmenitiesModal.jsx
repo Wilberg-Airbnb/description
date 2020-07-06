@@ -73,6 +73,7 @@ const AmenitiesModal = ({ toggleModal, listItems }) => {
       );
     });
   }
+  console.log(listItems);
   return (
     <div style={PositioningStyle}>
       <div ref={myRef} onClick={handleClickInside} style={ScrollBoxStyle}>
