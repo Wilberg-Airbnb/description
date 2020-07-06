@@ -37,8 +37,13 @@ const ListItemStyle = {
   width: '100%',
   marginTop: '24px',
   paddingBottom: '15px',
-  borderBottom: 'solid 2px rgb(204, 212, 204)',
+  borderBottom: 'solid 1px rgb(204, 212, 204)',
   marginBottom: '24px',
+};
+
+const ULStyle = {
+  padding: '0',
+  listStyleType: 'none',
 };
 
 const AmenitiesModal = ({ toggleModal, listItems }) => {
@@ -71,7 +76,7 @@ const AmenitiesModal = ({ toggleModal, listItems }) => {
   return (
     <div style={PositioningStyle}>
       <div ref={myRef} onClick={handleClickInside} style={ScrollBoxStyle}>
-        <ul>{itemsToList}</ul>
+        <ul style={ULStyle}>{itemsToList}</ul>
       </div>
     </div>
   );
