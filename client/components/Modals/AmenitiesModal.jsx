@@ -46,7 +46,7 @@ const ULStyle = {
   listStyleType: 'none',
 };
 
-const AmenitiesModal = ({ toggleModal, listItems }) => {
+const AmenitiesModal = ({ toggleModal, listItems, headers }) => {
   const [clickedOutside, setClickedOutside] = useState(false);
   const myRef = useRef();
   let itemsToList;
@@ -56,28 +56,38 @@ const AmenitiesModal = ({ toggleModal, listItems }) => {
       toggleModal();
     }
   };
+  let mapOfHeaders = {};
+  headers.forEach((header) => {
+    mapOfHeaders[header] = [];
+  });
+  listItems.map((item) => {
+    mapOfHeaders[item.subheader].push(item);
+  });
+
   const handleClickInside = () => setClickedOutside(false);
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   });
+  let organizedHeaders = [];
   if (listItems.length > 0) {
-    itemsToList = listItems.map((item) => {
-      return (
-        <li style={ListItemStyle}>
-          {item.title}
-          {item.amenityDescription}
-          {item.subHeader}
-        </li>
-      );
-    });
+    for (let item in mapOfHeaders) {
+      organizedHeaders.push(<li style={ListItemStyle}>{item}</li>);
+      mapOfHeaders[item].forEach((item) => {
+        organizedHeaders.push(
+          <li style={ListItemStyle}>
+            {item.title}
+            {item.amenityDescription}
+          </li>
+        );
+      });
+    }
   }
-  console.log(listItems);
   return (
     <div style={PositioningStyle}>
       <div ref={myRef} onClick={handleClickInside} style={ScrollBoxStyle}>
-        <ul style={ULStyle}>{itemsToList}</ul>
+        <ul style={ULStyle}>{organizedHeaders}</ul>
       </div>
     </div>
   );
