@@ -39,6 +39,8 @@ const ListItemStyle = {
   paddingBottom: '15px',
   borderBottom: 'solid 1px rgb(204, 212, 204)',
   marginBottom: '24px',
+  fontFamily: 'brandon-grotesque", sans-serif',
+  fontSize: '12px',
 };
 
 const ULStyle = {
@@ -99,7 +101,7 @@ const AmenitiesModal = ({ toggleModal, listItems, headers }) => {
   return (
     <div style={PositioningStyle}>
       <div ref={myRef} onClick={handleClickInside} style={ScrollBoxStyle}>
-        <h1>Amenities</h1>
+        <h3>Amenities</h3>
         <ul style={ULStyle}>{organizedHeaders}</ul>
       </div>
     </div>
