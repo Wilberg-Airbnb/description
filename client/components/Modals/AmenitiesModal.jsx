@@ -49,31 +49,39 @@ const ULStyle = {
 const AmenitiesModal = ({ toggleModal, listItems, headers }) => {
   const [clickedOutside, setClickedOutside] = useState(false);
   const myRef = useRef();
-  let itemsToList;
+
+  // Clicking Outside of the modal logic
   const handleClickOutside = (e) => {
     if (!myRef.current.contains(e.target)) {
       setClickedOutside(true);
       toggleModal();
     }
   };
-  let mapOfHeaders = {};
-  headers.forEach((header) => {
-    mapOfHeaders[header] = [];
-  });
-  listItems.map((item) => {
-    mapOfHeaders[item.subheader].push(item);
-  });
-
   const handleClickInside = () => setClickedOutside(false);
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   });
+
+  // Creating a map of subheaders
+  let mapOfHeaders = {};
+  headers.forEach((header) => {
+    // Initializing each value to an array
+    mapOfHeaders[header] = [];
+  });
+  // Pushing each amenity into its respective subheader
+  listItems.map((item) => {
+    mapOfHeaders[item.subheader].push(item);
+  });
+
   let organizedHeaders = [];
   if (listItems.length > 0) {
+    // Looping thru the map with each subHeader
     for (let item in mapOfHeaders) {
+      // Pushing the respective subHeader into the organizedHeaders array
       organizedHeaders.push(<li style={ListItemStyle}>{item}</li>);
+      // Pushing the children of THAT subheader into the organizedHeaders array
       mapOfHeaders[item].forEach((item) => {
         organizedHeaders.push(
           <li style={ListItemStyle}>
