@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const DescriptionContainer = styled.div`
   padding-top: 15px;
-  width: 35%;
+  width: 33%;
   overflow-wrap: break-word;
   padding-bottom: 15px;
   border-bottom: solid 2px rgb(204, 212, 204);
