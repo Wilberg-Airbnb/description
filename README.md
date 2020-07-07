@@ -4,10 +4,15 @@
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+- https://github.com/Wilberg-Airbnb/description
+- https://github.com/Wilberg-Airbnb/reservation
+- https://github.com/Wilberg-Airbnb/reviews
+- https://github.com/Wilberg-Airbnb/location
+- https://github.com/Wilberg-Airbnb/suggestion
+- https://github.com/Wilberg-Airbnb/photos
+- https://github.com/Wilberg-Airbnb/explore
+- https://github.com/Wilberg-Airbnb/host
+- https://github.com/Wilberg-Airbnb/reviews-placeSuggestions
 
 ## Table of Contents
 
@@ -17,7 +22,10 @@
 
 ## Usage
 
-> Some usage instructions
+> Some usage instructions:
+> Running the Server: "npm run server"
+> Port number: 4000
+> Seeding the database: "npm run seed"
 
 ## Requirements
 
@@ -36,4 +44,3 @@ From within the root directory:
 npm install -g webpack
 npm install
 ```
-
