@@ -18,13 +18,13 @@ class Index extends React.Component {
       thingsToDo: [],
       sleepingArrangements: [],
       thingsToKnow: [],
-      listingId: window.location.href.split('/')[3] || 0,
+      listingId: window.location.pathname.slice(0, -1),
     };
   }
 
   componentDidMount() {
     axios
-      .get(`/api/description/${this.state.listingId}`)
+      .get(`/api/description${this.state.listingId}`)
       .then(({ data }) => {
         this.setState({
           descriptions: data.description,
