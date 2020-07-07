@@ -11,14 +11,18 @@ import SafetyModal from '../Modals/SafetyModal.jsx';
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 75%;
+  width: 60%;
   background-color: rgb(252, 252, 252);
+  /* background-color: yellow; */
+  padding-top: 30px;
+  border-top: solid 2px rgb(204, 212, 204);
+  height: 200px;
 `;
 
 const IndividualSection = styled.div`
   height: 9rem;
   width: 10rem;
-  background-color: pink;
+  background-color: '#fff';
   overflow-wrap: break-word;
 `;
 const Paragaraph = styled.p`
@@ -27,6 +31,12 @@ const Paragaraph = styled.p`
 
 const ShowAll = styled.p`
   text-decoration: underline;
+  font-size: 12px;
+`;
+
+const ThingsToKnowHeader = styled.div`
+  font-size: 12px;
+  font-weight: bold;
 `;
 
 class ThingsToKnowSection extends React.Component {
@@ -64,7 +74,7 @@ class ThingsToKnowSection extends React.Component {
           return (
             <span key={houseRule._id}>
               <Paragaraph>
-                <AccessAlarmIcon fontSize="small"></AccessAlarmIcon>
+                <AccessAlarmIcon style={{ fontSize: 12 }}></AccessAlarmIcon>
                 {houseRule.subheader.split(' ').slice(0, 3).join(' ')}
               </Paragaraph>
             </span>
@@ -78,7 +88,7 @@ class ThingsToKnowSection extends React.Component {
             <span key={safetyRule._id}>
               <Paragaraph>
                 {' '}
-                <ErrorIcon fontSize="small"></ErrorIcon>
+                <ErrorIcon style={{ fontSize: 12 }}></ErrorIcon>
                 {safetyRule.subheader.split(' ').slice(0, 3).join(' ')}
               </Paragaraph>
             </span>
@@ -91,7 +101,10 @@ class ThingsToKnowSection extends React.Component {
       <Container>
         {/* House Rules Section */}
         <IndividualSection className="houseRules">
-          <div className="header">House Rules</div>
+          {/* Underline each header */}
+          <ThingsToKnowHeader className="header">
+            House Rules
+          </ThingsToKnowHeader>
           {houseRules}
 
           <ShowAll
@@ -110,7 +123,9 @@ class ThingsToKnowSection extends React.Component {
 
         {/* Safety Section  */}
         <IndividualSection className="safetyProperty">
-          <div className="header">Safety & Property</div>
+          <ThingsToKnowHeader className="header">
+            Safety & Property
+          </ThingsToKnowHeader>
           {safetyProperty}
 
           <ShowAll
@@ -129,7 +144,9 @@ class ThingsToKnowSection extends React.Component {
 
         {/* Cancellation Section */}
         <IndividualSection className="cancellationPolicy">
-          <div className="header">Cancellation policy</div>
+          <ThingsToKnowHeader className="header">
+            Cancellation policy
+          </ThingsToKnowHeader>
           <ShowAll
             id="showCancellationPolicy"
             onClick={() => this.toggleModal('cancellationModal')}
