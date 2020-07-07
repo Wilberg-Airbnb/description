@@ -18,13 +18,16 @@ class Index extends React.Component {
       thingsToDo: [],
       sleepingArrangements: [],
       thingsToKnow: [],
-      listingId: window.location.pathname.slice(0, -1),
+      listingId: window.location.pathname.slice(1, -1),
+      // Get access to the listingId using pathname, split just for the number
     };
   }
 
   componentDidMount() {
+    // Have to add HTTP protocol && server port as per CORS policy
+    // And data-fetching from the proxy-side
     axios
-      .get(`localhost:4000/api/description${this.state.listingId}`)
+      .get(`http://localhost:4000/api/description/${this.state.listingId}`)
       .then(({ data }) => {
         this.setState({
           descriptions: data.description,

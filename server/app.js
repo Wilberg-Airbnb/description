@@ -1,10 +1,12 @@
 const express = require('express');
+const cors = require('cors');
 const db = require('../database/connection');
 const Document = require('../database/Description');
 const app = express();
 
+// Apply cors middleware to enable ALL cors request
+app.use(cors());
 app.use('/:listingId', express.static('public'));
-
 app.get('/api/description/:listingId', (req, res) => {
   Document.findOne({ listingId: req.params.listingId })
     .then((result) => {
