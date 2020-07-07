@@ -59,7 +59,9 @@ class BedroomCarousel extends React.Component {
   render() {
     let bedroomcards = this.props.sleepingArrangements
       .map((card, i) => {
-        return <BedroomCard bedroomDescription={card}></BedroomCard>;
+        return (
+          <BedroomCard key={card._id} bedroomDescription={card}></BedroomCard>
+        );
       })
       .slice(this.state.left, this.state.right + 1);
     return (

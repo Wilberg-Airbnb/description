@@ -50,7 +50,7 @@ class ThingsToDoCarousel extends React.Component {
 
   render() {
     let cards = this.props.thingsToDo.map((card, i) => {
-      return <ThingsToDoCard thingsToDo={card}></ThingsToDoCard>;
+      return <ThingsToDoCard key={card._id} thingsToDo={card}></ThingsToDoCard>;
     });
 
     return (

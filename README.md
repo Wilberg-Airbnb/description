@@ -23,9 +23,11 @@
 ## Usage
 
 > Some usage instructions:
+> "npm install" to install all of the dependcies
+> Running Webpack: "npm run react-dev",
+> Seeding the database: "npm run seed"
 > Running the Server: "npm run server"
 > Port number: 4000
-> Seeding the database: "npm run seed"
 
 ## Requirements
 
