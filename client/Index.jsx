@@ -24,7 +24,7 @@ class Index extends React.Component {
 
   componentDidMount() {
     axios
-      .get(`/api/description${this.state.listingId}`)
+      .get(`localhost:4000/api/description${this.state.listingId}`)
       .then(({ data }) => {
         this.setState({
           descriptions: data.description,
