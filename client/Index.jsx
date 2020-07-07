@@ -18,13 +18,13 @@ class Index extends React.Component {
       thingsToDo: [],
       sleepingArrangements: [],
       thingsToKnow: [],
-      listingId: window.location.href.split('/')[3] || 0,
+      listingId: window.location.pathname.slice(0, -1),
     };
   }
 
   componentDidMount() {
     axios
-      .get(`/api/description/${this.state.listingId}`)
+      .get(`/api/description${this.state.listingId}`)
       .then(({ data }) => {
         this.setState({
           descriptions: data.description,
@@ -47,15 +47,15 @@ class Index extends React.Component {
   render() {
     return (
       <div>
-        <ThingsToKnowSection
-          thingsToKnow={this.state.thingsToKnow}
-        ></ThingsToKnowSection>
+        <HostAndRooms hostAndRooms={this.state.hostAndRooms} />
+        <MainDescription descriptions={this.state.descriptions} />
         <BedroomCarousel
           sleepingArrangements={this.state.sleepingArrangements}
         ></BedroomCarousel>
-        <HostAndRooms hostAndRooms={this.state.hostAndRooms} />
         <Amenities amenities={this.state.amenities} />
-        <MainDescription descriptions={this.state.descriptions} />
+        <ThingsToKnowSection
+          thingsToKnow={this.state.thingsToKnow}
+        ></ThingsToKnowSection>
         <ThingsToDoCarousel
           thingsToDo={this.state.thingsToDo}
           length={this.state.thingsToDo.length}
