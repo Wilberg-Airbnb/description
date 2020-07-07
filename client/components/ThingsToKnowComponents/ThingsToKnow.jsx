@@ -8,14 +8,12 @@ import HouseRulesModal from '../Modals/HouseRulesModal.jsx';
 import CancellationModal from '../Modals/CancellationModal.jsx';
 import SafetyModal from '../Modals/SafetyModal.jsx';
 
-const Container = styled.div`
+// Width is no 100% to inherite the 60% from its parent element
+const ThingsToKnowContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 60%;
+  width: 100%;
   background-color: rgb(252, 252, 252);
-  /* background-color: yellow; */
-  padding-top: 30px;
-  border-top: solid 2px rgb(204, 212, 204);
   height: 200px;
 `;
 
@@ -34,9 +32,18 @@ const ShowAll = styled.p`
   font-size: 12px;
 `;
 
-const ThingsToKnowHeader = styled.div`
+const SectionHeader = styled.div`
   font-size: 12px;
   font-weight: bold;
+`;
+
+// Create a wholesection container for adding a header
+// Header was displaying as a flex element if added in ThingsToKnowContainer
+const WholeSectionContainer = styled.div`
+  padding-top: 10px;
+  background-color: rgb(252, 252, 252);
+  border-top: solid 2px rgb(204, 212, 204);
+  width: 60%;
 `;
 
 class ThingsToKnowSection extends React.Component {
@@ -98,71 +105,73 @@ class ThingsToKnowSection extends React.Component {
     }
 
     return (
-      <Container>
-        {/* House Rules Section */}
-        <IndividualSection className="houseRules">
-          {/* Underline each header */}
-          <ThingsToKnowHeader className="header">
-            House Rules
-          </ThingsToKnowHeader>
-          {houseRules}
+      <WholeSectionContainer>
+        <h4>Things To Know</h4>
 
-          <ShowAll
-            id="showAllHouseRules"
-            onClick={() => this.toggleModal('houseRulesModal')}
-          >
-            Show All >
-          </ShowAll>
-          {/* Conditional rendering the modal when you  click Show All */}
-          {this.state.showHouseRulesModal ? (
-            <Modal>
-              <HouseRulesModal toggleModal={this.toggleModal}></HouseRulesModal>
-            </Modal>
-          ) : null}
-        </IndividualSection>
+        <ThingsToKnowContainer>
+          {/* House Rules Section */}
+          <IndividualSection className="houseRules">
+            {/* Underline each header */}
+            <SectionHeader className="header">House Rules</SectionHeader>
+            {houseRules}
 
-        {/* Safety Section  */}
-        <IndividualSection className="safetyProperty">
-          <ThingsToKnowHeader className="header">
-            Safety & Property
-          </ThingsToKnowHeader>
-          {safetyProperty}
+            <ShowAll
+              id="showAllHouseRules"
+              onClick={() => this.toggleModal('houseRulesModal')}
+            >
+              Show All >
+            </ShowAll>
+            {/* Conditional rendering the modal when you  click Show All */}
+            {this.state.showHouseRulesModal ? (
+              <Modal>
+                <HouseRulesModal
+                  toggleModal={this.toggleModal}
+                ></HouseRulesModal>
+              </Modal>
+            ) : null}
+          </IndividualSection>
 
-          <ShowAll
-            id="showAllSafetyRules"
-            onClick={() => this.toggleModal('safetyModal')}
-          >
-            Show All >
-          </ShowAll>
-          {/* Conditional rendering the modal when you  click Show All */}
-          {this.state.showSafetyModal ? (
-            <Modal>
-              <SafetyModal toggleModal={this.toggleModal}></SafetyModal>
-            </Modal>
-          ) : null}
-        </IndividualSection>
+          {/* Safety Section  */}
+          <IndividualSection className="safetyProperty">
+            <SectionHeader className="header">Safety & Property</SectionHeader>
+            {safetyProperty}
 
-        {/* Cancellation Section */}
-        <IndividualSection className="cancellationPolicy">
-          <ThingsToKnowHeader className="header">
-            Cancellation policy
-          </ThingsToKnowHeader>
-          <ShowAll
-            id="showCancellationPolicy"
-            onClick={() => this.toggleModal('cancellationModal')}
-          >
-            More Details >
-          </ShowAll>
-          {/* Conditional rendering the modal when you  click More Details */}
-          {this.state.showCancellationModal ? (
-            <Modal>
-              <CancellationModal
-                toggleModal={this.toggleModal}
-              ></CancellationModal>
-            </Modal>
-          ) : null}
-        </IndividualSection>
-      </Container>
+            <ShowAll
+              id="showAllSafetyRules"
+              onClick={() => this.toggleModal('safetyModal')}
+            >
+              Show All >
+            </ShowAll>
+            {/* Conditional rendering the modal when you  click Show All */}
+            {this.state.showSafetyModal ? (
+              <Modal>
+                <SafetyModal toggleModal={this.toggleModal}></SafetyModal>
+              </Modal>
+            ) : null}
+          </IndividualSection>
+
+          {/* Cancellation Section */}
+          <IndividualSection className="cancellationPolicy">
+            <SectionHeader className="header">
+              Cancellation policy
+            </SectionHeader>
+            <ShowAll
+              id="showCancellationPolicy"
+              onClick={() => this.toggleModal('cancellationModal')}
+            >
+              More Details >
+            </ShowAll>
+            {/* Conditional rendering the modal when you  click More Details */}
+            {this.state.showCancellationModal ? (
+              <Modal>
+                <CancellationModal
+                  toggleModal={this.toggleModal}
+                ></CancellationModal>
+              </Modal>
+            ) : null}
+          </IndividualSection>
+        </ThingsToKnowContainer>
+      </WholeSectionContainer>
     );
   }
 }
