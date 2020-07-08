@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import BedroomCard from './BedroomCard.jsx';
+import ArrowForwardRoundedIcon from '@material-ui/icons/ArrowForwardRounded';
+import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded';
 
 const Wrapper = styled.div`
   display: flex;
@@ -10,16 +12,14 @@ const Wrapper = styled.div`
   overflow: hidden;
   width: 100%;
 `;
-
+// Added border
 const Slider = styled.div`
   position: relative;
   width: 40%;
   margin: 0 auto;
   display: inline-block;
-`;
-
-const CenterContainer = styled.div`
-  /* text-align: center; */
+  border-top: solid 1px rgb(221, 221, 221);
+  padding-top: 24px;
 `;
 
 class BedroomCarousel extends React.Component {
@@ -68,8 +68,10 @@ class BedroomCarousel extends React.Component {
       })
       .slice(this.state.left, this.state.right + 1);
     return (
-      <CenterContainer>
+      // <CenterContainer>
+      <Slider className="slider">
         <div>
+          <h4>Sleeping Arrangements</h4>
           <button id="moveLeft" onClick={this.moveLeft}>
             Move Left
           </button>
@@ -77,12 +79,12 @@ class BedroomCarousel extends React.Component {
             Move Right
           </button>
         </div>
-        <Slider className="slider">
-          <Wrapper className="wrap" left={this.state.left}>
-            {bedroomcards}
-          </Wrapper>
-        </Slider>
-      </CenterContainer>
+        {/* Wrapper will show all cards in a row as per the flex direction */}
+        <Wrapper className="wrap" left={this.state.left}>
+          {bedroomcards}
+        </Wrapper>
+      </Slider>
+      // </CenterContainer>
     );
   }
 }
