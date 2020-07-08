@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 import styled from 'styled-components';
 import ThingsToDoCard from './ThingsToDoCard.jsx';
@@ -25,6 +26,8 @@ class ThingsToDoCarousel extends React.Component {
     this.state = {
       currentSlide: 0,
       left: 0,
+      listingId: window.location.pathname.slice(1, -1),
+      thingsToDo: [],
     };
     this.moveRight = this.moveRight.bind(this);
     this.moveLeft = this.moveLeft.bind(this);
@@ -40,16 +43,29 @@ class ThingsToDoCarousel extends React.Component {
   }
 
   moveRight() {
-    if (this.state.currentSlide < this.props.length) {
+    if (this.state.currentSlide < this.state.thingsToDo.length) {
       this.setState({
         left: this.state.left - 100,
         currentSlide: this.state.currentSlide + 6,
       });
     }
   }
+  componentDidMount() {
+    console.log('For Things to do carousel');
+    axios
+      .get(`http://localhost:4000/api/description/${this.state.listingId}`)
+      .then(({ data }) => {
+        this.setState({
+          thingsToDo: data.thingsToDo,
+        });
+      })
+      .catch((error) => {
+        console.log('Error retrieving data!', error);
+      });
+  }
 
   render() {
-    let cards = this.props.thingsToDo.map((card, i) => {
+    let cards = this.state.thingsToDo.map((card, i) => {
       return <ThingsToDoCard key={card._id} thingsToDo={card}></ThingsToDoCard>;
     });
 
