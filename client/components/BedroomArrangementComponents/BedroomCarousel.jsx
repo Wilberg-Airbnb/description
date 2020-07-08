@@ -74,16 +74,12 @@ class BedroomCarousel extends React.Component {
       <Slider className="slider">
         <div>
           <h4>Sleeping Arrangements</h4>
-          <button id="moveLeft" onClick={this.moveLeft}>
-            Move Left
-          </button>
-          <button id="moveRight" onClick={this.moveRight}>
-            Move Right
-          </button>
         </div>
         {/* Wrapper will show all cards in a row as per the flex direction */}
         <Wrapper className="wrap" left={this.state.left}>
+          <ArrowBackRoundedIcon onClick={this.moveLeft} />
           {bedroomcards}
+          <ArrowForwardRoundedIcon onClick={this.moveRight} />
         </Wrapper>
       </Slider>
       // </CenterContainer>
