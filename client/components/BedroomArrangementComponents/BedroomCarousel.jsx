@@ -1,24 +1,33 @@
 import React from 'react';
 import styled from 'styled-components';
 import BedroomCard from './BedroomCard.jsx';
+import ArrowForwardRoundedIcon from '@material-ui/icons/ArrowForwardRounded';
+import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded';
 
+// Align arrows in the middle by calculating the
+// size of the card
+const ArrowWrapper = styled.div`
+  padding-top: 30px;
+`;
+// Wrapper will show all cards in a row as per the flex direction
 const Wrapper = styled.div`
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: flex-end;
+  justify-content: space-around;
   overflow: hidden;
+  width: 100%;
 `;
-
+// Added border
 const Slider = styled.div`
   position: relative;
-  width: 30%;
+  width: 40%;
   margin: 0 auto;
   display: inline-block;
-`;
-
-const CenterContainer = styled.div`
-  text-align: center;
+  border-top: solid 1px rgb(221, 221, 221);
+  border-bottom: solid 1px rgb(221, 221, 221);
+  padding-top: 24px;
+  padding-bottom: 30px;
 `;
 
 class BedroomCarousel extends React.Component {
@@ -57,7 +66,9 @@ class BedroomCarousel extends React.Component {
   }
 
   render() {
+    // Reversed array to show arrangements in sequetnial order by room
     let bedroomcards = this.props.sleepingArrangements
+      .reverse()
       .map((card, i) => {
         return (
           <BedroomCard key={card._id} bedroomDescription={card}></BedroomCard>
@@ -65,19 +76,30 @@ class BedroomCarousel extends React.Component {
       })
       .slice(this.state.left, this.state.right + 1);
     return (
-      <CenterContainer>
-        <button id="moveLeft" onClick={this.moveLeft}>
-          Move Left
-        </button>
-        <button id="moveRight" onClick={this.moveRight}>
-          Move Right
-        </button>
-        <Slider className="slider">
-          <Wrapper className="wrap" left={this.state.left}>
-            {bedroomcards}
-          </Wrapper>
-        </Slider>
-      </CenterContainer>
+      // <CenterContainer>
+      <Slider className="slider">
+        <div>
+          <h4>Sleeping Arrangements</h4>
+        </div>
+
+        <Wrapper className="wrap" left={this.state.left}>
+          {/* Conditionally render the left arrow if you're NOT on the first page */}
+          {this.state.currentSlide === 0 ? null : (
+            <ArrowWrapper>
+              <ArrowBackRoundedIcon onClick={this.moveLeft} />
+            </ArrowWrapper>
+          )}
+          {bedroomcards}
+          {/* Conditionally render the right arrow if you're NOT at the last slide */}
+          {this.state.slidesShown >
+          this.props.sleepingArrangements.length ? null : (
+            <ArrowWrapper>
+              <ArrowForwardRoundedIcon onClick={this.moveRight} />
+            </ArrowWrapper>
+          )}
+        </Wrapper>
+      </Slider>
+      // </CenterContainer>
     );
   }
 }
