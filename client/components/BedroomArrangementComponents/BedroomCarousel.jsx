@@ -4,6 +4,12 @@ import BedroomCard from './BedroomCard.jsx';
 import ArrowForwardRoundedIcon from '@material-ui/icons/ArrowForwardRounded';
 import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded';
 
+// Align arrows in the middle by calculating the
+// size of the card
+const ArrowWrapper = styled.div`
+  padding-top: 30px;
+`;
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -77,9 +83,13 @@ class BedroomCarousel extends React.Component {
         </div>
         {/* Wrapper will show all cards in a row as per the flex direction */}
         <Wrapper className="wrap" left={this.state.left}>
-          <ArrowBackRoundedIcon onClick={this.moveLeft} />
+          <ArrowWrapper>
+            <ArrowBackRoundedIcon onClick={this.moveLeft} />
+          </ArrowWrapper>
           {bedroomcards}
-          <ArrowForwardRoundedIcon onClick={this.moveRight} />
+          <ArrowWrapper>
+            <ArrowForwardRoundedIcon onClick={this.moveRight} />
+          </ArrowWrapper>
         </Wrapper>
       </Slider>
       // </CenterContainer>
