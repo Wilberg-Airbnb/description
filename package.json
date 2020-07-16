@@ -12,7 +12,8 @@
     "react-dev": "webpack -d --watch",
     "seed": "node database/seed.js",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "docker": "concurrently \"node databse/seed.js\" \"nodemon ./server/server.js --ignore node_modules\""
   },
   "dependencies": {
     "@material-ui/core": "^4.10.2",
@@ -20,6 +21,7 @@
     "@shelf/jest-mongodb": "^1.1.5",
     "axios": "^0.19.2",
     "babel-jest": "^26.1.0",
+    "concurrently": "^5.2.0",
     "cors": "^2.8.5",
     "eslint": "^7.2.0",
     "express": "^4.17.1",
@@ -44,7 +46,6 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.21.2",
     "jest": "^26.0.1",
