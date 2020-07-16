@@ -1,0 +1,20 @@
+version: '3'
+services:
+  app:
+    container_name: airbrb-descriptions
+    restart: always
+    build: .
+    ports:
+      - '4000:4000'
+    depends_on:
+      - mongo
+    command: bash -c "/app/wait-for-it.sh --timeout=0 mongo:27017 && npm run docker"
+  mongo:
+    container_name: mongo
+    image: mongo:3.5.9
+    ports:
+       - '27017:27017'
+
+# Wait for it script waits for the mongo port to start running
+# Use concurrently to seed the database AND start the server
+# Still need to figure out a way to switch between port 80 & 4000 when locally and in docker
