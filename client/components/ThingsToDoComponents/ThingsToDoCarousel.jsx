@@ -22,6 +22,8 @@ const Wrapper = styled.div`
 const Header = styled.div`
   display: flex;
   justify-content: space-around;
+  width: 80%;
+  margin: auto;
 `;
 
 class ThingsToDoCarousel extends React.Component {
@@ -72,6 +74,7 @@ class ThingsToDoCarousel extends React.Component {
       <Container>
         <Header>
           <h4>Things to do nearby</h4>
+          <br></br>
           <div>
             <IoIosArrowDropleft
               id="moveLeft"
