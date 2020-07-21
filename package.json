@@ -13,7 +13,7 @@
     "seed": "node database/seed.js",
     "test": "jest",
     "test:watch": "jest --watch",
-    "docker": "concurrently \"node databse/seed.js\" \"nodemon ./server/server.js --ignore node_modules\""
+    "docker": "concurrently \"node database/seed.js\" \"nodemon ./server/server.js --ignore node_modules\""
   },
   "dependencies": {
     "@material-ui/core": "^4.10.2",
