@@ -29,7 +29,7 @@ class Index extends React.Component {
     // And data-fetching from the proxy-side
     // Switch between http://localhost:4000/api and /api.....
     axios
-      .get(`http://localhost:4000/api/description/${this.state.listingId}`)
+      .get(`/api/description/${this.state.listingId}`)
       .then(({ data }) => {
         this.setState({
           descriptions: data.description,
