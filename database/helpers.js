@@ -278,11 +278,11 @@ function getRandomThingsToDo() {
     numberOfThingsToDo[Math.floor(Math.random() * numberOfThingsToDo.length)];
   for (let i = 0; i < randomAmount; i++) {
     activities.push({
+      numberOfReviews: Math.floor(Math.random() * 1000) + 100,
       activityPhoto: 'https://picsum.photos/107/142',
       activityDescription: faker.lorem.sentence(),
       pricePerPerson: getRandomInt(50, 300),
       stars: Number((Math.random() + 4).toFixed(2)),
-      numberOfReviews: Math.floor(Math.random() * 1000) + 100,
     });
   }
   function getRandomInt(min, max) {

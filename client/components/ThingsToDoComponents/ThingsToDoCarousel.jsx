@@ -3,6 +3,11 @@ import styled from 'styled-components';
 import ThingsToDoCard from './ThingsToDoCard.jsx';
 import { IoIosArrowDropright, IoIosArrowDropleft } from 'react-icons/Io';
 
+const Container = styled.div`
+  width: 100%;
+  text-align: center;
+`;
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -10,16 +15,15 @@ const Wrapper = styled.div`
   justify-content: space-around;
   overflow: hidden;
   width: 60%;
+  margin: auto;
+  text-align: left;
 `;
 
-const Slider = styled.div`
-  position: relative;
-  width: 100%;
-  margin: 0 auto;
-  border-top: solid 1px rgb(221, 221, 221);
-  border-bottom: solid 1px rgb(221, 221, 221);
-  padding-top: 24px;
-  padding-bottom: 30px;
+const Header = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  margin: auto;
 `;
 
 class ThingsToDoCarousel extends React.Component {
@@ -58,6 +62,7 @@ class ThingsToDoCarousel extends React.Component {
   }
 
   render() {
+    console.log('Hey');
     let cards = this.props.thingsToDo
       .map((card, i) => {
         return (
@@ -66,23 +71,27 @@ class ThingsToDoCarousel extends React.Component {
       })
       .slice(this.state.left, this.state.right + 1);
     return (
-      <div>
-        <IoIosArrowDropleft
-          id="moveLeft"
-          onClick={this.moveLeft}
-        ></IoIosArrowDropleft>
+      <Container>
+        <Header>
+          <h4>Things to do nearby</h4>
+          <br></br>
+          <div>
+            <IoIosArrowDropleft
+              id="moveLeft"
+              onClick={this.moveLeft}
+            ></IoIosArrowDropleft>
 
-        <IoIosArrowDropright
-          id="moveRight"
-          onClick={this.moveRight}
-        ></IoIosArrowDropright>
+            <IoIosArrowDropright
+              id="moveRight"
+              onClick={this.moveRight}
+            ></IoIosArrowDropright>
+          </div>
+        </Header>
 
-        {/* <Slider className="slider"> */}
         <Wrapper className="wrap" left={this.state.left}>
           {cards}
         </Wrapper>
-        {/* </Slider> */}
-      </div>
+      </Container>
     );
   }
 }
