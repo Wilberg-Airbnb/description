@@ -1,6 +1,18 @@
 import React from 'react';
 import AmenitiesModal from '../Modals/AmenitiesModal.jsx';
 import Modal from '../Modals/Modal.jsx';
+import styled from 'styled-components';
+
+const Button = styled.button`
+  border-radius: 8px;
+  border-width: 1px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 13px;
+  padding-right: 13px;
+  font-size: 12px;
+  background: white;
+`;
 
 class Amenities extends React.Component {
   constructor(props) {
@@ -29,9 +41,9 @@ class Amenities extends React.Component {
     return (
       <div>
         {amenitiesToShow}
-        <button id="showMore" onClick={this.toggleModal}>
+        <Button id="showMore" onClick={this.toggleModal}>
           Show all {this.props.amenities.length} amenities
-        </button>
+        </Button>
         {this.state.showModal ? (
           <Modal>
             <AmenitiesModal
