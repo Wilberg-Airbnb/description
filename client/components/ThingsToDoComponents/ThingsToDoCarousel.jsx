@@ -1,22 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 import ThingsToDoCard from './ThingsToDoCard.jsx';
+import { IoIosArrowDropright, IoIosArrowDropleft } from 'react-icons/Io';
 
 const Wrapper = styled.div`
   display: flex;
-  position: absolute;
-  left: ${(props) => props.left}%;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  overflow: hidden;
+  width: 60%;
 `;
 
 const Slider = styled.div`
   position: relative;
   width: 100%;
   margin: 0 auto;
-  display: inline-block;
-`;
-
-const CenterContainer = styled.div`
-  text-align: center;
+  border-top: solid 1px rgb(221, 221, 221);
+  border-bottom: solid 1px rgb(221, 221, 221);
+  padding-top: 24px;
+  padding-bottom: 30px;
 `;
 
 class ThingsToDoCarousel extends React.Component {
@@ -25,6 +28,8 @@ class ThingsToDoCarousel extends React.Component {
     this.state = {
       currentSlide: 0,
       left: 0,
+      right: 5,
+      slidesShown: 5,
     };
     this.moveRight = this.moveRight.bind(this);
     this.moveLeft = this.moveLeft.bind(this);
@@ -33,41 +38,51 @@ class ThingsToDoCarousel extends React.Component {
   moveLeft() {
     if (this.state.currentSlide > 0) {
       this.setState({
-        left: this.state.left + 100,
-        currentSlide: this.state.currentSlide - 6,
+        left: this.state.left - 5,
+        right: this.state.right - 5,
+        currentSlide: this.state.currentSlide - 1,
+        slidesShown: this.state.slidesShown - 5,
       });
     }
   }
 
   moveRight() {
-    if (this.state.currentSlide < this.props.length) {
+    if (this.state.slidesShown < this.props.thingsToDo.length) {
       this.setState({
-        left: this.state.left - 100,
-        currentSlide: this.state.currentSlide + 6,
+        left: this.state.left + 5,
+        right: this.state.right + 5,
+        currentSlide: this.state.currentSlide + 1,
+        slidesShown: this.state.slidesShown + 5,
       });
     }
   }
 
   render() {
-    let cards = this.props.thingsToDo.map((card, i) => {
-      return <ThingsToDoCard key={card._id} thingsToDo={card}></ThingsToDoCard>;
-    });
-
+    let cards = this.props.thingsToDo
+      .map((card, i) => {
+        return (
+          <ThingsToDoCard key={card._id} thingsToDo={card}></ThingsToDoCard>
+        );
+      })
+      .slice(this.state.left, this.state.right + 1);
     return (
-      <CenterContainer>
-        <button id="moveLeft" onClick={this.moveLeft}>
-          Move Left
-        </button>
-        <button id="moveRight" onClick={this.moveRight}>
-          Move Right
-        </button>
+      <div>
+        <IoIosArrowDropleft
+          id="moveLeft"
+          onClick={this.moveLeft}
+        ></IoIosArrowDropleft>
 
-        <Slider className="slider">
-          <Wrapper className="wrap" left={this.state.left}>
-            {cards}
-          </Wrapper>
-        </Slider>
-      </CenterContainer>
+        <IoIosArrowDropright
+          id="moveRight"
+          onClick={this.moveRight}
+        ></IoIosArrowDropright>
+
+        {/* <Slider className="slider"> */}
+        <Wrapper className="wrap" left={this.state.left}>
+          {cards}
+        </Wrapper>
+        {/* </Slider> */}
+      </div>
     );
   }
 }
