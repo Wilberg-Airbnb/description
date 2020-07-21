@@ -60,6 +60,7 @@ class ThingsToDoCarousel extends React.Component {
   }
 
   render() {
+    console.log('Hey');
     let cards = this.props.thingsToDo
       .map((card, i) => {
         return (
