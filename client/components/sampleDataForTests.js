@@ -1,3 +1,24 @@
+const overview = [
+  {
+    mainHeader: 'Great check-in experience',
+    description:
+      '95% of recent guests gave the check-in process a 5-star rating.',
+  },
+  {
+    mainHeader: 'Self check-in',
+    description: 'Check yourself in with the lockbox.',
+  },
+  {
+    mainHeader: 'Ehanced Clean',
+    description:
+      'This host committed to a rigorous cleaning protocol developed with leading health and hospitality experts.',
+  },
+  {
+    mainHeader: 'Great Location',
+    description: '92% of recent guests gave the location a 5-star rating.',
+  },
+],
+
 const sampleDescriptions = [
   {
     header: 'Quae est molestias est qui.',
@@ -596,6 +617,7 @@ const thingsToKnow = {
 };
 
 export {
+  overview,
   sampleDescriptions,
   sampleAmenities,
   hostAndRoomsEntirePlace,

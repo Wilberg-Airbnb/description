@@ -18,8 +18,7 @@ const descriptionSchema = new mongoose.Schema({
   ],
   overview: [
     {
-      iconLink: String,
-      overviewHeader: String,
+      mainHeader: String,
       description: String,
     },
   ],
