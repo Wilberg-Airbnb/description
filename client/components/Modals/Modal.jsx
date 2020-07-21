@@ -9,7 +9,7 @@ class Modal extends React.Component {
   }
 
   render() {
-    return ReactDOM.createPortal(<div>{this.props.children}</div>, modalRoot);
+    return ReactDOM.createPortal(this.props.children, modalRoot);
   }
 }
 

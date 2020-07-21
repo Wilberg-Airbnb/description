@@ -16,22 +16,27 @@ const SafetyModal = ({ toggleModal }) => {
   const handleClickInside = () => setClickedOutside(false);
 
   useEffect(() => {
+    // Prevent Scrolling
     document.addEventListener('mousedown', handleClickOutside);
+    document.documentElement.style.overflow = 'hidden';
+    document.body.scroll = 'no';
     return () => document.removeEventListener('mousedown', handleClickOutside);
   });
 
   return (
     <div
       style={{
-        position: 'absolute',
+        position: 'fixed',
+        padding: '0',
+        margin: '0',
         top: '0',
-        bottom: '0',
         left: '0',
-        right: '0',
-        display: 'grid',
+        width: '100%',
+        height: '100%',
+        backgroundColor: 'rgba(0,0,0,0.3)',
+        display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'rgba(0,0,0,0.3)',
       }}
     >
       <div
@@ -40,12 +45,13 @@ const SafetyModal = ({ toggleModal }) => {
         style={{
           padding: 20,
           background: '#fff',
-          borderRadius: '2px',
+          borderRadius: '8px',
           display: 'inline-block',
-          minHeight: '300px',
+          height: '225px',
+          borderRadius: '15px',
           margin: '1rem',
           position: 'relative',
-          minWidth: '300px',
+          minWidth: '475px',
           boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)',
           justifySelf: 'center',
         }}
