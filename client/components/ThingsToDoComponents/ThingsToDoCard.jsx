@@ -1,12 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-
+import StarIcon from '@material-ui/icons/Star';
 const StyledCard = styled.div`
-  height: 200px;
-  width: 150px;
-  margin-left: 30px;
-  margin-right: 30px;
+  margin-right: 15px;
   background-color: #fff;
   filter: drop-shadow(0px 0px 0px #fff);
   flex: 1;
@@ -30,6 +27,9 @@ const Icon = styled.div`
     display: block;
   }
 `;
+const ReviewAndStars = styled.span`
+  font-size: 10px;
+`;
 
 const ThingsToDoCard = ({ thingsToDo }) => {
   return (
@@ -42,6 +42,10 @@ const ThingsToDoCard = ({ thingsToDo }) => {
       <Icon id="likeIcon">
         <FavoriteBorderIcon></FavoriteBorderIcon>
       </Icon>
+      <ReviewAndStars>
+        <StarIcon style={{ fontSize: 12 }}></StarIcon> {thingsToDo.stars} (
+        {thingsToDo.numberOfReviews})
+      </ReviewAndStars>
     </StyledCard>
   );
 };
