@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import ThingsToDoCard from './ThingsToDoCard.jsx';
+import { IoIosArrowDropright, IoIosArrowDropleft } from 'react-icons/Io';
 
 const Wrapper = styled.div`
   display: flex;
@@ -66,12 +67,16 @@ class ThingsToDoCarousel extends React.Component {
       .slice(this.state.left, this.state.right + 1);
     return (
       <div>
-        <button id="moveLeft" onClick={this.moveLeft}>
-          Move Left
-        </button>
-        <button id="moveRight" onClick={this.moveRight}>
-          Move Right
-        </button>
+        <IoIosArrowDropleft
+          id="moveLeft"
+          onClick={this.moveLeft}
+        ></IoIosArrowDropleft>
+
+        <IoIosArrowDropright
+          id="moveRight"
+          onClick={this.moveRight}
+        ></IoIosArrowDropright>
+
         {/* <Slider className="slider"> */}
         <Wrapper className="wrap" left={this.state.left}>
           {cards}
