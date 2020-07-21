@@ -33,13 +33,7 @@ for (let i = 0; i < 100; i++) {
         photoUrl: 'https://picsum.photos/100',
       },
     ],
-    overview: [
-      {
-        iconLink: 'https://picsum.photos/100',
-        overviewHeader: faker.lorem.sentence(),
-        description: faker.lorem.paragraph(),
-      },
-    ],
+    overview: helpers.overView(),
     description: helpers.getRandomDescriptions(),
     sleepingArrangements: [
       {

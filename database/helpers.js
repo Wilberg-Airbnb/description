@@ -12,6 +12,50 @@ function typeOfPlace() {
   return typesOfPlaces[Math.floor(Math.random() * typesOfPlaces.length)];
 }
 
+function overView() {
+  let overViewOptions = [
+    {
+      mainHeader: 'Clean and tidy',
+      description: `${
+        Math.floor(Math.random() * 9) + 10
+      } recent guests said this place was sparkling clean.`,
+    },
+    {
+      mainHeader: 'Great Location',
+      description: `${
+        Math.floor(Math.random() * 9) + 90
+      }% of recent guests gave the location a 5-star rating.`,
+    },
+    {
+      mainHeader: 'Ehanced Clean',
+      description: `This host committed to a rigorous cleaning protocol developed with leading health and hospitality experts.`,
+    },
+    {
+      mainHeader: 'Self check-in',
+      description: 'Check yourself in with the lockbox.',
+    },
+    {
+      mainHeader: 'Great check-in experience',
+      description: `${
+        Math.floor(Math.random() * 9) + 90
+      }% of recent guests gave the check-in process a 5-star rating.`,
+    },
+    {
+      mainHeader: `Great communication`,
+      description: `${
+        Math.floor(Math.random() * 9) + 90
+      }% of recent guests rated Sergio 5-star in communication.`,
+    },
+    {
+      mainHeader: `Outstanding hospitality`,
+      description: `${
+        Math.floor(Math.random() * 9) + 10
+      } recent guests complimented Vincent for outstanding hospitality.`,
+    },
+  ];
+  return overViewOptions.sort(() => Math.random() - Math.random()).slice(0, 4);
+}
+
 function getSleepingArrangements(data) {
   let arrangements = [
     {
@@ -318,6 +362,7 @@ function getRandomSaeftyItemsAndHouseRules() {
 }
 
 module.exports = {
+  overView,
   getRandomAmenities,
   getSleepingArrangements,
   typeOfPlace,
