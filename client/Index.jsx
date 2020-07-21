@@ -6,8 +6,8 @@ import HostAndRooms from './components/HostAndRoomsComponents/HostAndRooms.jsx';
 import ThingsToDoCarousel from './components/ThingsToDoComponents/ThingsToDoCarousel.jsx';
 import BedroomCarousel from './components/BedroomArrangementComponents/BedroomCarousel.jsx';
 import ThingsToKnowSection from './components/ThingsToKnowComponents/ThingsToKnow.jsx';
+import Overview from './components/OverviewComponent/Overview.jsx';
 import { sleepingArrangements } from './components/sampleDataForTests';
-
 class Index extends React.Component {
   constructor(props) {
     super(props);
@@ -19,6 +19,7 @@ class Index extends React.Component {
       sleepingArrangements: [],
       thingsToKnow: [],
       listingId: window.location.pathname.slice(1, -1),
+      overview: [],
       // Get access to the listingId using pathname, split just for the number
     };
   }
@@ -33,6 +34,7 @@ class Index extends React.Component {
           descriptions: data.description,
           amenities: data.amenities,
           hostAndRooms: data.hostAndRooms[0],
+          overview: data.overview,
           thingsToDo: data.thingsToDo,
           sleepingArrangements: data.sleepingArrangements,
           thingsToKnow: {
@@ -50,8 +52,13 @@ class Index extends React.Component {
   render() {
     return (
       <div>
-        <HostAndRooms hostAndRooms={this.state.hostAndRooms} />
-        <MainDescription descriptions={this.state.descriptions} />
+        {/* <HostAndRooms hostAndRooms={this.state.hostAndRooms} /> */}
+        <Overview
+          strictCancellation={this.state.thingsToKnow.cancellationPolicy}
+          overview={this.state.overview}
+          entirePlace={this.state.hostAndRooms.entirePlace}
+        />
+        {/* <MainDescription descriptions={this.state.descriptions} />
         <BedroomCarousel
           sleepingArrangements={this.state.sleepingArrangements}
         ></BedroomCarousel>
@@ -62,7 +69,7 @@ class Index extends React.Component {
         <ThingsToDoCarousel
           thingsToDo={this.state.thingsToDo}
           length={this.state.thingsToDo.length}
-        ></ThingsToDoCarousel>
+        ></ThingsToDoCarousel> */}
       </div>
     );
     // }

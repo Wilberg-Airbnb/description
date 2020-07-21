@@ -1,4 +1,4 @@
-const overview = [
+let overview = [
   {
     mainHeader: 'Great check-in experience',
     description:
@@ -17,7 +17,7 @@ const overview = [
     mainHeader: 'Great Location',
     description: '92% of recent guests gave the location a 5-star rating.',
   },
-],
+];
 
 const sampleDescriptions = [
   {
