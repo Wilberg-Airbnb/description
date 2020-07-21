@@ -27,6 +27,7 @@ class Index extends React.Component {
   componentDidMount() {
     // Have to add HTTP protocol && server port as per CORS policy
     // And data-fetching from the proxy-side
+    // Switch between http://localhost:4000/api and /api.....
     axios
       .get(`http://localhost:4000/api/description/${this.state.listingId}`)
       .then(({ data }) => {
