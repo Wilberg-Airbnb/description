@@ -13,9 +13,11 @@ import { overView } from '../../../database/helpers';
 
 // Display Svgs in column format
 const Container = styled.div`
+  padding-top: 15px;
   display: flex;
   flex-direction: column;
   width: 33%;
+  border-top: solid 1px rgb(204, 212, 204);
 `;
 
 // Within the flex box, display the icon and the description inline as rows
@@ -197,11 +199,7 @@ const Overview = ({
     );
   }
 
-  return (
-    <div>
-      <Container>{svgsToDisplay}</Container>
-    </div>
-  );
+  return <Container>{svgsToDisplay}</Container>;
 };
 
 export default Overview;
