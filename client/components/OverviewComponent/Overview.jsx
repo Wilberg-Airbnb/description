@@ -15,7 +15,7 @@ import { overView } from '../../../database/helpers';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 33%;
 `;
 
 // Within the flex box, display the icon and the description inline as rows
@@ -26,30 +26,41 @@ const Row = styled.div`
 `;
 
 const OverViewDiv = styled.div`
-  margin-left: 15px;
+  margin-left: 5px;
+`;
+
+const CancellationOverViewDiv = styled.div`
+  margin-left: 25px;
 `;
 
 const MainHeader = styled.span`
   font-weight: bold;
-  font-size: 12px;
-`;
-
-const HeaderDescription = styled.span`
   font-size: 10px;
 `;
 
-const Overview = ({ strictCancellation, overview, entirePlace }) => {
+const HeaderDescription = styled.span`
+  font-size: 8px;
+`;
+
+const Overview = ({
+  cancellationPolicy,
+  overview,
+  entirePlace,
+  strictCancellation,
+}) => {
   let svgsToDisplay = [];
   if (overview.length !== 0) {
     overview.forEach((item) => {
       if (item.mainHeader === 'Clean and tidy') {
         svgsToDisplay.push(
           <Row>
-            <Cleanandtidy height={50} width={50}></Cleanandtidy>
+            <Cleanandtidy height={30} width={50}></Cleanandtidy>
             <OverViewDiv>
               <MainHeader>{item.mainHeader}</MainHeader>
               <br></br>
-              <HeaderDescription>{item.description}</HeaderDescription>
+              <HeaderDescription className="description">
+                {item.description}
+              </HeaderDescription>
             </OverViewDiv>
           </Row>
         );
@@ -57,11 +68,13 @@ const Overview = ({ strictCancellation, overview, entirePlace }) => {
       if (item.mainHeader === 'Great Location') {
         svgsToDisplay.push(
           <Row>
-            <GreatLocation height={50} width={50}></GreatLocation>
+            <GreatLocation height={30} width={50}></GreatLocation>
             <OverViewDiv>
-              <MainHeader>{item.mainHeader}</MainHeader>
+              <MainHeader clasName="header">{item.mainHeader}</MainHeader>
               <br></br>
-              <HeaderDescription>{item.description}</HeaderDescription>
+              <HeaderDescription className="description">
+                {item.description}
+              </HeaderDescription>
             </OverViewDiv>
           </Row>
         );
@@ -69,11 +82,13 @@ const Overview = ({ strictCancellation, overview, entirePlace }) => {
       if (item.mainHeader === 'Enhanced Clean') {
         svgsToDisplay.push(
           <Row>
-            <EnhancedClean height={50} width={50}></EnhancedClean>
+            <EnhancedClean height={30} width={50}></EnhancedClean>
             <OverViewDiv>
-              <MainHeader>{item.mainHeader}</MainHeader>
+              <MainHeader clasName="header">{item.mainHeader}</MainHeader>
               <br></br>
-              <HeaderDescription>{item.description}</HeaderDescription>
+              <HeaderDescription className="description">
+                {item.description}
+              </HeaderDescription>
             </OverViewDiv>
           </Row>
         );
@@ -81,11 +96,13 @@ const Overview = ({ strictCancellation, overview, entirePlace }) => {
       if (item.mainHeader === 'Self check-in') {
         svgsToDisplay.push(
           <Row>
-            <Selfcheckin height={50} width={50}></Selfcheckin>
+            <Selfcheckin height={30} width={50}></Selfcheckin>
             <OverViewDiv>
-              <MainHeader>{item.mainHeader}</MainHeader>
+              <MainHeader clasName="header">{item.mainHeader}</MainHeader>
               <br></br>
-              <HeaderDescription>{item.description}</HeaderDescription>
+              <HeaderDescription className="description">
+                {item.description}
+              </HeaderDescription>
             </OverViewDiv>
           </Row>
         );
@@ -94,13 +111,15 @@ const Overview = ({ strictCancellation, overview, entirePlace }) => {
         svgsToDisplay.push(
           <Row>
             <Greatcheckinexperience
-              height={50}
+              height={30}
               width={50}
             ></Greatcheckinexperience>
             <OverViewDiv>
-              <MainHeader>{item.mainHeader}</MainHeader>
+              <MainHeader clasName="header">{item.mainHeader}</MainHeader>
               <br></br>
-              <HeaderDescription>{item.description}</HeaderDescription>
+              <HeaderDescription className="description">
+                {item.description}
+              </HeaderDescription>
             </OverViewDiv>
           </Row>
         );
@@ -108,11 +127,13 @@ const Overview = ({ strictCancellation, overview, entirePlace }) => {
       if (item.mainHeader === 'Great communication') {
         svgsToDisplay.push(
           <Row>
-            <Greatcommunication height={50} width={60}></Greatcommunication>
+            <Greatcommunication height={30} width={50}></Greatcommunication>
             <OverViewDiv>
-              <MainHeader>{item.mainHeader}</MainHeader>
+              <MainHeader clasName="header">{item.mainHeader}</MainHeader>
               <br></br>
-              <HeaderDescription>{item.description}</HeaderDescription>
+              <HeaderDescription className="description">
+                {item.description}
+              </HeaderDescription>
             </OverViewDiv>
           </Row>
         );
@@ -125,9 +146,11 @@ const Overview = ({ strictCancellation, overview, entirePlace }) => {
               width={50}
             ></Outstandinghospitality>
             <OverViewDiv>
-              <MainHeader>{item.mainHeader}</MainHeader>
+              <MainHeader clasName="header">{item.mainHeader}</MainHeader>
               <br></br>
-              <HeaderDescription>{item.description}</HeaderDescription>
+              <HeaderDescription className="description">
+                {item.description}
+              </HeaderDescription>
             </OverViewDiv>
           </Row>
         );
@@ -137,14 +160,39 @@ const Overview = ({ strictCancellation, overview, entirePlace }) => {
   if (entirePlace.bathNumber && entirePlace.entirePlace === true) {
     svgsToDisplay.push(
       <Row>
-        <EntireHome height={50} width={50}></EntireHome>
+        <EntireHome height={45} width={50}></EntireHome>
         <OverViewDiv>
-          <MainHeader>Entire {entirePlace.typeOfPlace}</MainHeader>
+          <MainHeader clasName="header">
+            Entire {entirePlace.typeOfPlace}
+          </MainHeader>
           <br></br>
-          <HeaderDescription>
+          <HeaderDescription className="description">
             You'll have the {entirePlace.typeOfPlace} to yourself
           </HeaderDescription>
         </OverViewDiv>
+      </Row>
+    );
+  }
+  // Take care of async call for strictCancellation since it will return undefined first
+  if (
+    strictCancellation !== undefined &&
+    strictCancellation.flexible === true
+  ) {
+    svgsToDisplay.push(
+      <Row>
+        <Cancellation height={25} width={25}></Cancellation>
+        <CancellationOverViewDiv>
+          <MainHeader clasName="header">
+            Free cancellation until {strictCancellation.timeBeforeCancellation}
+            hours before check-in.
+          </MainHeader>
+          <br></br>
+          <HeaderDescription className="description">
+            After that, cancel before check-in and get a
+            {strictCancellation.percentRefund}, minus first night and service
+            fee.
+          </HeaderDescription>
+        </CancellationOverViewDiv>
       </Row>
     );
   }
