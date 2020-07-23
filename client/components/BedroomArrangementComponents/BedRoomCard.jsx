@@ -2,18 +2,33 @@ import React from 'react';
 import styled from 'styled-components';
 
 const SleepingArrangementCard = styled.div`
-  height: 85px;
-  width: 120px;
+  height: 110px;
+  width: 135px;
   border-style: solid;
-  border-width: 2px;
+  border-width: 1px;
   border-color: rgb(221, 221, 221);
-  border-radius: 12px;
+  border-radius: 5px;
   margin-right: 10px;
 `;
 
-const IconDiv = styled.div`
-  margin-right: 50%;
+const SleepingArrangementContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  align-content: center;
+  margin-top: 15px;
+  margin-left: 18px;
 `;
+
+const SleepingHeader = styled.div`
+  font-weight: bold;
+  font-size: 11px;
+`;
+
+const SleepingDescription = styled.div`
+  font-size: 10px;
+`;
+
 const BedroomCard = ({ bedroomDescription }) => {
   // Get first word to determine the type of bed
   const arrangementType = bedroomDescription.bedroomDescription.split(' ')[1];
@@ -44,13 +59,15 @@ const BedroomCard = ({ bedroomDescription }) => {
   }
   return (
     <SleepingArrangementCard>
-      <div className="sleepingArrangement">
+      <SleepingArrangementContainer>
         <div>{BedIcon}</div>
-        <div className="header">{bedroomDescription.bedroomHeader}</div>
-        <div className="description">
+        <SleepingHeader className="header">
+          {bedroomDescription.bedroomHeader}
+        </SleepingHeader>
+        <SleepingDescription className="description">
           {bedroomDescription.bedroomDescription}
-        </div>
-      </div>
+        </SleepingDescription>
+      </SleepingArrangementContainer>
     </SleepingArrangementCard>
   );
 };
