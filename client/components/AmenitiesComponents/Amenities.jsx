@@ -12,6 +12,33 @@ const Button = styled.button`
   padding-right: 13px;
   font-size: 12px;
   background: white;
+  position: absolute;
+`;
+// Create a parent container
+const AmenitiesContainer = styled.div`
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+`;
+
+// Create an amenities header
+const AmenitiesHeader = styled.div`
+  font-size: 16px;
+  font-weight: bold;
+`;
+// Create a flexbox container for the listings
+const AmenitiesListingContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
+// Make each listing half the size of the listing container
+// so that they wrap to the next side
+const AmenitiesListing = styled.section`
+  width: 50%;
+  height: 20%;
+  font-size: 14px;
 `;
 
 const Url = 'https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/';
@@ -41,7 +68,7 @@ class Amenities extends React.Component {
         }
         firstWord = firstWord.charAt(0).toLowerCase() + firstWord.slice(1);
         return (
-          <section key={amenity._id}>
+          <AmenitiesListing key={amenity._id}>
             <img
               // template literal for s3 bucket url
               src={`${Url}${firstWord}.png`}
@@ -51,12 +78,13 @@ class Amenities extends React.Component {
               <img href={amenity.iconLink}></img>
             </span>{' '}
             <span>{amenity.title}</span>
-          </section>
+          </AmenitiesListing>
         );
       });
     return (
-      <div id="amenities">
-        {amenitiesToShow}
+      <AmenitiesContainer>
+        <AmenitiesHeader>Amenities</AmenitiesHeader>
+        <AmenitiesListingContainer>{amenitiesToShow}</AmenitiesListingContainer>
         <Button id="showMore" onClick={this.toggleModal}>
           Show all {this.props.amenities.length} amenities
         </Button>
@@ -73,7 +101,7 @@ class Amenities extends React.Component {
             ></AmenitiesModal>
           </Modal>
         ) : null}
-      </div>
+      </AmenitiesContainer>
     );
   }
 }

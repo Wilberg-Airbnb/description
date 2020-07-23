@@ -116,7 +116,7 @@ function getRandomAmenities() {
     },
     {
       iconLink: 'https://picsum.photos/25',
-      title: 'Towels, bed sheets, soap, and toilet paper',
+      title: 'Towels, bed sheets',
       amenityDescription: '',
       subheader: 'Essentials',
     },
