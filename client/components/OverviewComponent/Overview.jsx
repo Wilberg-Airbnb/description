@@ -43,7 +43,7 @@ const Overview = ({
         iconsToDisplay.push(
           <Row>
             <img
-              src="assets/cleanandtidy.png"
+              src="https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/cleanandtidy.png"
               style={{ maxHeight: '25px' }}
             ></img>
             <OverViewDiv>
@@ -60,7 +60,7 @@ const Overview = ({
         iconsToDisplay.push(
           <Row>
             <img
-              src="assets/greatlocation.png"
+              src="https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/greatlocation.png"
               style={{ maxHeight: '25px' }}
             ></img>
             <OverViewDiv>
@@ -77,7 +77,7 @@ const Overview = ({
         iconsToDisplay.push(
           <Row>
             <img
-              src="assets/enhancedclean.png"
+              src="https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/enhancedclean.png"
               style={{ maxHeight: '25px' }}
             ></img>
             <OverViewDiv>
@@ -94,7 +94,7 @@ const Overview = ({
         iconsToDisplay.push(
           <Row>
             <img
-              src="assets/selfcheckin.png"
+              src="https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/selfcheckin.png"
               style={{ maxHeight: '25px' }}
             ></img>
             <OverViewDiv>
@@ -111,7 +111,7 @@ const Overview = ({
         iconsToDisplay.push(
           <Row>
             <img
-              src="assets/greatcheckinexperience.png"
+              src="https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/greatcheckinexperience.png"
               style={{ maxHeight: '25px' }}
             ></img>
             <OverViewDiv>
@@ -128,7 +128,7 @@ const Overview = ({
         iconsToDisplay.push(
           <Row>
             <img
-              src="assets/greatcommunication.png"
+              src="https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/greatcommunication.png"
               style={{ maxHeight: '25px' }}
             ></img>
             <OverViewDiv>
@@ -145,7 +145,7 @@ const Overview = ({
         iconsToDisplay.push(
           <Row>
             <img
-              src="assets/outstandinghospitality.png"
+              src="https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/outstandinghospitality.png"
               style={{ maxHeight: '25px' }}
             ></img>
             <OverViewDiv>
@@ -163,7 +163,10 @@ const Overview = ({
   if (entirePlace.bathNumber && entirePlace.entirePlace === true) {
     iconsToDisplay.push(
       <Row>
-        <img src="assets/entireHome.png" style={{ maxHeight: '25px' }}></img>
+        <img
+          src="https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/entirehome.png"
+          style={{ maxHeight: '25px' }}
+        ></img>
         <OverViewDiv>
           <MainHeader clasName="header">
             Entire {entirePlace.typeOfPlace}
@@ -183,7 +186,10 @@ const Overview = ({
   ) {
     iconsToDisplay.push(
       <Row>
-        <img src="assets/cancellation.png" style={{ maxHeight: '25px' }}></img>
+        <img
+          src="https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/cancellation.png"
+          style={{ maxHeight: '25px' }}
+        ></img>
         <OverViewDiv>
           <MainHeader clasName="header">
             Free cancellation until {strictCancellation.timeBeforeCancellation}
