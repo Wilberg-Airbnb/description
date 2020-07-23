@@ -1,40 +1,73 @@
 import React from 'react';
 import styled from 'styled-components';
-import LocalHotelIcon from '@material-ui/icons/LocalHotel';
-import WeekendIcon from '@material-ui/icons/Weekend';
 
 const SleepingArrangementCard = styled.div`
-  height: 85px;
-  width: 120px;
+  height: 110px;
+  width: 135px;
   border-style: solid;
-  border-width: 2px;
+  border-width: 1px;
   border-color: rgb(221, 221, 221);
-  border-radius: 12px;
+  border-radius: 5px;
   margin-right: 10px;
 `;
 
-const IconDiv = styled.div`
-  margin-right: 50%;
+const SleepingArrangementContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  align-content: center;
+  margin-top: 15px;
+  margin-left: 18px;
 `;
+
+const SleepingHeader = styled.div`
+  font-weight: bold;
+  font-size: 11px;
+`;
+
+const SleepingDescription = styled.div`
+  font-size: 10px;
+`;
+
 const BedroomCard = ({ bedroomDescription }) => {
-  const arrangementType = bedroomDescription.bedroomDescription
-    .split(' ')
-    .pop();
+  // Get first word to determine the type of bed
+  const arrangementType = bedroomDescription.bedroomDescription.split(' ')[1];
   let BedIcon;
-  if (arrangementType === 'bed') {
-    BedIcon = <LocalHotelIcon />;
-  } else {
-    BedIcon = <WeekendIcon />;
+  console.log('The arrangement', arrangementType);
+  if (arrangementType === 'Single') {
+    BedIcon = (
+      <img src="assets/singlebed.png" style={{ maxHeight: '25px' }}></img>
+    );
+  }
+  if (arrangementType === 'Double') {
+    BedIcon = (
+      <img src="assets/doublebed.png" style={{ maxHeight: '25px' }}></img>
+    );
+  }
+  if (arrangementType === 'Queen') {
+    BedIcon = (
+      <img src="assets/queenbed.png" style={{ maxHeight: '25px' }}></img>
+    );
+  }
+  if (arrangementType === 'King') {
+    BedIcon = (
+      <img src="assets/kingbed.png" style={{ maxHeight: '25px' }}></img>
+    );
+  }
+  if (arrangementType === 'Couch') {
+    BedIcon = <img src="assets/couch.png" style={{ maxHeight: '25px' }}></img>;
   }
   return (
     <SleepingArrangementCard>
-      <div className="sleepingArrangement">
-        <IconDiv>{BedIcon}</IconDiv>
-        <div className="header">{bedroomDescription.bedroomHeader}</div>
-        <div className="description">
+      <SleepingArrangementContainer>
+        <div>{BedIcon}</div>
+        <SleepingHeader className="header">
+          {bedroomDescription.bedroomHeader}
+        </SleepingHeader>
+        <SleepingDescription className="description">
           {bedroomDescription.bedroomDescription}
-        </div>
-      </div>
+        </SleepingDescription>
+      </SleepingArrangementContainer>
     </SleepingArrangementCard>
   );
 };
