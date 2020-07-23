@@ -36,7 +36,6 @@ const Slider = styled.div`
   width: 40%;
   margin: 0 auto;
   display: inline-block;
-  border-top: solid 1px rgb(221, 221, 221);
   border-bottom: solid 1px rgb(221, 221, 221);
   padding-top: 24px;
   padding-bottom: 30px;
