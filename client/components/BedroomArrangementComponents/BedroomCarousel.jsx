@@ -3,11 +3,19 @@ import styled from 'styled-components';
 import BedroomCard from './BedroomCard.jsx';
 import ArrowForwardRoundedIcon from '@material-ui/icons/ArrowForwardRounded';
 import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded';
+import { IoIosArrowDropright, IoIosArrowDropleft } from 'react-icons/Io';
 
 // Align arrows in the middle by calculating the
 // size of the card
-const ArrowWrapper = styled.div`
-  padding-top: 30px;
+const ArrowWrapperLeft = styled.div`
+  padding-top: 40px;
+  position: absolute;
+  margin-left: -10px;
+`;
+const ArrowWrapperRight = styled.div`
+  padding-top: 40px;
+  float: right;
+  margin-left: -25px;
 `;
 
 // Wrapper will show all cards in a row as per the flex direction
@@ -15,7 +23,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-around;
+  justify-content: flex-start;
   overflow: hidden;
   width: 100%;
 `;
@@ -86,17 +94,17 @@ class BedroomCarousel extends React.Component {
         <Wrapper className="wrap" left={this.state.left}>
           {/* Conditionally render the left arrow if you're NOT on the first page */}
           {this.state.currentSlide === 0 ? null : (
-            <ArrowWrapper>
-              <ArrowBackRoundedIcon onClick={this.moveLeft} />
-            </ArrowWrapper>
+            <ArrowWrapperLeft>
+              <IoIosArrowDropleft size={25} onClick={this.moveLeft} />
+            </ArrowWrapperLeft>
           )}
           {bedroomcards}
           {/* Conditionally render the right arrow if you're NOT at the last slide */}
           {this.state.slidesShown >
           this.props.sleepingArrangements.length ? null : (
-            <ArrowWrapper>
-              <ArrowForwardRoundedIcon onClick={this.moveRight} />
-            </ArrowWrapper>
+            <ArrowWrapperRight>
+              <IoIosArrowDropright size={25} onClick={this.moveRight} />
+            </ArrowWrapperRight>
           )}
         </Wrapper>
       </Slider>
