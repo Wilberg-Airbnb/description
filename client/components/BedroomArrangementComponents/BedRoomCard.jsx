@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import LocalHotelIcon from '@material-ui/icons/LocalHotel';
-import WeekendIcon from '@material-ui/icons/Weekend';
 
 const SleepingArrangementCard = styled.div`
   height: 85px;
@@ -17,19 +15,37 @@ const IconDiv = styled.div`
   margin-right: 50%;
 `;
 const BedroomCard = ({ bedroomDescription }) => {
-  const arrangementType = bedroomDescription.bedroomDescription
-    .split(' ')
-    .pop();
+  // Get first word to determine the type of bed
+  const arrangementType = bedroomDescription.bedroomDescription.split(' ')[1];
   let BedIcon;
-  if (arrangementType === 'bed') {
-    BedIcon = <LocalHotelIcon />;
-  } else {
-    BedIcon = <WeekendIcon />;
+  console.log('The arrangement', arrangementType);
+  if (arrangementType === 'Single') {
+    BedIcon = (
+      <img src="assets/singlebed.png" style={{ maxHeight: '25px' }}></img>
+    );
+  }
+  if (arrangementType === 'Double') {
+    BedIcon = (
+      <img src="assets/doublebed.png" style={{ maxHeight: '25px' }}></img>
+    );
+  }
+  if (arrangementType === 'Queen') {
+    BedIcon = (
+      <img src="assets/queenbed.png" style={{ maxHeight: '25px' }}></img>
+    );
+  }
+  if (arrangementType === 'King') {
+    BedIcon = (
+      <img src="assets/kingbed.png" style={{ maxHeight: '25px' }}></img>
+    );
+  }
+  if (arrangementType === 'Couch') {
+    BedIcon = <img src="assets/couch.png" style={{ maxHeight: '25px' }}></img>;
   }
   return (
     <SleepingArrangementCard>
       <div className="sleepingArrangement">
-        <IconDiv>{BedIcon}</IconDiv>
+        <div>{BedIcon}</div>
         <div className="header">{bedroomDescription.bedroomHeader}</div>
         <div className="description">
           {bedroomDescription.bedroomDescription}

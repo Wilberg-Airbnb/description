@@ -56,24 +56,24 @@ class Index extends React.Component {
   render() {
     return (
       <div>
-        <HostAndRooms hostAndRooms={this.state.hostAndRooms} />
+        {/* <HostAndRooms hostAndRooms={this.state.hostAndRooms} />
         <Overview
           strictCancellation={this.state.thingsToKnow.cancellationPolicy}
           overview={this.state.overview}
           entirePlace={this.state.hostAndRooms}
         />
-        <MainDescription descriptions={this.state.descriptions} />
+        <MainDescription descriptions={this.state.descriptions} /> */}
         <BedroomCarousel
           sleepingArrangements={this.state.sleepingArrangements}
         ></BedroomCarousel>
-        <Amenities amenities={this.state.amenities} />
+        {/* <Amenities amenities={this.state.amenities} />
         <ThingsToKnowSection
           thingsToKnow={this.state.thingsToKnow}
         ></ThingsToKnowSection>
         <ThingsToDoCarousel
           thingsToDo={this.state.thingsToDo}
           length={this.state.thingsToDo.length}
-        ></ThingsToDoCarousel>
+        ></ThingsToDoCarousel> */}
       </div>
     );
     // }
