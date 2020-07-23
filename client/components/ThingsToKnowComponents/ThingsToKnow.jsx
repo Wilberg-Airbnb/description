@@ -46,6 +46,12 @@ const WholeSectionContainer = styled.div`
   width: 60%;
 `;
 
+const Container = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
+
 class ThingsToKnowSection extends React.Component {
   constructor(props) {
     super(props);
@@ -105,73 +111,77 @@ class ThingsToKnowSection extends React.Component {
     }
 
     return (
-      <WholeSectionContainer>
-        <h4>Things To Know</h4>
+      <Container>
+        <WholeSectionContainer>
+          <h4>Things To Know</h4>
 
-        <ThingsToKnowContainer>
-          {/* House Rules Section */}
-          <IndividualSection className="houseRules">
-            {/* Underline each header */}
-            <SectionHeader className="header">House Rules</SectionHeader>
-            {houseRules}
+          <ThingsToKnowContainer>
+            {/* House Rules Section */}
+            <IndividualSection className="houseRules">
+              {/* Underline each header */}
+              <SectionHeader className="header">House Rules</SectionHeader>
+              {houseRules}
 
-            <ShowAll
-              id="showAllHouseRules"
-              onClick={() => this.toggleModal('houseRulesModal')}
-            >
-              Show All >
-            </ShowAll>
-            {/* Conditional rendering the modal when you  click Show All */}
-            {this.state.showHouseRulesModal ? (
-              <Modal>
-                <HouseRulesModal
-                  toggleModal={this.toggleModal}
-                ></HouseRulesModal>
-              </Modal>
-            ) : null}
-          </IndividualSection>
+              <ShowAll
+                id="showAllHouseRules"
+                onClick={() => this.toggleModal('houseRulesModal')}
+              >
+                Show All >
+              </ShowAll>
+              {/* Conditional rendering the modal when you  click Show All */}
+              {this.state.showHouseRulesModal ? (
+                <Modal>
+                  <HouseRulesModal
+                    toggleModal={this.toggleModal}
+                  ></HouseRulesModal>
+                </Modal>
+              ) : null}
+            </IndividualSection>
 
-          {/* Safety Section  */}
-          <IndividualSection className="safetyProperty">
-            <SectionHeader className="header">Safety & Property</SectionHeader>
-            {safetyProperty}
+            {/* Safety Section  */}
+            <IndividualSection className="safetyProperty">
+              <SectionHeader className="header">
+                Safety & Property
+              </SectionHeader>
+              {safetyProperty}
 
-            <ShowAll
-              id="showAllSafetyRules"
-              onClick={() => this.toggleModal('safetyModal')}
-            >
-              Show All >
-            </ShowAll>
-            {/* Conditional rendering the modal when you  click Show All */}
-            {this.state.showSafetyModal ? (
-              <Modal>
-                <SafetyModal toggleModal={this.toggleModal}></SafetyModal>
-              </Modal>
-            ) : null}
-          </IndividualSection>
+              <ShowAll
+                id="showAllSafetyRules"
+                onClick={() => this.toggleModal('safetyModal')}
+              >
+                Show All >
+              </ShowAll>
+              {/* Conditional rendering the modal when you  click Show All */}
+              {this.state.showSafetyModal ? (
+                <Modal>
+                  <SafetyModal toggleModal={this.toggleModal}></SafetyModal>
+                </Modal>
+              ) : null}
+            </IndividualSection>
 
-          {/* Cancellation Section */}
-          <IndividualSection className="cancellationPolicy">
-            <SectionHeader className="header">
-              Cancellation policy
-            </SectionHeader>
-            <ShowAll
-              id="showCancellationPolicy"
-              onClick={() => this.toggleModal('cancellationModal')}
-            >
-              More Details >
-            </ShowAll>
-            {/* Conditional rendering the modal when you  click More Details */}
-            {this.state.showCancellationModal ? (
-              <Modal>
-                <CancellationModal
-                  toggleModal={this.toggleModal}
-                ></CancellationModal>
-              </Modal>
-            ) : null}
-          </IndividualSection>
-        </ThingsToKnowContainer>
-      </WholeSectionContainer>
+            {/* Cancellation Section */}
+            <IndividualSection className="cancellationPolicy">
+              <SectionHeader className="header">
+                Cancellation policy
+              </SectionHeader>
+              <ShowAll
+                id="showCancellationPolicy"
+                onClick={() => this.toggleModal('cancellationModal')}
+              >
+                More Details >
+              </ShowAll>
+              {/* Conditional rendering the modal when you  click More Details */}
+              {this.state.showCancellationModal ? (
+                <Modal>
+                  <CancellationModal
+                    toggleModal={this.toggleModal}
+                  ></CancellationModal>
+                </Modal>
+              ) : null}
+            </IndividualSection>
+          </ThingsToKnowContainer>
+        </WholeSectionContainer>
+      </Container>
     );
   }
 }
