@@ -36,26 +36,43 @@ const BedroomCard = ({ bedroomDescription }) => {
   console.log('The arrangement', arrangementType);
   if (arrangementType === 'Single') {
     BedIcon = (
-      <img src="assets/singlebed.png" style={{ maxHeight: '25px' }}></img>
+      <img
+        src="https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/singlebed.png"
+        style={{ maxHeight: '25px' }}
+      ></img>
     );
   }
   if (arrangementType === 'Double') {
     BedIcon = (
-      <img src="assets/doublebed.png" style={{ maxHeight: '25px' }}></img>
+      <img
+        src="https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/doublebed.png"
+        style={{ maxHeight: '25px' }}
+      ></img>
     );
   }
   if (arrangementType === 'Queen') {
     BedIcon = (
-      <img src="assets/queenbed.png" style={{ maxHeight: '25px' }}></img>
+      <img
+        src="https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/queenbed.png"
+        style={{ maxHeight: '25px' }}
+      ></img>
     );
   }
   if (arrangementType === 'King') {
     BedIcon = (
-      <img src="assets/kingbed.png" style={{ maxHeight: '25px' }}></img>
+      <img
+        src="https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/kingbed.png"
+        style={{ maxHeight: '25px' }}
+      ></img>
     );
   }
   if (arrangementType === 'Couch') {
-    BedIcon = <img src="assets/couch.png" style={{ maxHeight: '25px' }}></img>;
+    BedIcon = (
+      <img
+        src="https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/couch.png"
+        style={{ maxHeight: '25px' }}
+      ></img>
+    );
   }
   return (
     <SleepingArrangementCard>
