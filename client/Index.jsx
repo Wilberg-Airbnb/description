@@ -56,7 +56,7 @@ class Index extends React.Component {
   render() {
     return (
       <div>
-        <HostAndRooms hostAndRooms={this.state.hostAndRooms} />
+        {/* <HostAndRooms hostAndRooms={this.state.hostAndRooms} /> */}
         <Overview
           strictCancellation={this.state.thingsToKnow.cancellationPolicy}
           overview={this.state.overview}

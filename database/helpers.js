@@ -236,12 +236,6 @@ function getRandomAmenities() {
     },
     {
       iconLink: 'https://picsum.photos/25',
-      title: '',
-      amenityDescription: '',
-      subheader: 'Veritatis quo architecto quibusdam.',
-    },
-    {
-      iconLink: 'https://picsum.photos/25',
       title: 'Free street parking',
       amenityDescription: '',
       subheader: 'Facilities',
