@@ -12,7 +12,7 @@ const Button = styled.button`
   padding-right: 13px;
   font-size: 12px;
   background: white;
-  position: absolute;
+  /* position: absolute; */
 `;
 // Create a parent container
 const AmenitiesContainer = styled.div`
@@ -25,6 +25,7 @@ const AmenitiesContainer = styled.div`
 const AmenitiesHeader = styled.div`
   font-size: 16px;
   font-weight: bold;
+  margin-bottom: 15px;
 `;
 // Create a flexbox container for the listings
 const AmenitiesListingContainer = styled.div`
@@ -39,6 +40,7 @@ const AmenitiesListing = styled.section`
   width: 50%;
   height: 20%;
   font-size: 14px;
+  margin-bottom: 10px;
 `;
 
 const Url = 'https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/';
@@ -82,26 +84,32 @@ class Amenities extends React.Component {
         );
       });
     return (
-      <AmenitiesContainer>
-        <AmenitiesHeader>Amenities</AmenitiesHeader>
-        <AmenitiesListingContainer>{amenitiesToShow}</AmenitiesListingContainer>
+      <div>
+        <AmenitiesContainer>
+          <AmenitiesHeader>Amenities</AmenitiesHeader>
+          <AmenitiesListingContainer>
+            {amenitiesToShow}
+          </AmenitiesListingContainer>
+
+          {this.state.showModal ? (
+            <Modal>
+              <AmenitiesModal
+                toggleModal={this.toggleModal}
+                listItems={this.props.amenities}
+                headers={[
+                  ...new Set(
+                    this.props.amenities.map((element) => element.subheader)
+                  ),
+                ]}
+              ></AmenitiesModal>
+            </Modal>
+          ) : null}
+        </AmenitiesContainer>
+        {/* Take button out of container so its not stretched by the display property */}
         <Button id="showMore" onClick={this.toggleModal}>
           Show all {this.props.amenities.length} amenities
         </Button>
-        {this.state.showModal ? (
-          <Modal>
-            <AmenitiesModal
-              toggleModal={this.toggleModal}
-              listItems={this.props.amenities}
-              headers={[
-                ...new Set(
-                  this.props.amenities.map((element) => element.subheader)
-                ),
-              ]}
-            ></AmenitiesModal>
-          </Modal>
-        ) : null}
-      </AmenitiesContainer>
+      </div>
     );
   }
 }
