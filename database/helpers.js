@@ -110,12 +110,6 @@ function getRandomAmenities() {
     },
     {
       iconLink: 'https://picsum.photos/25',
-      title: 'Iron',
-      amenityDescription: '',
-      subheader: 'Basic',
-    },
-    {
-      iconLink: 'https://picsum.photos/25',
       title: 'Air conditioning',
       amenityDescription: '',
       subheader: 'Basic',
@@ -137,12 +131,6 @@ function getRandomAmenities() {
       title: 'Hot water',
       amenityDescription: '',
       subheader: 'Essentials',
-    },
-    {
-      iconLink: 'https://picsum.photos/25',
-      title: '',
-      amenityDescription: '',
-      subheader: 'Veritatis quo architecto quibusdam.',
     },
     {
       iconLink: 'https://picsum.photos/25',
@@ -200,30 +188,6 @@ function getRandomAmenities() {
     },
     {
       iconLink: 'https://picsum.photos/25',
-      title: 'Wifi',
-      amenityDescription: '',
-      subheader: 'Basic',
-    },
-    {
-      iconLink: 'https://picsum.photos/25',
-      title: 'Iron',
-      amenityDescription: '',
-      subheader: 'Basic',
-    },
-    {
-      iconLink: 'https://picsum.photos/25',
-      title: 'Air conditioning',
-      amenityDescription: '',
-      subheader: 'Basic',
-    },
-    {
-      iconLink: 'https://picsum.photos/25',
-      title: 'Towels, bed sheets, soap, and toilet paper',
-      amenityDescription: '',
-      subheader: 'Essentials',
-    },
-    {
-      iconLink: 'https://picsum.photos/25',
       title: 'Heating',
       amenityDescription: '',
       subheader: 'Essentials',
@@ -233,66 +197,6 @@ function getRandomAmenities() {
       title: 'Hot water',
       amenityDescription: '',
       subheader: 'Essentials',
-    },
-    {
-      iconLink: 'https://picsum.photos/25',
-      title: '',
-      amenityDescription: '',
-      subheader: 'Veritatis quo architecto quibusdam.',
-    },
-    {
-      iconLink: 'https://picsum.photos/25',
-      title: 'Free street parking',
-      amenityDescription: '',
-      subheader: 'Facilities',
-    },
-    {
-      iconLink: 'https://picsum.photos/25',
-      title: 'Hangers',
-      amenityDescription: '',
-      subheader: 'Bed and bath',
-    },
-    {
-      iconLink: 'https://picsum.photos/25',
-      title: 'Hair dryer',
-      amenityDescription: '',
-      subheader: 'Bed and bath',
-    },
-    {
-      iconLink: 'https://picsum.photos/25',
-      title: 'Shampoo',
-      amenityDescription: '',
-      subheader: 'Bed and bath',
-    },
-    {
-      iconLink: 'https://picsum.photos/25',
-      title: 'Bed linens',
-      amenityDescription: '',
-      subheader: 'Bed and bath',
-    },
-    {
-      iconLink: 'https://picsum.photos/25',
-      title: 'Extra pillows and blankets',
-      amenityDescription: '',
-      subheader: 'Bed and bath',
-    },
-    {
-      iconLink: 'https://picsum.photos/25',
-      title: 'Shower gel',
-      amenityDescription: '',
-      subheader: 'Bed and bath',
-    },
-    {
-      iconLink: 'https://picsum.photos/25',
-      title: 'Carbon monoxide alarm',
-      amenityDescription: '',
-      subheader: 'Safety features',
-    },
-    {
-      iconLink: 'https://picsum.photos/25',
-      title: 'Smoke alarm',
-      amenityDescription: '',
-      subheader: 'Safety features',
     },
   ];
   let amenitiesToPushIn = [];

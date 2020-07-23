@@ -14,6 +14,8 @@ const Button = styled.button`
   background: white;
 `;
 
+const Url = 'https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/';
+
 class Amenities extends React.Component {
   constructor(props) {
     super(props);
@@ -26,11 +28,25 @@ class Amenities extends React.Component {
   }
 
   render() {
+    // Put pngs in a s3 bucket
+
     let amenitiesToShow = this.props.amenities
       .slice(0, 10)
       .map((amenity, i) => {
+        // idenitfy eachword by its lowercased first word
+        // Check for trailing semi-commas
+        let firstWord = amenity.title.split(' ')[0];
+        if (firstWord[firstWord.length - 1] === ',') {
+          firstWord = firstWord.slice(0, -1);
+        }
+        firstWord = firstWord.charAt(0).toLowerCase() + firstWord.slice(1);
         return (
-          <section key={i}>
+          <section key={amenity._id}>
+            <img
+              // template literal for s3 bucket url
+              src={`${Url}${firstWord}.png`}
+              style={{ maxHeight: '18px' }}
+            ></img>
             <span>
               <img href={amenity.iconLink}></img>
             </span>{' '}
