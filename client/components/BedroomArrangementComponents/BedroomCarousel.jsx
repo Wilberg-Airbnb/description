@@ -9,6 +9,7 @@ import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded';
 const ArrowWrapper = styled.div`
   padding-top: 30px;
 `;
+
 // Wrapper will show all cards in a row as per the flex direction
 const Wrapper = styled.div`
   display: flex;

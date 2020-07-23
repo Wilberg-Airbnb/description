@@ -1,15 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Cancellation from '../Icons/Cancellation.svg';
-import Cleanandtidy from '../Icons/Cleanandtidy.svg';
-import EnhancedClean from '../Icons/EnhancedClean.svg';
-import EntireHome from '../Icons/EntireHome.svg';
-import Greatcheckinexperience from '../Icons/Greatcheckinexperience.svg';
-import Outstandinghospitality from '../Icons/Outstandinghospitality.svg';
-import GreatLocation from '../Icons/GreatLocation.svg';
-import Greatcommunication from '../Icons/Greatcommunication.svg';
-import Selfcheckin from '../Icons/Selfcheckin.svg';
-import { overView } from '../../../database/helpers';
 
 // Display Svgs in column format
 const Container = styled.div`
@@ -31,10 +21,6 @@ const OverViewDiv = styled.div`
   margin-left: 5px;
 `;
 
-const CancellationOverViewDiv = styled.div`
-  margin-left: 25px;
-`;
-
 const MainHeader = styled.span`
   font-weight: bold;
   font-size: 10px;
@@ -50,13 +36,16 @@ const Overview = ({
   entirePlace,
   strictCancellation,
 }) => {
-  let svgsToDisplay = [];
+  let iconsToDisplay = [];
   if (overview.length !== 0) {
     overview.forEach((item) => {
       if (item.mainHeader === 'Clean and tidy') {
-        svgsToDisplay.push(
+        iconsToDisplay.push(
           <Row>
-            <Cleanandtidy height={30} width={50}></Cleanandtidy>
+            <img
+              src="assets/cleanandtidy.png"
+              style={{ maxHeight: '25px' }}
+            ></img>
             <OverViewDiv>
               <MainHeader>{item.mainHeader}</MainHeader>
               <br></br>
@@ -68,9 +57,12 @@ const Overview = ({
         );
       }
       if (item.mainHeader === 'Great Location') {
-        svgsToDisplay.push(
+        iconsToDisplay.push(
           <Row>
-            <GreatLocation height={30} width={50}></GreatLocation>
+            <img
+              src="assets/greatlocation.png"
+              style={{ maxHeight: '25px' }}
+            ></img>
             <OverViewDiv>
               <MainHeader clasName="header">{item.mainHeader}</MainHeader>
               <br></br>
@@ -82,9 +74,12 @@ const Overview = ({
         );
       }
       if (item.mainHeader === 'Enhanced Clean') {
-        svgsToDisplay.push(
+        iconsToDisplay.push(
           <Row>
-            <EnhancedClean height={30} width={50}></EnhancedClean>
+            <img
+              src="assets/enhancedclean.png"
+              style={{ maxHeight: '25px' }}
+            ></img>
             <OverViewDiv>
               <MainHeader clasName="header">{item.mainHeader}</MainHeader>
               <br></br>
@@ -96,9 +91,12 @@ const Overview = ({
         );
       }
       if (item.mainHeader === 'Self check-in') {
-        svgsToDisplay.push(
+        iconsToDisplay.push(
           <Row>
-            <Selfcheckin height={30} width={50}></Selfcheckin>
+            <img
+              src="assets/selfcheckin.png"
+              style={{ maxHeight: '25px' }}
+            ></img>
             <OverViewDiv>
               <MainHeader clasName="header">{item.mainHeader}</MainHeader>
               <br></br>
@@ -110,12 +108,12 @@ const Overview = ({
         );
       }
       if (item.mainHeader === 'Great check-in experience') {
-        svgsToDisplay.push(
+        iconsToDisplay.push(
           <Row>
-            <Greatcheckinexperience
-              height={30}
-              width={50}
-            ></Greatcheckinexperience>
+            <img
+              src="assets/greatcheckinexperience.png"
+              style={{ maxHeight: '25px' }}
+            ></img>
             <OverViewDiv>
               <MainHeader clasName="header">{item.mainHeader}</MainHeader>
               <br></br>
@@ -127,9 +125,12 @@ const Overview = ({
         );
       }
       if (item.mainHeader === 'Great communication') {
-        svgsToDisplay.push(
+        iconsToDisplay.push(
           <Row>
-            <Greatcommunication height={30} width={50}></Greatcommunication>
+            <img
+              src="assets/greatcommunication.png"
+              style={{ maxHeight: '25px' }}
+            ></img>
             <OverViewDiv>
               <MainHeader clasName="header">{item.mainHeader}</MainHeader>
               <br></br>
@@ -141,12 +142,12 @@ const Overview = ({
         );
       }
       if (item.mainHeader === 'Outstanding hospitality') {
-        svgsToDisplay.push(
+        iconsToDisplay.push(
           <Row>
-            <Outstandinghospitality
-              height={30}
-              width={50}
-            ></Outstandinghospitality>
+            <img
+              src="assets/outstandinghospitality.png"
+              style={{ maxHeight: '25px' }}
+            ></img>
             <OverViewDiv>
               <MainHeader clasName="header">{item.mainHeader}</MainHeader>
               <br></br>
@@ -160,9 +161,9 @@ const Overview = ({
     });
   }
   if (entirePlace.bathNumber && entirePlace.entirePlace === true) {
-    svgsToDisplay.push(
+    iconsToDisplay.push(
       <Row>
-        <EntireHome height={45} width={50}></EntireHome>
+        <img src="assets/entireHome.png" style={{ maxHeight: '25px' }}></img>
         <OverViewDiv>
           <MainHeader clasName="header">
             Entire {entirePlace.typeOfPlace}
@@ -180,10 +181,10 @@ const Overview = ({
     strictCancellation !== undefined &&
     strictCancellation.flexible === true
   ) {
-    svgsToDisplay.push(
+    iconsToDisplay.push(
       <Row>
-        <Cancellation height={25} width={25}></Cancellation>
-        <CancellationOverViewDiv>
+        <img src="assets/cancellation.png" style={{ maxHeight: '25px' }}></img>
+        <OverViewDiv>
           <MainHeader clasName="header">
             Free cancellation until {strictCancellation.timeBeforeCancellation}
             hours before check-in.
@@ -194,12 +195,12 @@ const Overview = ({
             {strictCancellation.percentRefund}, minus first night and service
             fee.
           </HeaderDescription>
-        </CancellationOverViewDiv>
+        </OverViewDiv>
       </Row>
     );
   }
 
-  return <Container>{svgsToDisplay}</Container>;
+  return <Container>{iconsToDisplay}</Container>;
 };
 
 export default Overview;
