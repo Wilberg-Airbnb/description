@@ -2,13 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 const SleepingArrangementCard = styled.div`
-  height: 110px;
-  width: 135px;
+  height: 125px;
+  width: 165px;
   border-style: solid;
   border-width: 1px;
   border-color: rgb(221, 221, 221);
-  border-radius: 5px;
-  margin-right: 10px;
+  border-radius: 10px;
+  margin-right: 20px;
 `;
 
 const SleepingArrangementContainer = styled.div`
