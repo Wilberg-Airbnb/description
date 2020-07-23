@@ -8,7 +8,7 @@ const Container = styled.div`
   flex-direction: column;
   width: 33%;
   border-top: solid 1px rgb(204, 212, 204);
-  margin-left: 15%;
+  /* margin-left: 15%; */
 `;
 
 // Within the flex box, display the icon and the description inline as rows

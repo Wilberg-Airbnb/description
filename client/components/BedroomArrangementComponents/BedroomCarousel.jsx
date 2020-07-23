@@ -39,7 +39,7 @@ const Slider = styled.div`
   border-bottom: solid 1px rgb(221, 221, 221);
   padding-top: 24px;
   padding-bottom: 30px;
-  margin-left: 15%;
+  /* margin-left: 15%; */
 `;
 
 class BedroomCarousel extends React.Component {

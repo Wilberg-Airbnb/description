@@ -3,13 +3,12 @@ import styled from 'styled-components';
 
 const DescriptionContainer = styled.div`
   padding-top: 15px;
-  width: 33%;
+  width: 60%;
   overflow-wrap: break-word;
   padding-bottom: 15px;
   border-bottom: solid 1px rgb(204, 212, 204);
   border-top: solid 1px rgb(204, 212, 204);
   font-size: 14px;
-  margin-left: 15%;
 `;
 
 const DescriptionHeader = styled.div`

@@ -8,6 +8,19 @@ import BedroomCarousel from './components/BedroomArrangementComponents/BedroomCa
 import ThingsToKnowSection from './components/ThingsToKnowComponents/ThingsToKnow.jsx';
 import Overview from './components/OverviewComponent/Overview.jsx';
 import { sleepingArrangements } from './components/sampleDataForTests';
+import styled from 'styled-components';
+
+// Define a container and have all of overview, host and rooms, and amenities go in there
+const AlignmentContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
+
+const WholeSectionContainer = styled.div`
+  width: 60%;
+`;
+
 class Index extends React.Component {
   constructor(props) {
     super(props);
@@ -56,17 +69,21 @@ class Index extends React.Component {
   render() {
     return (
       <div>
-        {/* <HostAndRooms hostAndRooms={this.state.hostAndRooms} /> */}
-        <Overview
-          strictCancellation={this.state.thingsToKnow.cancellationPolicy}
-          overview={this.state.overview}
-          entirePlace={this.state.hostAndRooms}
-        />
-        <MainDescription descriptions={this.state.descriptions} />
-        <BedroomCarousel
-          sleepingArrangements={this.state.sleepingArrangements}
-        ></BedroomCarousel>
-        <Amenities amenities={this.state.amenities} />
+        <AlignmentContainer>
+          <WholeSectionContainer>
+            {/* <HostAndRooms hostAndRooms={this.state.hostAndRooms} /> */}
+            <Overview
+              strictCancellation={this.state.thingsToKnow.cancellationPolicy}
+              overview={this.state.overview}
+              entirePlace={this.state.hostAndRooms}
+            />
+            <MainDescription descriptions={this.state.descriptions} />
+            <BedroomCarousel
+              sleepingArrangements={this.state.sleepingArrangements}
+            ></BedroomCarousel>
+            <Amenities amenities={this.state.amenities} />
+          </WholeSectionContainer>
+        </AlignmentContainer>
         <ThingsToKnowSection
           thingsToKnow={this.state.thingsToKnow}
         ></ThingsToKnowSection>
