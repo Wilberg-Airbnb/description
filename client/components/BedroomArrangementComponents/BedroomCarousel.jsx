@@ -7,6 +7,7 @@ import { IoIosArrowDropright, IoIosArrowDropleft } from 'react-icons/Io';
 
 // Align arrows in the middle by calculating the
 // size of the card
+// Use position absoulute to take arrows out of flow of container to then overlap
 const ArrowWrapperLeft = styled.div`
   padding-top: 40px;
   position: absolute;
@@ -19,6 +20,8 @@ const ArrowWrapperRight = styled.div`
 `;
 
 // Wrapper will show all cards in a row as per the flex direction
+// Use flex start to always have cards spaced to the left so when there
+// are less than 3 cards they dont spread
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
