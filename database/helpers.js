@@ -27,7 +27,7 @@ function overView() {
       }% of recent guests gave the location a 5-star rating.`,
     },
     {
-      mainHeader: 'Ehanced Clean',
+      mainHeader: 'Enhanced Clean',
       description: `This host committed to a rigorous cleaning protocol developed with leading health and hospitality experts.`,
     },
     {

@@ -1,25 +1,27 @@
 import React from 'react';
 import { mount, shallow, configure } from 'enzyme';
-import 'jest-styled-components';
 import Adapter from 'enzyme-adapter-react-16';
-import Overview from './Overview.jsx';
+import Overview from './Overview';
 import { overview } from '../sampleDataForTests.js';
 
 configure({ adapter: new Adapter() });
 
-describe('Testing the presentation of the overview', () => {
-  let wrapper;
-  beforeEach(() => {
-    wrapper = shallow(<Overview overview={overview} />);
+describe('Overview testing', () => {
+  test('Render a div with a class name of header for each item" ', () => {
+    let wrapper = shallow(
+      <Overview
+        overview={overview}
+        entirePlace={{ bathNumber: 1, entirePlace: false }}
+      />
+    );
+    let headerDivs = wrapper.find('.header').length;
+    expect(headerDivs).toBe(4);
   });
 
-  test('There should be a summary tag for each overview point', () => {
-    const numberOfSummaries = wrapper.find('summary').length;
-    expect(numberOfSummaries).toBe(4);
-  });
+  test('Render a div with a class name of dscription for each item" ', () => {
+    let wrapper = shallow(<Overview overview={overview} />);
 
-  test('There should be a section tag for each overview point', () => {
-    const numberOfSections = wrapper.find('section').length;
-    expect(numberOfSections).toBe(4);
+    let descriptionDivs = wrapper.find('.description').length;
+    expect(descriptionDivs).toBe(4);
   });
 });

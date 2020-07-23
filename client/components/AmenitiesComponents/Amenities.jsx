@@ -39,7 +39,7 @@ class Amenities extends React.Component {
         );
       });
     return (
-      <div>
+      <div id="amenities">
         {amenitiesToShow}
         <Button id="showMore" onClick={this.toggleModal}>
           Show all {this.props.amenities.length} amenities

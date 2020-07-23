@@ -27,7 +27,8 @@ class Index extends React.Component {
   componentDidMount() {
     // Have to add HTTP protocol && server port as per CORS policy
     // And data-fetching from the proxy-side
-    // Switch between http://localhost:4000/api and /api.....
+    // Switch between http://localhost:4000/api.....
+    // `http://${window.location.host}/api/description/${this.state.listingId}`
     axios
       .get(
         `http://${window.location.host}/api/description/${this.state.listingId}`
@@ -59,7 +60,7 @@ class Index extends React.Component {
         <Overview
           strictCancellation={this.state.thingsToKnow.cancellationPolicy}
           overview={this.state.overview}
-          entirePlace={this.state.hostAndRooms.entirePlace}
+          entirePlace={this.state.hostAndRooms}
         />
         <MainDescription descriptions={this.state.descriptions} />
         <BedroomCarousel
