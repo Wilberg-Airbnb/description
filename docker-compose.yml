@@ -8,6 +8,8 @@ services:
       - '4000:4000'
     depends_on:
       - mongo
+    volumes:
+      - .a/:/app/
     command: bash -c "/app/wait-for-it.sh --timeout=0 mongo:27017 && npm run docker"
   mongo:
     container_name: mongo
