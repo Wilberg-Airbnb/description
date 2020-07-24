@@ -65,6 +65,20 @@ const RulesListContainer = styled.div`
   margin-left: 20px;
 `;
 
+// const AdditionalRulesContainer = styled.div`
+//   margin-top: 10px;
+//   width: 100%;
+//   flex-direction: row;
+// `;
+const AdditionalRulesParagraph = styled.div`
+  display: flex;
+  margin-left: 20px;
+  font-size: 12px;
+  width: 500px;
+  word-wrap: break-word;
+  overflow: hidden;
+`;
+
 const HouseRulesModal = ({ toggleModal, houseRules, additionalRules }) => {
   const [clickedOutside, setClickedOutside] = useState(false);
   const myRef = useRef();
@@ -109,6 +123,9 @@ const HouseRulesModal = ({ toggleModal, houseRules, additionalRules }) => {
           <HouseRulesHeader>House Rules</HouseRulesHeader>
           <RulesListContainer>{rules}</RulesListContainer>
           <AdditionalRulesHeader>Additional Rules</AdditionalRulesHeader>
+          <AdditionalRulesParagraph>
+            <p>{additionalRules.safetyDescription}</p>
+          </AdditionalRulesParagraph>
         </RulesContainer>
       </ModalStyle>
     </ModalBackgroundStyle>
