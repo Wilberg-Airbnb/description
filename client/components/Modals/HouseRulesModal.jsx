@@ -69,7 +69,7 @@ const AdditionalRulesParagraph = styled.div`
   display: flex;
   margin-left: 20px;
   font-size: 12px;
-  width: 500px;
+  width: 625px;
   word-wrap: break-word;
   overflow: hidden;
 `;
