@@ -1,6 +1,35 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
+import styled from 'styled-components';
+
+const ModalBackgroundStyle = styled.div`
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ModalStyle = styled.div`
+  padding: 2;
+  background: #fff;
+  border-radius: 8px;
+  display: inline-block;
+  height: 225px;
+  border-radius: 15px;
+  margin: 1rem;
+  position: relative;
+  min-width: 475px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  justify-self: center;
+`;
 
 const SafetyModal = ({ toggleModal }) => {
   const [clickedOutside, setClickedOutside] = useState(false);
@@ -24,41 +53,11 @@ const SafetyModal = ({ toggleModal }) => {
   });
 
   return (
-    <div
-      style={{
-        position: 'fixed',
-        padding: '0',
-        margin: '0',
-        top: '0',
-        left: '0',
-        width: '100%',
-        height: '100%',
-        backgroundColor: 'rgba(0,0,0,0.3)',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <div
-        ref={myRef}
-        onClick={handleClickInside}
-        style={{
-          padding: 20,
-          background: '#fff',
-          borderRadius: '8px',
-          display: 'inline-block',
-          height: '225px',
-          borderRadius: '15px',
-          margin: '1rem',
-          position: 'relative',
-          minWidth: '475px',
-          boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)',
-          justifySelf: 'center',
-        }}
-      >
+    <ModalBackgroundStyle>
+      <ModalStyle ref={myRef} onClick={handleClickInside}>
         SafetyModal
-      </div>
-    </div>
+      </ModalStyle>
+    </ModalBackgroundStyle>
   );
 };
 
