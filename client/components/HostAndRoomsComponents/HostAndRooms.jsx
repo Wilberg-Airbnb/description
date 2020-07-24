@@ -43,7 +43,7 @@ const HostAndRooms = ({ hostAndRooms }) => {
           {accomodationBreakDown}
         </PlaceSummary>
       </div>
-      <img src={ImageUrl} style={{ borderRadius: '50%', height: '70px' }}></img>
+      <img src={ImageUrl} style={{ borderRadius: '50%', height: '60px' }}></img>
     </HostAndRoomsContainer>
   );
 };
