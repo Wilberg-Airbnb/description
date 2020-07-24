@@ -22,11 +22,11 @@ const ModalStyle = styled.div`
   background: #fff;
   border-radius: 8px;
   display: inline-block;
-  height: 225px;
+  height: 320px;
   border-radius: 15px;
   margin: 1rem;
   position: relative;
-  min-width: 475px;
+  min-width: 650px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   justify-self: center;
 `;
