@@ -47,11 +47,11 @@ const HouseRulesModal = ({ toggleModal }) => {
           background: '#fff',
           borderRadius: '8px',
           display: 'inline-block',
-          height: '400px',
+          height: '525px',
           borderRadius: '15px',
           margin: '1rem',
           position: 'relative',
-          minWidth: '475px',
+          minWidth: '550px',
           boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)',
           justifySelf: 'center',
         }}

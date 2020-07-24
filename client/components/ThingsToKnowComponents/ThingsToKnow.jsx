@@ -82,11 +82,13 @@ class ThingsToKnowSection extends React.Component {
     let houseRules;
     let safetyProperty;
     let additionalRules;
+    let houseRulesProp;
     if (!Array.isArray(thingsToKnow)) {
       // Copy the house rules to prevent any side effects
       let copiedRules = this.props.thingsToKnow.houseRules.slice(0);
       // Make additional rules the last object since it will always come last
       additionalRules = copiedRules[copiedRules.length - 1];
+      houseRulesProp = copiedRules.slice(0, copiedRules.length - 2);
       // Assign only house rules that apply (are true) to houseRules variable
       houseRules = copiedRules
         .slice(0, copiedRules.length - 2)
@@ -150,6 +152,8 @@ class ThingsToKnowSection extends React.Component {
                 <Modal>
                   <HouseRulesModal
                     toggleModal={this.toggleModal}
+                    houseRules={houseRulesProp}
+                    additionalRules={additionalRules}
                   ></HouseRulesModal>
                 </Modal>
               ) : null}
