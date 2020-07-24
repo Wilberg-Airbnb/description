@@ -16,7 +16,7 @@ const ArrowWrapperLeft = styled.div`
 const ArrowWrapperRight = styled.div`
   padding-top: 40px;
   float: right;
-  margin-left: -25px;
+  margin-left: -33px;
 `;
 
 // Wrapper will show all cards in a row as per the flex direction
@@ -33,13 +33,13 @@ const Wrapper = styled.div`
 // Added border
 const Slider = styled.div`
   position: relative;
-  width: 40%;
+  width: 100%;
   margin: 0 auto;
   display: inline-block;
   border-bottom: solid 1px rgb(221, 221, 221);
   padding-top: 24px;
   padding-bottom: 30px;
-  margin-left: 15%;
+  /* margin-left: 15%; */
 `;
 
 class BedroomCarousel extends React.Component {

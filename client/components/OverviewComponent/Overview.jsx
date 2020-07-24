@@ -6,16 +6,16 @@ const Container = styled.div`
   padding-top: 15px;
   display: flex;
   flex-direction: column;
-  width: 33%;
-  border-top: solid 1px rgb(204, 212, 204);
-  margin-left: 15%;
+  font-size: 12px;
+  margin-bottom: 25px;
+  /* margin-left: 15%; */
 `;
 
 // Within the flex box, display the icon and the description inline as rows
 const Row = styled.div`
   display: flex;
   flex-direction: row;
-  margin-top: 5px;
+  margin-top: 20px;
 `;
 
 const OverViewDiv = styled.div`

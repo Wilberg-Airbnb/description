@@ -16,14 +16,14 @@ const Button = styled.button`
 `;
 // Create a parent container
 const AmenitiesContainer = styled.div`
-  width: 40%;
+  width: 60%;
   display: flex;
   flex-direction: column;
 `;
 
 // Create an amenities header
 const AmenitiesHeader = styled.div`
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   margin-bottom: 15px;
 `;
@@ -85,32 +85,30 @@ class Amenities extends React.Component {
         );
       });
     return (
-      <div>
-        <AmenitiesContainer>
-          <AmenitiesHeader>Amenities</AmenitiesHeader>
-          <AmenitiesListingContainer>
-            {amenitiesToShow}
-          </AmenitiesListingContainer>
+      <AmenitiesContainer>
+        <AmenitiesHeader>Amenities</AmenitiesHeader>
+        <AmenitiesListingContainer>{amenitiesToShow}</AmenitiesListingContainer>
 
-          {this.state.showModal ? (
-            <Modal>
-              <AmenitiesModal
-                toggleModal={this.toggleModal}
-                listItems={this.props.amenities}
-                headers={[
-                  ...new Set(
-                    this.props.amenities.map((element) => element.subheader)
-                  ),
-                ]}
-              ></AmenitiesModal>
-            </Modal>
-          ) : null}
-        </AmenitiesContainer>
+        {this.state.showModal ? (
+          <Modal>
+            <AmenitiesModal
+              toggleModal={this.toggleModal}
+              listItems={this.props.amenities}
+              headers={[
+                ...new Set(
+                  this.props.amenities.map((element) => element.subheader)
+                ),
+              ]}
+            ></AmenitiesModal>
+          </Modal>
+        ) : null}
         {/* Take button out of container so its not stretched by the display property */}
-        <Button id="showMore" onClick={this.toggleModal}>
-          Show all {this.props.amenities.length} amenities
-        </Button>
-      </div>
+        <div>
+          <Button id="showMore" onClick={this.toggleModal}>
+            Show all {this.props.amenities.length} amenities
+          </Button>
+        </div>
+      </AmenitiesContainer>
     );
   }
 }
