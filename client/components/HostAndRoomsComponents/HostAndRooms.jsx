@@ -25,7 +25,7 @@ const Header = styled.main`
 const PlaceSummary = styled.summary`
   font-size: 16px;
 `;
-
+// Have to call for Krissy's api here
 const HostAndRooms = ({ hostAndRooms }) => {
   let summary = '';
   if (hostAndRooms.entirePlace) {
