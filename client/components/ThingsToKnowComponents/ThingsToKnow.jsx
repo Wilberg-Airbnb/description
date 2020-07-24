@@ -81,19 +81,20 @@ class ThingsToKnowSection extends React.Component {
     const thingsToKnow = this.props.thingsToKnow;
     let houseRules;
     let safetyProperty;
-
+    let additionalRules;
     if (!Array.isArray(thingsToKnow)) {
-      console.log(
-        'things To Know',
-        this.props.thingsToKnow.houseRules.filter((rule) => rule.trueOrFalse)
-      );
+      // Pop the last rule which is additional rules and will always
+      // be true
+      additionalRules = this.props.thingsToKnow.houseRules.pop();
+      // Assign only house rules that apply (are true) to houseRules variable
       houseRules = this.props.thingsToKnow.houseRules
+        .filter((rule) => rule.trueOrFalse)
         .map((houseRule, i) => {
           return (
             <span key={houseRule._id}>
               <Paragaraph>
                 <AccessAlarmIcon style={{ fontSize: 12 }}></AccessAlarmIcon>
-                {houseRule.subheader.split(' ').slice(0, 3).join(' ')}
+                {houseRule.safetyDescription}
               </Paragaraph>
             </span>
           );
