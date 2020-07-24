@@ -97,7 +97,6 @@ class ThingsToKnowSection extends React.Component {
           // Get the last lowercased word of each description to dynamically grab PNG for that image
           let wordArray = houseRule.safetyDescription.split(' ');
           let lastWord = wordArray[wordArray.length - 1].toLowerCase();
-          console.log('lastWord', lastWord);
 
           return (
             <span key={houseRule._id}>

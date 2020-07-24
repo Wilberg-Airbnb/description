@@ -65,11 +65,6 @@ const RulesListContainer = styled.div`
   margin-left: 20px;
 `;
 
-// const AdditionalRulesContainer = styled.div`
-//   margin-top: 10px;
-//   width: 100%;
-//   flex-direction: row;
-// `;
 const AdditionalRulesParagraph = styled.div`
   display: flex;
   margin-left: 20px;
