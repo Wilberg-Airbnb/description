@@ -371,7 +371,7 @@ function getRandomSaeftyItemsAndHouseRules() {
     },
     {
       trueOrFalse: faker.random.boolean(),
-      safetyDescription: 'Not suitable for infants (under 2 years)',
+      safetyDescription: 'Not suitable for infants',
       subheader: 'Safety features',
     },
     {

@@ -55,8 +55,8 @@ class Index extends React.Component {
           thingsToDo: data.thingsToDo,
           sleepingArrangements: data.sleepingArrangements,
           thingsToKnow: {
-            houseRules: data.houseRules,
-            safety: data.safety,
+            houseRules: data.safety,
+            safety: data.houseRules,
             cancellationPolicy: data.cancellationPolicy[0],
           },
         });
