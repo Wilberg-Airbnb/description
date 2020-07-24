@@ -52,7 +52,7 @@ const descriptionSchema = new mongoose.Schema({
   ],
   safety: [
     {
-      iconLink: String,
+      trueOrFalse: Boolean,
       safetyDescription: String,
       subheader: String,
     },
