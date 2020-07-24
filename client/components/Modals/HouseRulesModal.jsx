@@ -48,8 +48,15 @@ const Url = 'https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/';
 
 const Paragaraph = styled.p`
   font-size: 12px;
+  margin-bottom: 1px;
 `;
 
+const AdditionalRulesHeader = styled.div`
+  font-size: 17px;
+  font-weight: bold;
+  margin-left: 20px;
+  margin-top: 30px;
+`;
 const RulesListContainer = styled.div`
   margin-top: 10px;
   display: flex;
@@ -101,6 +108,7 @@ const HouseRulesModal = ({ toggleModal, houseRules, additionalRules }) => {
         <RulesContainer>
           <HouseRulesHeader>House Rules</HouseRulesHeader>
           <RulesListContainer>{rules}</RulesListContainer>
+          <AdditionalRulesHeader>Additional Rules</AdditionalRulesHeader>
         </RulesContainer>
       </ModalStyle>
     </ModalBackgroundStyle>
