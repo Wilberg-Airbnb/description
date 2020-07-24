@@ -47,9 +47,22 @@ const SafetyHeader = styled.div`
   margin-left: 20px;
 `;
 
+const SafetyRulesContainer = styled.div`
+  margin-top: 10px;
+  display: flex;
+  width: 30%;
+  flex-direction: column;
+  margin-left: 20px;
+`;
+
+const Paragaraph = styled.p`
+  font-size: 12px;
+  margin-bottom: 1px;
+`;
+
 const Url = 'https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/';
 
-const SafetyModal = ({ toggleModal }) => {
+const SafetyModal = ({ toggleModal, safetyRules }) => {
   const [clickedOutside, setClickedOutside] = useState(false);
   const myRef = useRef();
 
@@ -59,6 +72,17 @@ const SafetyModal = ({ toggleModal }) => {
       toggleModal('safetyModal');
     }
   };
+
+  const safetyFirstRules = safetyRules.map((safetyRule, i) => {
+    return (
+      <span key={safetyRule._id}>
+        <Paragaraph>
+          <img src={`${Url}safety.png`} style={{ maxHeight: '15px' }}></img>{' '}
+          {safetyRule.subheader}
+        </Paragaraph>
+      </span>
+    );
+  });
 
   const handleClickInside = () => setClickedOutside(false);
 
@@ -75,6 +99,7 @@ const SafetyModal = ({ toggleModal }) => {
       <ModalStyle ref={myRef} onClick={handleClickInside}>
         <SafetyContainer>
           <SafetyHeader>Safety & Property</SafetyHeader>
+          <SafetyRulesContainer>{safetyFirstRules}</SafetyRulesContainer>
         </SafetyContainer>
       </ModalStyle>
     </ModalBackgroundStyle>
