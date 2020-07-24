@@ -28,8 +28,37 @@ const ModalStyle = styled.div`
   min-width: 550px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   justify-self: center;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
 `;
-const HouseRulesModal = ({ toggleModal }) => {
+const RulesContainer = styled.div`
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+`;
+
+const HouseRulesHeader = styled.div`
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 20px;
+`;
+const Url = 'https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/';
+
+const Paragaraph = styled.p`
+  font-size: 12px;
+`;
+
+const RulesListContainer = styled.div`
+  margin-top: 10px;
+  display: flex;
+  width: 30%;
+  flex-direction: column;
+  margin-left: 20px;
+`;
+
+const HouseRulesModal = ({ toggleModal, houseRules, additionalRules }) => {
   const [clickedOutside, setClickedOutside] = useState(false);
   const myRef = useRef();
 
@@ -42,6 +71,22 @@ const HouseRulesModal = ({ toggleModal }) => {
 
   const handleClickInside = () => setClickedOutside(false);
 
+  const rules = houseRules.map((houseRule, i) => {
+    let wordArray = houseRule.safetyDescription.split(' ');
+    let lastWord = wordArray[wordArray.length - 1].toLowerCase();
+    return (
+      <span key={houseRule._id}>
+        <Paragaraph>
+          <img
+            src={`${Url}${lastWord}.png`}
+            style={{ maxHeight: '15px' }}
+          ></img>{' '}
+          {houseRule.safetyDescription}
+        </Paragaraph>
+      </span>
+    );
+  });
+
   useEffect(() => {
     // Check for outside clicks, and prevent scrolling when the modal is open
     document.addEventListener('mousedown', handleClickOutside);
@@ -53,7 +98,10 @@ const HouseRulesModal = ({ toggleModal }) => {
   return (
     <ModalBackgroundStyle>
       <ModalStyle ref={myRef} onClick={handleClickInside}>
-        House rules
+        <RulesContainer>
+          <HouseRulesHeader>House Rules</HouseRulesHeader>
+          <RulesListContainer>{rules}</RulesListContainer>
+        </RulesContainer>
       </ModalStyle>
     </ModalBackgroundStyle>
   );
