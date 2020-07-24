@@ -29,7 +29,25 @@ const ModalStyle = styled.div`
   min-width: 650px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   justify-self: center;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
 `;
+
+const SafetyContainer = styled.div`
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+`;
+
+const SafetyHeader = styled.div`
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 20px;
+`;
+
+const Url = 'https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/';
 
 const SafetyModal = ({ toggleModal }) => {
   const [clickedOutside, setClickedOutside] = useState(false);
@@ -55,7 +73,9 @@ const SafetyModal = ({ toggleModal }) => {
   return (
     <ModalBackgroundStyle>
       <ModalStyle ref={myRef} onClick={handleClickInside}>
-        SafetyModal
+        <SafetyContainer>
+          <SafetyHeader>Safety & Property</SafetyHeader>
+        </SafetyContainer>
       </ModalStyle>
     </ModalBackgroundStyle>
   );

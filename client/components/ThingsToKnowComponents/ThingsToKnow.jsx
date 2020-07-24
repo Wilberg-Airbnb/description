@@ -174,7 +174,10 @@ class ThingsToKnowSection extends React.Component {
               {/* Conditional rendering the modal when you  click Show All */}
               {this.state.showSafetyModal ? (
                 <Modal>
-                  <SafetyModal toggleModal={this.toggleModal}></SafetyModal>
+                  <SafetyModal
+                    toggleModal={this.toggleModal}
+                    safetyRules={thingsToKnow.safety}
+                  ></SafetyModal>
                 </Modal>
               ) : null}
             </IndividualSection>
