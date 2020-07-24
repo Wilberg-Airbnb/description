@@ -24,7 +24,7 @@ const IndividualSection = styled.div`
   overflow-wrap: break-word;
 `;
 const Paragaraph = styled.p`
-  font-size: 10px;
+  font-size: 12px;
 `;
 
 const ShowAll = styled.p`
@@ -33,9 +33,9 @@ const ShowAll = styled.p`
 `;
 
 const SectionHeader = styled.div`
-  font-size: 12px;
   font-weight: bold;
 `;
+const Url = 'https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/';
 
 // Create a wholesection container for adding a header
 // Header was displaying as a flex element if added in ThingsToKnowContainer
@@ -90,10 +90,19 @@ class ThingsToKnowSection extends React.Component {
       houseRules = this.props.thingsToKnow.houseRules
         .filter((rule) => rule.trueOrFalse)
         .map((houseRule, i) => {
+          // Get the last lowercased word of each description to dynamically grab PNG for that image
+          let wordArray = houseRule.safetyDescription.split(' ');
+          let lastWord = wordArray[wordArray.length - 1].toLowerCase();
+          console.log('lastWord', lastWord);
+
           return (
             <span key={houseRule._id}>
               <Paragaraph>
-                <AccessAlarmIcon style={{ fontSize: 12 }}></AccessAlarmIcon>
+                <img
+                  // template literal for s3 bucket url
+                  src={`${Url}${lastWord}.png`}
+                  style={{ maxHeight: '15px' }}
+                ></img>{' '}
                 {houseRule.safetyDescription}
               </Paragaraph>
             </span>
