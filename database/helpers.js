@@ -343,16 +343,44 @@ function getRandomDescriptions() {
 }
 
 function getRandomSaeftyItemsAndHouseRules() {
-  let numBetween5And10 = Math.floor(Math.random() * 6) + 5;
-  let safetyOrHouseRules = [];
-  for (let i = 0; i < numBetween5And10; i++) {
-    safetyOrHouseRules.push({
-      iconLink: 'https://picsum.photos/100',
-      safetyDescription: faker.lorem.sentence(),
-      subheader: faker.lorem.sentence(),
-    });
-  }
-  return safetyOrHouseRules;
+  let listOfRules = [
+    {
+      trueOrFalse: faker.random.boolean(),
+      safetyDescription: 'Check-in: After 3:00 PM',
+      subheader: 'Safety features',
+    },
+    {
+      trueOrFalse: faker.random.boolean(),
+      safetyDescription: 'Checkout: 12:00 PM',
+      subheader: 'Safety features',
+    },
+    {
+      trueOrFalse: faker.random.boolean(),
+      safetyDescription: 'No smoking',
+      subheader: 'Safety features',
+    },
+    {
+      trueOrFalse: faker.random.boolean(),
+      safetyDescription: 'No parties or events',
+      subheader: 'Safety features',
+    },
+    {
+      trueOrFalse: faker.random.boolean(),
+      safetyDescription: 'Self check-in with lockbox',
+      subheader: 'Safety features',
+    },
+    {
+      trueOrFalse: faker.random.boolean(),
+      safetyDescription: 'Not suitable for infants',
+      subheader: 'Safety features',
+    },
+    {
+      trueOrFalse: true,
+      safetyDescription: faker.lorem.paragraph('3'),
+      subheader: 'Additional Rules',
+    },
+  ];
+  return listOfRules;
 }
 
 module.exports = {

@@ -24,7 +24,7 @@ const IndividualSection = styled.div`
   overflow-wrap: break-word;
 `;
 const Paragaraph = styled.p`
-  font-size: 10px;
+  font-size: 12px;
 `;
 
 const ShowAll = styled.p`
@@ -33,9 +33,9 @@ const ShowAll = styled.p`
 `;
 
 const SectionHeader = styled.div`
-  font-size: 12px;
   font-weight: bold;
 `;
+const Url = 'https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/';
 
 // Create a wholesection container for adding a header
 // Header was displaying as a flex element if added in ThingsToKnowContainer
@@ -81,14 +81,32 @@ class ThingsToKnowSection extends React.Component {
     const thingsToKnow = this.props.thingsToKnow;
     let houseRules;
     let safetyProperty;
+    let additionalRules;
+    let houseRulesProp;
     if (!Array.isArray(thingsToKnow)) {
-      houseRules = this.props.thingsToKnow.houseRules
+      // Copy the house rules to prevent any side effects
+      let copiedRules = this.props.thingsToKnow.houseRules.slice(0);
+      // Make additional rules the last object since it will always come last
+      additionalRules = copiedRules[copiedRules.length - 1];
+      houseRulesProp = copiedRules.slice(0, copiedRules.length - 2);
+      // Assign only house rules that apply (are true) to houseRules variable
+      houseRules = copiedRules
+        .slice(0, copiedRules.length - 2)
+        .filter((rule) => rule.trueOrFalse)
         .map((houseRule, i) => {
+          // Get the last lowercased word of each description to dynamically grab PNG for that image
+          let wordArray = houseRule.safetyDescription.split(' ');
+          let lastWord = wordArray[wordArray.length - 1].toLowerCase();
+
           return (
             <span key={houseRule._id}>
               <Paragaraph>
-                <AccessAlarmIcon style={{ fontSize: 12 }}></AccessAlarmIcon>
-                {houseRule.subheader.split(' ').slice(0, 3).join(' ')}
+                <img
+                  // template literal for s3 bucket url
+                  src={`${Url}${lastWord}.png`}
+                  style={{ maxHeight: '15px' }}
+                ></img>{' '}
+                {houseRule.safetyDescription}
               </Paragaraph>
             </span>
           );
@@ -133,6 +151,8 @@ class ThingsToKnowSection extends React.Component {
                 <Modal>
                   <HouseRulesModal
                     toggleModal={this.toggleModal}
+                    houseRules={houseRulesProp}
+                    additionalRules={additionalRules}
                   ></HouseRulesModal>
                 </Modal>
               ) : null}
@@ -154,7 +174,10 @@ class ThingsToKnowSection extends React.Component {
               {/* Conditional rendering the modal when you  click Show All */}
               {this.state.showSafetyModal ? (
                 <Modal>
-                  <SafetyModal toggleModal={this.toggleModal}></SafetyModal>
+                  <SafetyModal
+                    toggleModal={this.toggleModal}
+                    safetyRules={thingsToKnow.safety}
+                  ></SafetyModal>
                 </Modal>
               ) : null}
             </IndividualSection>

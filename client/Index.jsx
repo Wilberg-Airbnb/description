@@ -55,8 +55,8 @@ class Index extends React.Component {
           thingsToDo: data.thingsToDo,
           sleepingArrangements: data.sleepingArrangements,
           thingsToKnow: {
-            houseRules: data.houseRules,
-            safety: data.safety,
+            houseRules: data.safety,
+            safety: data.houseRules,
             cancellationPolicy: data.cancellationPolicy[0],
           },
         });
@@ -71,7 +71,7 @@ class Index extends React.Component {
       <div>
         <AlignmentContainer>
           <WholeSectionContainer>
-            {/* <HostAndRooms hostAndRooms={this.state.hostAndRooms} /> */}
+            <HostAndRooms hostAndRooms={this.state.hostAndRooms} />
             <Overview
               strictCancellation={this.state.thingsToKnow.cancellationPolicy}
               overview={this.state.overview}
