@@ -81,7 +81,12 @@ class ThingsToKnowSection extends React.Component {
     const thingsToKnow = this.props.thingsToKnow;
     let houseRules;
     let safetyProperty;
+
     if (!Array.isArray(thingsToKnow)) {
+      console.log(
+        'things To Know',
+        this.props.thingsToKnow.houseRules.filter((rule) => rule.trueOrFalse)
+      );
       houseRules = this.props.thingsToKnow.houseRules
         .map((houseRule, i) => {
           return (

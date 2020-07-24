@@ -375,7 +375,7 @@ function getRandomSaeftyItemsAndHouseRules() {
       subheader: 'Safety features',
     },
     {
-      trueOrFalse: faker.random.boolean(),
+      trueOrFalse: true,
       safetyDescription: faker.lorem.paragraph('3'),
       subheader: 'Additional Rules',
     },
