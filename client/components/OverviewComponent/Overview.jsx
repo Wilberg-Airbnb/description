@@ -163,7 +163,7 @@ const Overview = ({
   }
   if (entirePlace.bathNumber && entirePlace.entirePlace === true) {
     iconsToDisplay.push(
-      <Row key={item._id}>
+      <Row key={'entirePlace'}>
         <img
           src="https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/entirehome.png"
           style={{ maxHeight: '25px' }}
