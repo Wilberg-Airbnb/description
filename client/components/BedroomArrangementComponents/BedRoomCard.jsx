@@ -33,7 +33,6 @@ const BedroomCard = ({ bedroomDescription }) => {
   // Get first word to determine the type of bed
   const arrangementType = bedroomDescription.bedroomDescription.split(' ')[1];
   let BedIcon;
-  console.log('The arrangement', arrangementType);
   if (arrangementType === 'Single') {
     BedIcon = (
       <img
