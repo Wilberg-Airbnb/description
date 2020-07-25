@@ -32,7 +32,7 @@ class MainDescription extends React.Component {
     let sections = this.props.descriptions;
     let reactSections = sections.map((section, i) => {
       return (
-        <section key={this.props.descriptions._id}>
+        <section key={section._id}>
           <DescriptionHeader>{section.header}</DescriptionHeader>
           <p>{section.description}</p>
         </section>
