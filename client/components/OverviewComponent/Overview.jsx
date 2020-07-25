@@ -39,10 +39,10 @@ const Overview = ({
 }) => {
   let iconsToDisplay = [];
   if (overview.length !== 0) {
-    overview.forEach((item) => {
+    overview.forEach((item, i) => {
       if (item.mainHeader === 'Clean and tidy') {
         iconsToDisplay.push(
-          <Row>
+          <Row key={item._id}>
             <img
               src="https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/cleanandtidy.png"
               style={{ maxHeight: '25px' }}
@@ -59,7 +59,7 @@ const Overview = ({
       }
       if (item.mainHeader === 'Great Location') {
         iconsToDisplay.push(
-          <Row>
+          <Row key={item._id}>
             <img
               src="https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/greatlocation.png"
               style={{ maxHeight: '25px' }}
@@ -76,7 +76,7 @@ const Overview = ({
       }
       if (item.mainHeader === 'Enhanced Clean') {
         iconsToDisplay.push(
-          <Row>
+          <Row key={item._id}>
             <img
               src="https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/enhancedclean.png"
               style={{ maxHeight: '25px' }}
@@ -93,7 +93,7 @@ const Overview = ({
       }
       if (item.mainHeader === 'Self check-in') {
         iconsToDisplay.push(
-          <Row>
+          <Row key={item._id}>
             <img
               src="https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/selfcheckin.png"
               style={{ maxHeight: '25px' }}
@@ -110,7 +110,7 @@ const Overview = ({
       }
       if (item.mainHeader === 'Great check-in experience') {
         iconsToDisplay.push(
-          <Row>
+          <Row key={item._id}>
             <img
               src="https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/greatcheckinexperience.png"
               style={{ maxHeight: '25px' }}
@@ -127,7 +127,7 @@ const Overview = ({
       }
       if (item.mainHeader === 'Great communication') {
         iconsToDisplay.push(
-          <Row>
+          <Row key={item._id}>
             <img
               src="https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/greatcommunication.png"
               style={{ maxHeight: '25px' }}
@@ -144,7 +144,7 @@ const Overview = ({
       }
       if (item.mainHeader === 'Outstanding hospitality') {
         iconsToDisplay.push(
-          <Row>
+          <Row key={item._id}>
             <img
               src="https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/outstandinghospitality.png"
               style={{ maxHeight: '25px' }}
@@ -163,7 +163,7 @@ const Overview = ({
   }
   if (entirePlace.bathNumber && entirePlace.entirePlace === true) {
     iconsToDisplay.push(
-      <Row>
+      <Row key={item._id}>
         <img
           src="https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/entirehome.png"
           style={{ maxHeight: '25px' }}
@@ -186,7 +186,7 @@ const Overview = ({
     strictCancellation.flexible === true
   ) {
     iconsToDisplay.push(
-      <Row>
+      <Row key={'Strict'}>
         <img
           src="https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/cancellation.png"
           style={{ maxHeight: '25px' }}
