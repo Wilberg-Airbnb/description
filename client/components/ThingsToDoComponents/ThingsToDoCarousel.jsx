@@ -5,7 +5,7 @@ import { IoIosArrowDropright, IoIosArrowDropleft } from 'react-icons/Io';
 import axios from 'axios';
 
 const DivContainer = styled.div`
-  height: 330px;
+  height: 350px;
 `;
 
 const Wrapper = styled.div`

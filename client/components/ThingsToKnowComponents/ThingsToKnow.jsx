@@ -189,7 +189,7 @@ class ThingsToKnowSection extends React.Component {
               </SectionHeader>
               <ShowAll
                 id="showCancellationPolicy"
-                onClick={() => this.toggleModal('cancellationModal')}
+                // onClick={() => this.toggleModal('cancellationModal')}
               >
                 More Details >
               </ShowAll>
