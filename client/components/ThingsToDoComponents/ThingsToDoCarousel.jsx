@@ -42,7 +42,7 @@ class ThingsToDoCarousel extends React.Component {
   }
   componentDidMount() {
     axios
-      .get(`http://localhost:4000/api/description/${this.state.listingId}`)
+      .get(`http://52.14.166.9:4000/api/description/${this.state.listingId}`)
       .then(({ data }) => {
         this.setState({
           thingsToDo: data.thingsToDo,
