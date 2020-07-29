@@ -13,6 +13,7 @@ const PositioningStyle = {
   backgroundColor: 'rgba(0,0,0,0.3)',
   display: 'flex',
   justifyContent: 'center',
+  zIndex: 9999,
 };
 
 const ScrollBoxStyle = {
