@@ -61,7 +61,7 @@ const descriptionSchema = new mongoose.Schema({
     {
       activityPhoto: String,
       activityDescription: String,
-      pricePerPerson: String,
+      pricePerPerson: Number,
       stars: Number,
     },
   ],
