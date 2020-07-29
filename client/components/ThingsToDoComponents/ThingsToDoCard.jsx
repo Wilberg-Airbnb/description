@@ -20,9 +20,11 @@ const Description = styled.p`
 
 const Icon = styled.div`
   position: absolute;
+
   top: 0;
   right: 0;
   display: none;
+  margin-right: 40px;
   ${StyledCard}:hover & {
     display: block;
   }
@@ -35,13 +37,14 @@ const ThingsToDoCard = ({ thingsToDo }) => {
   return (
     <StyledCard>
       <Photo photo={thingsToDo.activityPhoto}></Photo>
+      <Icon id="likeIcon">
+        <FavoriteBorderIcon></FavoriteBorderIcon>
+      </Icon>
       <Description>{thingsToDo.activityDescription}</Description>
       <Description className="description">
         From ${thingsToDo.pricePerPerson}/person · Sports
       </Description>
-      <Icon id="likeIcon">
-        <FavoriteBorderIcon></FavoriteBorderIcon>
-      </Icon>
+
       <ReviewAndStars>
         <StarIcon style={{ fontSize: 12 }}></StarIcon> {thingsToDo.stars} (
         {thingsToDo.numberOfReviews})

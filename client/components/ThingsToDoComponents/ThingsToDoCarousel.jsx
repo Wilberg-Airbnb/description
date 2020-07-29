@@ -4,11 +4,15 @@ import ThingsToDoCard from './ThingsToDoCard.jsx';
 import { IoIosArrowDropright, IoIosArrowDropleft } from 'react-icons/Io';
 import axios from 'axios';
 
+const DivContainer = styled.div`
+  height: 330px;
+`;
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-around;
+  justify-content: space-between;
   overflow: hidden;
   width: 60%;
   margin: auto;
@@ -83,7 +87,7 @@ class ThingsToDoCarousel extends React.Component {
         .slice(this.state.left, this.state.right);
     }
     return (
-      <div>
+      <DivContainer>
         <Header>
           <h4>Things to do nearby</h4>
           <br></br>
@@ -98,11 +102,10 @@ class ThingsToDoCarousel extends React.Component {
             ></IoIosArrowDropright>
           </div>
         </Header>
-
         <Wrapper className="wrap" left={this.state.left}>
           {cards}
         </Wrapper>
-      </div>
+      </DivContainer>
     );
   }
 }
