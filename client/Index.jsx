@@ -28,7 +28,6 @@ class Index extends React.Component {
       descriptions: [],
       amenities: [],
       hostAndRooms: {},
-      thingsToDo: [],
       sleepingArrangements: [],
       thingsToKnow: [],
       listingId: window.location.pathname.slice(1, -1),
@@ -50,7 +49,6 @@ class Index extends React.Component {
           amenities: data.amenities,
           hostAndRooms: data.hostAndRooms[0],
           overview: data.overview,
-          thingsToDo: data.thingsToDo,
           sleepingArrangements: data.sleepingArrangements,
           thingsToKnow: {
             houseRules: data.safety,
@@ -85,10 +83,6 @@ class Index extends React.Component {
         <ThingsToKnowSection
           thingsToKnow={this.state.thingsToKnow}
         ></ThingsToKnowSection>
-        <ThingsToDoCarousel
-          thingsToDo={this.state.thingsToDo}
-          length={this.state.thingsToDo.length}
-        ></ThingsToDoCarousel>
       </div>
     );
     // }

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import ThingsToDoCard from './ThingsToDoCard.jsx';
 import { IoIosArrowDropright, IoIosArrowDropleft } from 'react-icons/Io';
-
+import axios from 'axios';
 const Container = styled.div`
   width: 100%;
   text-align: center;
@@ -34,9 +34,23 @@ class ThingsToDoCarousel extends React.Component {
       left: 0,
       right: 5,
       slidesShown: 5,
+      listingId: window.location.pathname.slice(1, -1),
+      thingsToDo: null,
     };
     this.moveRight = this.moveRight.bind(this);
     this.moveLeft = this.moveLeft.bind(this);
+  }
+  componentDidMount() {
+    axios
+      .get(`http://52.14.166.9:4000/api/description/${this.state.listingId}`)
+      .then(({ data }) => {
+        this.setState({
+          thingsToDo: data.thingsToDo,
+        });
+      })
+      .catch((error) => {
+        console.log('Error retrieving data!', error);
+      });
   }
 
   moveLeft() {
@@ -62,13 +76,16 @@ class ThingsToDoCarousel extends React.Component {
   }
 
   render() {
-    let cards = this.props.thingsToDo
-      .map((card, i) => {
-        return (
-          <ThingsToDoCard key={card._id} thingsToDo={card}></ThingsToDoCard>
-        );
-      })
-      .slice(this.state.left, this.state.right + 1);
+    let cards;
+    if (this.state.thingsToDo !== null) {
+      cards = this.state.thingsToDo
+        .map((card, i) => {
+          return (
+            <ThingsToDoCard key={card._id} thingsToDo={card}></ThingsToDoCard>
+          );
+        })
+        .slice(this.state.left, this.state.right + 1);
+    }
     return (
       <Container>
         <Header>
@@ -79,7 +96,6 @@ class ThingsToDoCarousel extends React.Component {
               id="moveLeft"
               onClick={this.moveLeft}
             ></IoIosArrowDropleft>
-
             <IoIosArrowDropright
               id="moveRight"
               onClick={this.moveRight}
