@@ -65,7 +65,7 @@ class Index extends React.Component {
   render() {
     return (
       <div>
-        <AlignmentContainer>
+        {/* <AlignmentContainer>
           <WholeSectionContainer>
             <HostAndRooms hostAndRooms={this.state.hostAndRooms} />
             <Overview
@@ -82,7 +82,7 @@ class Index extends React.Component {
         </AlignmentContainer>
         <ThingsToKnowSection
           thingsToKnow={this.state.thingsToKnow}
-        ></ThingsToKnowSection>
+        ></ThingsToKnowSection> */}
       </div>
     );
     // }

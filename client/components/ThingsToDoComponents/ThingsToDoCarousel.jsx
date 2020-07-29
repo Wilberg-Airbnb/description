@@ -65,7 +65,7 @@ class ThingsToDoCarousel extends React.Component {
   }
 
   moveRight() {
-    if (this.state.slidesShown < this.props.thingsToDo.length) {
+    if (this.state.slidesShown < this.state.thingsToDo.length) {
       this.setState({
         left: this.state.left + 5,
         right: this.state.right + 5,
