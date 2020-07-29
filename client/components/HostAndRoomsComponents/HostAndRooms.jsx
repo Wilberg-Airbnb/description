@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 const HostAndRoomsContainer = styled.div`
   padding-top: 15px;
   width: 60%;
@@ -26,26 +27,56 @@ const PlaceSummary = styled.summary`
   font-size: 16px;
 `;
 // Have to call for Krissy's api here
-const HostAndRooms = ({ hostAndRooms }) => {
-  let summary = '';
-  if (hostAndRooms.entirePlace) {
-    summary = `Entire ${hostAndRooms.typeOfPlace} hosted by ${hostAndRooms.name}`;
-  } else {
-    summary = `Private rooms in ${hostAndRooms.typeOfPlace} hosted by ${hostAndRooms.name}`;
+// const HostAndRooms = ({ hostAndRooms }) => {
+class HostAndRooms extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      personImage: null,
+    };
   }
-  let accomodationBreakDown = `${hostAndRooms.maxNumberOfGuests} guests ${hostAndRooms.rooms} bedrooms ${hostAndRooms.bedNumber} beds ${hostAndRooms.bathNumber} baths`;
 
-  return (
-    <HostAndRoomsContainer>
-      <div>
-        <Header className="place">{summary}</Header>
-        <PlaceSummary className="accomodations">
-          {accomodationBreakDown}
-        </PlaceSummary>
-      </div>
-      <img src={ImageUrl} style={{ borderRadius: '50%', height: '60px' }}></img>
-    </HostAndRoomsContainer>
-  );
-};
+  componentDidMount() {
+    axios
+      .get(`http://3.12.169.208:2000/api/host/${this.props.listingId}`)
+      .then(({ data }) => {
+        this.setState({
+          personImage: data.photoUrl,
+        });
+      })
+      .catch((error) => {
+        console.log('Error Getting Persons Photo from host service!', error);
+        this.setState({
+          personImage: ImageUrl,
+        });
+      });
+  }
+
+  render() {
+    let hostAndRooms = this.props.hostAndRooms;
+    let summary = '';
+    if (hostAndRooms.entirePlace) {
+      summary = `Entire ${hostAndRooms.typeOfPlace} hosted by ${hostAndRooms.name}`;
+    } else {
+      summary = `Private rooms in ${hostAndRooms.typeOfPlace} hosted by ${hostAndRooms.name}`;
+    }
+    let accomodationBreakDown = `${hostAndRooms.maxNumberOfGuests} guests ${hostAndRooms.rooms} bedrooms ${hostAndRooms.bedNumber} beds ${hostAndRooms.bathNumber} baths`;
+
+    return (
+      <HostAndRoomsContainer>
+        <div>
+          <Header className="place">{summary}</Header>
+          <PlaceSummary className="accomodations">
+            {accomodationBreakDown}
+          </PlaceSummary>
+        </div>
+        <img
+          src={this.state.personImage}
+          style={{ borderRadius: '50%', height: '60px' }}
+        ></img>
+      </HostAndRoomsContainer>
+    );
+  }
+}
 
 export default HostAndRooms;

@@ -65,9 +65,12 @@ class Index extends React.Component {
   render() {
     return (
       <div>
-        {/* <AlignmentContainer>
+        <AlignmentContainer>
           <WholeSectionContainer>
-            <HostAndRooms hostAndRooms={this.state.hostAndRooms} />
+            <HostAndRooms
+              hostAndRooms={this.state.hostAndRooms}
+              listingId={this.state.listingId}
+            />
             <Overview
               strictCancellation={this.state.thingsToKnow.cancellationPolicy}
               overview={this.state.overview}
@@ -82,10 +85,9 @@ class Index extends React.Component {
         </AlignmentContainer>
         <ThingsToKnowSection
           thingsToKnow={this.state.thingsToKnow}
-        ></ThingsToKnowSection> */}
+        ></ThingsToKnowSection>
       </div>
     );
-    // }
   }
 }
 
