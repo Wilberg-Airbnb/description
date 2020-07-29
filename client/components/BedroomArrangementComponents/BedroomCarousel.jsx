@@ -103,7 +103,7 @@ class BedroomCarousel extends React.Component {
           )}
           {bedroomcards}
           {/* Conditionally render the right arrow if you're NOT at the last slide */}
-          {this.state.slidesShown >
+          {this.state.slidesShown >=
           this.props.sleepingArrangements.length ? null : (
             <ArrowWrapperRight>
               <IoIosArrowDropright size={25} onClick={this.moveRight} />

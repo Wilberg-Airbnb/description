@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 const HostAndRoomsContainer = styled.div`
   padding-top: 15px;
   width: 60%;
@@ -8,7 +9,7 @@ const HostAndRoomsContainer = styled.div`
   font-size: 14px;
   display: flex;
   align-items: row;
-  justify-content: space-around;
+  justify-content: flex-start;
 `;
 const ImageUrl =
   'https://s3.amazonaws.com/uifaces/faces/twitter/kevinjohndayy/128.jpg';
@@ -25,27 +26,56 @@ const Header = styled.main`
 const PlaceSummary = styled.summary`
   font-size: 16px;
 `;
-// Have to call for Krissy's api here
-const HostAndRooms = ({ hostAndRooms }) => {
-  let summary = '';
-  if (hostAndRooms.entirePlace) {
-    summary = `Entire ${hostAndRooms.typeOfPlace} hosted by ${hostAndRooms.name}`;
-  } else {
-    summary = `Private rooms in ${hostAndRooms.typeOfPlace} hosted by ${hostAndRooms.name}`;
+class HostAndRooms extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      personImage: null,
+    };
   }
-  let accomodationBreakDown = `${hostAndRooms.maxNumberOfGuests} guests ${hostAndRooms.rooms} bedrooms ${hostAndRooms.bedNumber} beds ${hostAndRooms.bathNumber} baths`;
+  // Call for Host service   here
+  componentDidMount() {
+    axios
+      .get(`http://3.12.169.208:2000/api/host/${this.props.listingId}`)
+      .then(({ data }) => {
+        this.setState({
+          personImage: data.photoUrl,
+        });
+      })
+      .catch((error) => {
+        // Error handling by serving stock image incase service is down
+        console.log('Error Getting Persons Photo from host service!', error);
+        this.setState({
+          personImage: ImageUrl,
+        });
+      });
+  }
 
-  return (
-    <HostAndRoomsContainer>
-      <div>
-        <Header className="place">{summary}</Header>
-        <PlaceSummary className="accomodations">
-          {accomodationBreakDown}
-        </PlaceSummary>
-      </div>
-      <img src={ImageUrl} style={{ borderRadius: '50%', height: '60px' }}></img>
-    </HostAndRoomsContainer>
-  );
-};
+  render() {
+    let hostAndRooms = this.props.hostAndRooms;
+    let summary = '';
+    if (hostAndRooms.entirePlace) {
+      summary = `Entire ${hostAndRooms.typeOfPlace} hosted by ${hostAndRooms.name}`;
+    } else {
+      summary = `Private rooms in ${hostAndRooms.typeOfPlace} hosted by ${hostAndRooms.name}`;
+    }
+    let accomodationBreakDown = `${hostAndRooms.maxNumberOfGuests} guests ${hostAndRooms.rooms} bedrooms ${hostAndRooms.bedNumber} beds ${hostAndRooms.bathNumber} baths`;
+
+    return (
+      <HostAndRoomsContainer>
+        <div>
+          <Header className="place">{summary}</Header>
+          <PlaceSummary className="accomodations">
+            {accomodationBreakDown}
+          </PlaceSummary>
+        </div>
+        <img
+          src={this.state.personImage}
+          style={{ borderRadius: '50%', height: '60px', marginLeft: '25%' }}
+        ></img>
+      </HostAndRoomsContainer>
+    );
+  }
+}
 
 export default HostAndRooms;

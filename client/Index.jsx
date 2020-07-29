@@ -11,11 +11,6 @@ import { sleepingArrangements } from './components/sampleDataForTests';
 import styled from 'styled-components';
 
 // Define a container and have all of overview, host and rooms, and amenities go in there
-const AlignmentContainer = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-`;
 
 const WholeSectionContainer = styled.div`
   width: 60%;
@@ -28,7 +23,6 @@ class Index extends React.Component {
       descriptions: [],
       amenities: [],
       hostAndRooms: {},
-      thingsToDo: [],
       sleepingArrangements: [],
       thingsToKnow: [],
       listingId: window.location.pathname.slice(1, -1),
@@ -50,7 +44,6 @@ class Index extends React.Component {
           amenities: data.amenities,
           hostAndRooms: data.hostAndRooms[0],
           overview: data.overview,
-          thingsToDo: data.thingsToDo,
           sleepingArrangements: data.sleepingArrangements,
           thingsToKnow: {
             houseRules: data.safety,
@@ -67,31 +60,27 @@ class Index extends React.Component {
   render() {
     return (
       <div>
-        <AlignmentContainer>
-          <WholeSectionContainer>
-            <HostAndRooms hostAndRooms={this.state.hostAndRooms} />
-            <Overview
-              strictCancellation={this.state.thingsToKnow.cancellationPolicy}
-              overview={this.state.overview}
-              entirePlace={this.state.hostAndRooms}
-            />
-            <MainDescription descriptions={this.state.descriptions} />
-            <BedroomCarousel
-              sleepingArrangements={this.state.sleepingArrangements}
-            ></BedroomCarousel>
-            <Amenities amenities={this.state.amenities} />
-          </WholeSectionContainer>
-        </AlignmentContainer>
+        <WholeSectionContainer>
+          <HostAndRooms
+            hostAndRooms={this.state.hostAndRooms}
+            listingId={this.state.listingId}
+          />
+          <Overview
+            strictCancellation={this.state.thingsToKnow.cancellationPolicy}
+            overview={this.state.overview}
+            entirePlace={this.state.hostAndRooms}
+          />
+          <MainDescription descriptions={this.state.descriptions} />
+          <BedroomCarousel
+            sleepingArrangements={this.state.sleepingArrangements}
+          ></BedroomCarousel>
+          <Amenities amenities={this.state.amenities} />
+        </WholeSectionContainer>
         <ThingsToKnowSection
           thingsToKnow={this.state.thingsToKnow}
         ></ThingsToKnowSection>
-        <ThingsToDoCarousel
-          thingsToDo={this.state.thingsToDo}
-          length={this.state.thingsToDo.length}
-        ></ThingsToDoCarousel>
       </div>
     );
-    // }
   }
 }
 

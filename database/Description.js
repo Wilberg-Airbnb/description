@@ -59,9 +59,10 @@ const descriptionSchema = new mongoose.Schema({
   ],
   thingsToDo: [
     {
+      numberOfReviews: Number,
       activityPhoto: String,
       activityDescription: String,
-      pricePerPerson: String,
+      pricePerPerson: Number,
       stars: Number,
     },
   ],

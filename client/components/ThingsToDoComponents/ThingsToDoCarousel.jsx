@@ -2,17 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import ThingsToDoCard from './ThingsToDoCard.jsx';
 import { IoIosArrowDropright, IoIosArrowDropleft } from 'react-icons/Io';
+import axios from 'axios';
 
-const Container = styled.div`
-  width: 100%;
-  text-align: center;
+const DivContainer = styled.div`
+  height: 350px;
 `;
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-around;
+  justify-content: space-between;
   overflow: hidden;
   width: 60%;
   margin: auto;
@@ -32,45 +32,62 @@ class ThingsToDoCarousel extends React.Component {
     this.state = {
       currentSlide: 0,
       left: 0,
-      right: 5,
+      right: 6,
       slidesShown: 5,
+      listingId: window.location.pathname.slice(1, -1),
+      thingsToDo: null,
     };
     this.moveRight = this.moveRight.bind(this);
     this.moveLeft = this.moveLeft.bind(this);
+  }
+  componentDidMount() {
+    axios
+      .get(`http://52.14.166.9:4000/api/description/${this.state.listingId}`)
+      .then(({ data }) => {
+        this.setState({
+          thingsToDo: data.thingsToDo,
+        });
+      })
+      .catch((error) => {
+        console.log('Error retrieving data!', error);
+      });
   }
 
   moveLeft() {
     if (this.state.currentSlide > 0) {
       this.setState({
-        left: this.state.left - 5,
-        right: this.state.right - 5,
+        left: this.state.left - 6,
+        right: this.state.right - 6,
         currentSlide: this.state.currentSlide - 1,
-        slidesShown: this.state.slidesShown - 5,
+        slidesShown: this.state.slidesShown - 6,
       });
     }
   }
 
   moveRight() {
-    if (this.state.slidesShown < this.props.thingsToDo.length) {
+    if (this.state.slidesShown < this.state.thingsToDo.length - 1) {
       this.setState({
-        left: this.state.left + 5,
-        right: this.state.right + 5,
+        left: this.state.left + 6,
+        right: this.state.right + 6,
         currentSlide: this.state.currentSlide + 1,
-        slidesShown: this.state.slidesShown + 5,
+        slidesShown: this.state.slidesShown + 6,
       });
     }
   }
 
   render() {
-    let cards = this.props.thingsToDo
-      .map((card, i) => {
-        return (
-          <ThingsToDoCard key={card._id} thingsToDo={card}></ThingsToDoCard>
-        );
-      })
-      .slice(this.state.left, this.state.right + 1);
+    let cards;
+    if (this.state.thingsToDo !== null) {
+      cards = this.state.thingsToDo
+        .map((card, i) => {
+          return (
+            <ThingsToDoCard key={card._id} thingsToDo={card}></ThingsToDoCard>
+          );
+        })
+        .slice(this.state.left, this.state.right);
+    }
     return (
-      <Container>
+      <DivContainer>
         <Header>
           <h4>Things to do nearby</h4>
           <br></br>
@@ -79,18 +96,16 @@ class ThingsToDoCarousel extends React.Component {
               id="moveLeft"
               onClick={this.moveLeft}
             ></IoIosArrowDropleft>
-
             <IoIosArrowDropright
               id="moveRight"
               onClick={this.moveRight}
             ></IoIosArrowDropright>
           </div>
         </Header>
-
         <Wrapper className="wrap" left={this.state.left}>
           {cards}
         </Wrapper>
-      </Container>
+      </DivContainer>
     );
   }
 }
