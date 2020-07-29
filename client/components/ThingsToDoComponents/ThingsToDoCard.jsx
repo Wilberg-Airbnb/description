@@ -16,6 +16,7 @@ const Photo = styled.div`
 const Description = styled.p`
   font-size: 10px;
   font-family: 'Verdana';
+  width: 106px;
 `;
 
 const Icon = styled.div`

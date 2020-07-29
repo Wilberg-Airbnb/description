@@ -312,7 +312,7 @@ function getRandomThingsToDo() {
     activities.push({
       numberOfReviews: getRandomInt(50, 1000),
       activityPhoto: 'https://picsum.photos/107/142',
-      activityDescription: faker.lorem.sentence(),
+      activityDescription: faker.lorem.words('5'),
       pricePerPerson: getRandomInt(50, 300),
       stars: Number((Math.random() + 4).toFixed(2)),
     });
