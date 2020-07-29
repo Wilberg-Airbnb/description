@@ -3,8 +3,9 @@ const cors = require('cors');
 const db = require('../database/connection');
 const Document = require('../database/Description');
 const app = express();
-
+const compression = require('compression');
 // Apply cors middleware to enable ALL cors request
+app.use(compression());
 app.use(cors());
 app.use('/:listingId', express.static('public'));
 app.get('/api/description/:listingId', (req, res) => {
