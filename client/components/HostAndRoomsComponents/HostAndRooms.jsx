@@ -26,8 +26,6 @@ const Header = styled.main`
 const PlaceSummary = styled.summary`
   font-size: 16px;
 `;
-// Have to call for Krissy's api here
-// const HostAndRooms = ({ hostAndRooms }) => {
 class HostAndRooms extends React.Component {
   constructor(props) {
     super(props);
@@ -35,7 +33,7 @@ class HostAndRooms extends React.Component {
       personImage: null,
     };
   }
-
+  // Call for Host service   here
   componentDidMount() {
     axios
       .get(`http://3.12.169.208:2000/api/host/${this.props.listingId}`)
@@ -45,6 +43,7 @@ class HostAndRooms extends React.Component {
         });
       })
       .catch((error) => {
+        // Error handling by serving stock image incase service is down
         console.log('Error Getting Persons Photo from host service!', error);
         this.setState({
           personImage: ImageUrl,
