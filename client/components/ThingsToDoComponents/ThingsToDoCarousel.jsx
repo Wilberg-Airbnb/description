@@ -3,10 +3,6 @@ import styled from 'styled-components';
 import ThingsToDoCard from './ThingsToDoCard.jsx';
 import { IoIosArrowDropright, IoIosArrowDropleft } from 'react-icons/Io';
 import axios from 'axios';
-const Container = styled.div`
-  width: 100%;
-  text-align: center;
-`;
 
 const Wrapper = styled.div`
   display: flex;
@@ -32,7 +28,7 @@ class ThingsToDoCarousel extends React.Component {
     this.state = {
       currentSlide: 0,
       left: 0,
-      right: 5,
+      right: 6,
       slidesShown: 5,
       listingId: window.location.pathname.slice(1, -1),
       thingsToDo: null,
@@ -56,21 +52,21 @@ class ThingsToDoCarousel extends React.Component {
   moveLeft() {
     if (this.state.currentSlide > 0) {
       this.setState({
-        left: this.state.left - 5,
-        right: this.state.right - 5,
+        left: this.state.left - 6,
+        right: this.state.right - 6,
         currentSlide: this.state.currentSlide - 1,
-        slidesShown: this.state.slidesShown - 5,
+        slidesShown: this.state.slidesShown - 6,
       });
     }
   }
 
   moveRight() {
-    if (this.state.slidesShown < this.state.thingsToDo.length) {
+    if (this.state.slidesShown < this.state.thingsToDo.length - 1) {
       this.setState({
-        left: this.state.left + 5,
-        right: this.state.right + 5,
+        left: this.state.left + 6,
+        right: this.state.right + 6,
         currentSlide: this.state.currentSlide + 1,
-        slidesShown: this.state.slidesShown + 5,
+        slidesShown: this.state.slidesShown + 6,
       });
     }
   }
@@ -84,10 +80,10 @@ class ThingsToDoCarousel extends React.Component {
             <ThingsToDoCard key={card._id} thingsToDo={card}></ThingsToDoCard>
           );
         })
-        .slice(this.state.left, this.state.right + 1);
+        .slice(this.state.left, this.state.right);
     }
     return (
-      <Container>
+      <div>
         <Header>
           <h4>Things to do nearby</h4>
           <br></br>
@@ -106,7 +102,7 @@ class ThingsToDoCarousel extends React.Component {
         <Wrapper className="wrap" left={this.state.left}>
           {cards}
         </Wrapper>
-      </Container>
+      </div>
     );
   }
 }
