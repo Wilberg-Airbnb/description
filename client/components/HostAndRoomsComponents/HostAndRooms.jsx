@@ -9,7 +9,7 @@ const HostAndRoomsContainer = styled.div`
   font-size: 14px;
   display: flex;
   align-items: row;
-  justify-content: space-around;
+  justify-content: flex-start;
 `;
 const ImageUrl =
   'https://s3.amazonaws.com/uifaces/faces/twitter/kevinjohndayy/128.jpg';
@@ -71,7 +71,7 @@ class HostAndRooms extends React.Component {
         </div>
         <img
           src={this.state.personImage}
-          style={{ borderRadius: '50%', height: '60px' }}
+          style={{ borderRadius: '50%', height: '60px', marginLeft: '25%' }}
         ></img>
       </HostAndRoomsContainer>
     );
