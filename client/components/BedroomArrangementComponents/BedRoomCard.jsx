@@ -2,31 +2,38 @@ import React from 'react';
 import styled from 'styled-components';
 
 const SleepingArrangementCard = styled.div`
-  height: 125px;
-  width: 165px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: rgb(221, 221, 221);
-  border-radius: 10px;
-  margin-right: 20px;
+  #description & {
+    height: 125px;
+    width: 165px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(221, 221, 221);
+    border-radius: 10px;
+    margin-right: 20px;
+  }
 `;
 
 const SleepingArrangementContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  align-content: center;
-  margin-top: 15px;
-  margin-left: 18px;
+  #description & {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-top: 15px;
+    margin-left: 18px;
+  }
 `;
 
 const SleepingHeader = styled.div`
-  font-weight: bold;
-  font-size: 11px;
+  #description & {
+    font-weight: bold;
+    font-size: 11px;
+  }
 `;
 
 const SleepingDescription = styled.div`
-  font-size: 10px;
+  #description & {
+    font-size: 10px;
+  }
 `;
 
 const BedroomCard = ({ bedroomDescription }) => {

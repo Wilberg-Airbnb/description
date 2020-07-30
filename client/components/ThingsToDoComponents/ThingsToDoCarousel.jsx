@@ -5,25 +5,31 @@ import { IoIosArrowDropright, IoIosArrowDropleft } from 'react-icons/Io';
 import axios from 'axios';
 
 const DivContainer = styled.div`
-  height: 350px;
+  #things-to-do-carousel & {
+    height: 350px;
+  }
 `;
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  overflow: hidden;
-  width: 60%;
-  margin: auto;
-  text-align: left;
+  #things-to-do-carousel & {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    overflow: hidden;
+    width: 60%;
+    margin: auto;
+    text-align: left;
+  }
 `;
 
 const Header = styled.div`
-  display: flex;
-  justify-content: space-around;
-  width: 80%;
-  margin: auto;
+  #things-to-do-carousel & {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: auto;
+  }
 `;
 
 class ThingsToDoCarousel extends React.Component {

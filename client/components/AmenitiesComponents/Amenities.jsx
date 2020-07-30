@@ -4,43 +4,53 @@ import Modal from '../Modals/Modal.jsx';
 import styled from 'styled-components';
 
 const Button = styled.button`
-  border-radius: 8px;
-  border-width: 1px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 13px;
-  padding-right: 13px;
-  font-size: 12px;
-  background: white;
-  /* position: absolute; */
+  #description & {
+    border-radius: 8px;
+    border-width: 1px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 13px;
+    padding-right: 13px;
+    font-size: 12px;
+    background: white;
+    /* position: absolute; */
+  }
 `;
 // Create a parent container
 const AmenitiesContainer = styled.div`
-  width: 40%;
-  display: flex;
-  flex-direction: column;
+  #description & {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 // Create an amenities header
 const AmenitiesHeader = styled.div`
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 15px;
+  #description & {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
 `;
 // Create a flexbox container for the listings
 const AmenitiesListingContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  #description & {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 `;
 // Make each listing half the size of the listing container
 // so that they wrap to the next side
 const AmenitiesListing = styled.section`
-  width: 50%;
-  height: 20%;
-  font-size: 14px;
-  margin-bottom: 10px;
+  #description & {
+    width: 50%;
+    height: 20%;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
 `;
 
 // reference aws bucket
