@@ -10,46 +10,60 @@ import SafetyModal from '../Modals/SafetyModal.jsx';
 
 // Width is no 100% to inherite the 60% from its parent element
 const ThingsToKnowContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  background-color: rgb(252, 252, 252);
-  height: 200px;
+  #description & {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: rgb(252, 252, 252);
+    height: 200px;
+  }
 `;
 
 const IndividualSection = styled.div`
-  height: 9rem;
-  width: 10rem;
-  background-color: '#fff';
-  overflow-wrap: break-word;
+  #description & {
+    height: 9rem;
+    width: 10rem;
+    background-color: '#fff';
+    overflow-wrap: break-word;
+  }
 `;
 const Paragaraph = styled.p`
-  font-size: 12px;
+  #description & {
+    font-size: 12px;
+  }
 `;
 
 const ShowAll = styled.p`
-  text-decoration: underline;
-  font-size: 12px;
+  #description & {
+    text-decoration: underline;
+    font-size: 12px;
+  }
 `;
 
 const SectionHeader = styled.div`
-  font-weight: bold;
+  #description & {
+    font-weight: bold;
+  }
 `;
 const Url = 'https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/';
 
 // Create a wholesection container for adding a header
 // Header was displaying as a flex element if added in ThingsToKnowContainer
 const WholeSectionContainer = styled.div`
-  padding-top: 10px;
-  background-color: rgb(252, 252, 252);
-  border-top: solid 1px rgb(204, 212, 204);
-  width: 60%;
+  #description & {
+    padding-top: 10px;
+    background-color: rgb(252, 252, 252);
+    border-top: solid 1px rgb(204, 212, 204);
+    width: 60%;
+  }
 `;
 
 const Container = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  #description & {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 class ThingsToKnowSection extends React.Component {

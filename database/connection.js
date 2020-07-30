@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 // Have to figure out a way to switch between localhost (local)
 // and mongo (dockerizing)
-const mongoUri = 'mongodb://mongo:27017/fec-descriptions';
+const mongoUri = 'mongodb://localhost:27017/fec-descriptions';
 const db = mongoose
   .connect(mongoUri, {
     useNewUrlParser: true,
