@@ -7,6 +7,7 @@ import axios from 'axios';
 const DivContainer = styled.div`
   #things-to-do-carousel & {
     height: 350px;
+    width: 100%;
   }
 `;
 
@@ -17,7 +18,7 @@ const Wrapper = styled.div`
     flex-wrap: nowrap;
     justify-content: space-between;
     overflow: hidden;
-    width: 60%;
+    width: 100%;
     margin: auto;
     text-align: left;
   }

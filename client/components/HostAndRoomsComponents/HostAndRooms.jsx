@@ -5,7 +5,7 @@ import axios from 'axios';
 const HostAndRoomsContainer = styled.div`
   #description & {
     padding-top: 15px;
-    width: 60%;
+    width: 150%;
     padding-bottom: 15px;
     border-bottom: solid 1px rgb(204, 212, 204);
     font-size: 14px;
@@ -40,6 +40,7 @@ class HostAndRooms extends React.Component {
     super(props);
     this.state = {
       personImage: null,
+      name: null,
     };
   }
   // Call for Host service   here
@@ -49,6 +50,7 @@ class HostAndRooms extends React.Component {
       .then(({ data }) => {
         this.setState({
           personImage: data.photoUrl,
+          name: data.fullName.split(' ')[0],
         });
       })
       .catch((error) => {
@@ -56,6 +58,7 @@ class HostAndRooms extends React.Component {
         console.log('Error Getting Persons Photo from host service!', error);
         this.setState({
           personImage: ImageUrl,
+          name: 'A generous person',
         });
       });
   }
@@ -64,7 +67,7 @@ class HostAndRooms extends React.Component {
     let hostAndRooms = this.props.hostAndRooms;
     let summary = '';
     if (hostAndRooms.entirePlace) {
-      summary = `Entire ${hostAndRooms.typeOfPlace} hosted by ${hostAndRooms.name}`;
+      summary = `Entire ${hostAndRooms.typeOfPlace} hosted by ${this.state.name}`;
     } else {
       summary = `Private rooms in ${hostAndRooms.typeOfPlace} hosted by ${hostAndRooms.name}`;
     }

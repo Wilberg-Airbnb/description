@@ -36,7 +36,7 @@ const AmenitiesHeader = styled.div`
 // Create a flexbox container for the listings
 const AmenitiesListingContainer = styled.div`
   #description & {
-    width: 100%;
+    width: 125%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
