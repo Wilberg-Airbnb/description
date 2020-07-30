@@ -1,30 +1,39 @@
 import React from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+
 const HostAndRoomsContainer = styled.div`
-  padding-top: 15px;
-  width: 60%;
-  padding-bottom: 15px;
-  border-bottom: solid 1px rgb(204, 212, 204);
-  font-size: 14px;
-  display: flex;
-  align-items: row;
-  justify-content: flex-start;
+  #description & {
+    padding-top: 15px;
+    width: 60%;
+    padding-bottom: 15px;
+    border-bottom: solid 1px rgb(204, 212, 204);
+    font-size: 14px;
+    display: flex;
+    align-items: row;
+    justify-content: flex-start;
+  }
 `;
 const ImageUrl =
   'https://s3.amazonaws.com/uifaces/faces/twitter/kevinjohndayy/128.jpg';
 
 const StyledImage = styled.div`
-  position: absolute;
+  #description & {
+    position: absolute;
+  }
 `;
 
 const Header = styled.main`
-  font-size: 19px;
-  font-weight: bold;
+  #description & {
+    font-size: 19px;
+    font-weight: bold;
+  }
 `;
 
 const PlaceSummary = styled.summary`
-  font-size: 16px;
+  #description & {
+    font-size: 16px;
+  }
 `;
 class HostAndRooms extends React.Component {
   constructor(props) {
