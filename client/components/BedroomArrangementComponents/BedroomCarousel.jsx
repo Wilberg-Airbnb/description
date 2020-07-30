@@ -9,37 +9,45 @@ import { IoIosArrowDropright, IoIosArrowDropleft } from 'react-icons/Io';
 // size of the card
 // Use position absoulute to take arrows out of flow of container to then overlap
 const ArrowWrapperLeft = styled.div`
-  padding-top: 40px;
-  position: absolute;
-  margin-left: -10px;
+  #description & {
+    padding-top: 40px;
+    position: absolute;
+    margin-left: -10px;
+  }
 `;
 const ArrowWrapperRight = styled.div`
-  padding-top: 40px;
-  float: right;
-  margin-left: -33px;
+  #description & {
+    padding-top: 40px;
+    float: right;
+    margin-left: -33px;
+  }
 `;
 
 // Wrapper will show all cards in a row as per the flex direction
 // Use flex start to always have cards spaced to the left so when there
 // are less than 3 cards they dont spread
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  overflow: hidden;
-  width: 100%;
+  #description & {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow: hidden;
+    width: 100%;
+  }
 `;
 // Added border
 const Slider = styled.div`
-  position: relative;
-  width: 100%;
-  margin: 0 auto;
-  display: inline-block;
-  border-bottom: solid 1px rgb(221, 221, 221);
-  padding-top: 24px;
-  padding-bottom: 30px;
-  /* margin-left: 15%; */
+  #description & {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    display: inline-block;
+    border-bottom: solid 1px rgb(221, 221, 221);
+    padding-top: 24px;
+    padding-bottom: 30px;
+    /* margin-left: 15%; */
+  }
 `;
 
 class BedroomCarousel extends React.Component {
