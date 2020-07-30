@@ -76,9 +76,9 @@ class Index extends React.Component {
           ></BedroomCarousel>
           <Amenities amenities={this.state.amenities} />
         </WholeSectionContainer>
-        <ThingsToKnowSection
+        {/* <ThingsToKnowSection
           thingsToKnow={this.state.thingsToKnow}
-        ></ThingsToKnowSection>
+        ></ThingsToKnowSection> */}
       </div>
     );
   }

@@ -7,10 +7,11 @@ import Modal from '../Modals/Modal.jsx';
 import HouseRulesModal from '../Modals/HouseRulesModal.jsx';
 import CancellationModal from '../Modals/CancellationModal.jsx';
 import SafetyModal from '../Modals/SafetyModal.jsx';
+import axios from 'axios';
 
 // Width is no 100% to inherite the 60% from its parent element
 const ThingsToKnowContainer = styled.div`
-  #description & {
+  #thingsToKnow & {
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -20,7 +21,7 @@ const ThingsToKnowContainer = styled.div`
 `;
 
 const IndividualSection = styled.div`
-  #description & {
+  #thingsToKnow & {
     height: 9rem;
     width: 10rem;
     background-color: '#fff';
@@ -28,20 +29,20 @@ const IndividualSection = styled.div`
   }
 `;
 const Paragaraph = styled.p`
-  #description & {
+  #thingsToKnow & {
     font-size: 12px;
   }
 `;
 
 const ShowAll = styled.p`
-  #description & {
+  #thingsToKnow & {
     text-decoration: underline;
     font-size: 12px;
   }
 `;
 
 const SectionHeader = styled.div`
-  #description & {
+  #thingsToKnow & {
     font-weight: bold;
   }
 `;
@@ -50,7 +51,7 @@ const Url = 'https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/';
 // Create a wholesection container for adding a header
 // Header was displaying as a flex element if added in ThingsToKnowContainer
 const WholeSectionContainer = styled.div`
-  #description & {
+  #thingsToKnow & {
     padding-top: 10px;
     background-color: rgb(252, 252, 252);
     border-top: solid 1px rgb(204, 212, 204);
@@ -59,7 +60,7 @@ const WholeSectionContainer = styled.div`
 `;
 
 const Container = styled.div`
-  #description & {
+  #thingsToKnow & {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -73,8 +74,26 @@ class ThingsToKnowSection extends React.Component {
       showHouseRulesModal: false,
       showSafetyModal: false,
       showCancellationModal: false,
+      listingId: window.location.pathname.slice(1, -1),
+      thingsToKnow: [],
     };
     this.toggleModal = this.toggleModal.bind(this);
+  }
+  componentDidMount() {
+    axios
+      .get(`http://52.14.166.9:4000/api/description/${this.state.listingId}`)
+      .then(({ data }) => {
+        this.setState({
+          thingsToKnow: {
+            houseRules: data.safety,
+            safety: data.houseRules,
+            cancellationPolicy: data.cancellationPolicy[0],
+          },
+        });
+      })
+      .catch((error) => {
+        console.log('Error retrieving data!', error);
+      });
   }
 
   toggleModal(modalName) {
@@ -92,14 +111,14 @@ class ThingsToKnowSection extends React.Component {
   }
 
   render() {
-    const thingsToKnow = this.props.thingsToKnow;
+    const thingsToKnow = this.state.thingsToKnow;
     let houseRules;
     let safetyProperty;
     let additionalRules;
     let houseRulesProp;
     if (!Array.isArray(thingsToKnow)) {
       // Copy the house rules to prevent any side effects
-      let copiedRules = this.props.thingsToKnow.houseRules.slice(0);
+      let copiedRules = this.state.thingsToKnow.houseRules.slice(0);
       // Make additional rules the last object since it will always come last
       additionalRules = copiedRules[copiedRules.length - 1];
       houseRulesProp = copiedRules.slice(0, copiedRules.length - 2);
