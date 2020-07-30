@@ -3,32 +3,42 @@ import styled from 'styled-components';
 
 // Display Svgs in column format
 const Container = styled.div`
-  padding-top: 15px;
-  display: flex;
-  flex-direction: column;
-  font-size: 12px;
-  margin-bottom: 25px;
+  #description & {
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    margin-bottom: 25px;
+  }
   /* margin-left: 15%; */
 `;
 
 // Within the flex box, display the icon and the description inline as rows
 const Row = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin-top: 20px;
+  #description & {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+  }
 `;
 
 const OverViewDiv = styled.div`
-  margin-left: 5px;
+  #description & {
+    margin-left: 5px;
+  }
 `;
 
 const MainHeader = styled.span`
-  font-weight: bold;
-  font-size: 10px;
+  #description & {
+    font-weight: bold;
+    font-size: 10px;
+  }
 `;
 
 const HeaderDescription = styled.span`
-  font-size: 8px;
+  #description & {
+    font-size: 8px;
+  }
 `;
 
 const Overview = ({
