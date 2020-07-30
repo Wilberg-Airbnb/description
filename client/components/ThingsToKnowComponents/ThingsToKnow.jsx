@@ -55,7 +55,7 @@ const WholeSectionContainer = styled.div`
     padding-top: 10px;
     background-color: rgb(252, 252, 252);
     border-top: solid 1px rgb(204, 212, 204);
-    width: 60%;
+    width: 100%;
   }
 `;
 
