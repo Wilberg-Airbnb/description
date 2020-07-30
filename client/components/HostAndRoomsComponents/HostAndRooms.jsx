@@ -5,7 +5,7 @@ import axios from 'axios';
 const HostAndRoomsContainer = styled.div`
   #description & {
     padding-top: 15px;
-    width: 60%;
+    width: 150%;
     padding-bottom: 15px;
     border-bottom: solid 1px rgb(204, 212, 204);
     font-size: 14px;

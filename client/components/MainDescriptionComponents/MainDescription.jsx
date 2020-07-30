@@ -6,6 +6,7 @@ const DescriptionContainer = styled.div`
     padding-top: 15px;
     width: 60%;
     overflow-wrap: break-word;
+    width: 150%;
     padding-bottom: 15px;
     border-bottom: solid 1px rgb(204, 212, 204);
     border-top: solid 1px rgb(204, 212, 204);

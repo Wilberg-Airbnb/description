@@ -5,6 +5,7 @@ import styled from 'styled-components';
 const Container = styled.div`
   #description & {
     padding-top: 15px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     font-size: 12px;
@@ -18,7 +19,7 @@ const Row = styled.div`
   #description & {
     display: flex;
     flex-direction: row;
-    margin-top: 20px;
+    margin-top: 5px;
   }
 `;
 

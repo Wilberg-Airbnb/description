@@ -40,7 +40,6 @@ const Wrapper = styled.div`
 const Slider = styled.div`
   #description & {
     position: relative;
-    width: 100%;
     margin: 0 auto;
     display: inline-block;
     border-bottom: solid 1px rgb(221, 221, 221);
