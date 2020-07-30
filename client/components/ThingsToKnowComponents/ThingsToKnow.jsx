@@ -15,7 +15,6 @@ const ThingsToKnowContainer = styled.div`
     display: flex;
     justify-content: space-between;
     width: 100%;
-    background-color: rgb(252, 252, 252);
     height: 200px;
   }
 `;
@@ -53,8 +52,6 @@ const Url = 'https://rpt21-airbrb-description.s3-us-west-1.amazonaws.com/';
 const WholeSectionContainer = styled.div`
   #thingsToKnow & {
     padding-top: 10px;
-    background-color: rgb(252, 252, 252);
-    border-top: solid 1px rgb(204, 212, 204);
     width: 100%;
   }
 `;
