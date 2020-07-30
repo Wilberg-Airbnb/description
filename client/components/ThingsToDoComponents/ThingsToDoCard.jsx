@@ -2,36 +2,47 @@ import React from 'react';
 import styled from 'styled-components';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import StarIcon from '@material-ui/icons/Star';
+
 const StyledCard = styled.div`
-  margin-right: 15px;
-  background-color: #fff;
-  filter: drop-shadow(0px 0px 0px #fff);
-  flex: 1;
+  #things-to-do-carousel & {
+    margin-right: 15px;
+    background-color: #fff;
+    filter: drop-shadow(0px 0px 0px #fff);
+    flex: 1;
+  }
 `;
 
 const Photo = styled.div`
-  content: url(${(props) => props.photo});
+  #things-to-do-carousel & {
+    content: url(${(props) => props.photo});
+  }
 `;
 
 const Description = styled.p`
-  font-size: 10px;
-  font-family: 'Verdana';
-  width: 106px;
+  #things-to-do-carousel & {
+    font-size: 10px;
+    font-family: 'Verdana';
+    width: 106px;
+  }
 `;
 
 const Icon = styled.div`
-  position: absolute;
-
-  top: 0;
-  right: 0;
-  display: none;
-  margin-right: 40px;
-  ${StyledCard}:hover & {
-    display: block;
+  #things-to-do-carousel & {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+    margin-right: 40px;
+    ${StyledCard}:hover & {
+      display: block;
+    }
   }
 `;
+
 const ReviewAndStars = styled.span`
-  font-size: 10px;
+  #things-to-do-carouse & {
+    font-size: 10px;
+  }
 `;
 
 const ThingsToDoCard = ({ thingsToDo }) => {
