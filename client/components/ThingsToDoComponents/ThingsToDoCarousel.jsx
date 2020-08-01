@@ -8,6 +8,7 @@ const DivContainer = styled.div`
   #things-to-do-carousel & {
     height: 350px;
     width: 100%;
+    background-color: rgb(247, 247, 247);
   }
 `;
 
@@ -27,9 +28,15 @@ const Wrapper = styled.div`
 const Header = styled.div`
   #things-to-do-carousel & {
     display: flex;
-    justify-content: space-around;
-    width: 80%;
+    justify-content: space-between;
+    width: 100%;
     margin: auto;
+  }
+`;
+
+const ThingsToDoTitle = styled.h4`
+  #things-to-do-carousel & {
+    font-size: 30px;
   }
 `;
 
@@ -84,7 +91,9 @@ class ThingsToDoCarousel extends React.Component {
 
   render() {
     let cards;
+    let numberOfSlidesAvailabile;
     if (this.state.thingsToDo !== null) {
+      numberOfSlidesAvailabile = this.state.thingsToDo.length / 6;
       cards = this.state.thingsToDo
         .map((card, i) => {
           return (
@@ -96,9 +105,10 @@ class ThingsToDoCarousel extends React.Component {
     return (
       <DivContainer>
         <Header>
-          <h4>Things to do nearby</h4>
+          <ThingsToDoTitle>Things to do nearby</ThingsToDoTitle>
           <br></br>
           <div>
+            {this.state.currentSlide + 1} / {numberOfSlidesAvailabile}
             <IoIosArrowDropleft
               id="moveLeft"
               onClick={this.moveLeft}
