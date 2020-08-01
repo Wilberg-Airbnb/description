@@ -6,8 +6,30 @@ import axios from 'axios';
 
 const DivContainer = styled.div`
   #things-to-do-carousel & {
-    height: 350px;
+    height: 400px;
     width: 100%;
+    background-color: rgb(247, 247, 247);
+  }
+`;
+
+const ScrollButton = styled.button`
+  #things-to-do-carousel & {
+    color: black;
+    background-color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 1.6vmin;
+    height: 2.6vmin;
+    width: 2.6vmin;
+    box-shadow: rgb(169, 169, 169) 0.5px 0.5px 0.5px 1px;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    text-decoration: none;
+    margin: 1vmin 0.5vmin;
+    border-radius: 50%;
+    outline: none !important;
   }
 `;
 
@@ -27,9 +49,15 @@ const Wrapper = styled.div`
 const Header = styled.div`
   #things-to-do-carousel & {
     display: flex;
-    justify-content: space-around;
-    width: 80%;
+    justify-content: space-between;
+    width: 100%;
     margin: auto;
+  }
+`;
+
+const ThingsToDoTitle = styled.h4`
+  #things-to-do-carousel & {
+    font-size: 30px;
   }
 `;
 
@@ -84,7 +112,9 @@ class ThingsToDoCarousel extends React.Component {
 
   render() {
     let cards;
+    let numberOfSlidesAvailabile;
     if (this.state.thingsToDo !== null) {
+      numberOfSlidesAvailabile = this.state.thingsToDo.length / 6;
       cards = this.state.thingsToDo
         .map((card, i) => {
           return (
@@ -96,17 +126,16 @@ class ThingsToDoCarousel extends React.Component {
     return (
       <DivContainer>
         <Header>
-          <h4>Things to do nearby</h4>
+          <ThingsToDoTitle>Things to do nearby</ThingsToDoTitle>
           <br></br>
           <div>
-            <IoIosArrowDropleft
-              id="moveLeft"
-              onClick={this.moveLeft}
-            ></IoIosArrowDropleft>
-            <IoIosArrowDropright
-              id="moveRight"
-              onClick={this.moveRight}
-            ></IoIosArrowDropright>
+            {this.state.currentSlide + 1} / {numberOfSlidesAvailabile}
+            <ScrollButton id="moveLeft" onClick={this.moveLeft}>
+              {'<'}
+            </ScrollButton>
+            <ScrollButton id="moveRight" onClick={this.moveRight}>
+              {'>'}
+            </ScrollButton>
           </div>
         </Header>
         <Wrapper className="wrap" left={this.state.left}>
