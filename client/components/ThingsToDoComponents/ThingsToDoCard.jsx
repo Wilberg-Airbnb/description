@@ -8,7 +8,7 @@ const StyledCard = styled.div`
     margin-right: 15px;
     background-color: #fff;
     filter: drop-shadow(0px 0px 0px #fff);
-    flex: 1;
+    background-color: rgb(247, 247, 247);
   }
 `;
 
@@ -40,8 +40,14 @@ const Icon = styled.div`
 `;
 
 const ReviewAndStars = styled.span`
-  #things-to-do-carouse & {
+  #things-to-do-carousel & {
     font-size: 10px;
+  }
+`;
+
+const BoldSpan = styled.span`
+  #things-to-do-carousel & {
+    font-weight: bold;
   }
 `;
 
@@ -54,7 +60,7 @@ const ThingsToDoCard = ({ thingsToDo }) => {
       </Icon>
       <Description>{thingsToDo.activityDescription}</Description>
       <Description className="description">
-        From ${thingsToDo.pricePerPerson}/person · Sports
+        <BoldSpan> From ${thingsToDo.pricePerPerson}</BoldSpan>/person · Sports
       </Description>
 
       <ReviewAndStars>

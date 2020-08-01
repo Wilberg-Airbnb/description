@@ -6,9 +6,30 @@ import axios from 'axios';
 
 const DivContainer = styled.div`
   #things-to-do-carousel & {
-    height: 350px;
+    height: 400px;
     width: 100%;
     background-color: rgb(247, 247, 247);
+  }
+`;
+
+const ScrollButton = styled.button`
+  #things-to-do-carousel & {
+    color: black;
+    background-color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 1.6vmin;
+    height: 2.6vmin;
+    width: 2.6vmin;
+    box-shadow: rgb(169, 169, 169) 0.5px 0.5px 0.5px 1px;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    text-decoration: none;
+    margin: 1vmin 0.5vmin;
+    border-radius: 50%;
+    outline: none !important;
   }
 `;
 
@@ -109,14 +130,12 @@ class ThingsToDoCarousel extends React.Component {
           <br></br>
           <div>
             {this.state.currentSlide + 1} / {numberOfSlidesAvailabile}
-            <IoIosArrowDropleft
-              id="moveLeft"
-              onClick={this.moveLeft}
-            ></IoIosArrowDropleft>
-            <IoIosArrowDropright
-              id="moveRight"
-              onClick={this.moveRight}
-            ></IoIosArrowDropright>
+            <ScrollButton id="moveLeft" onClick={this.moveLeft}>
+              {'<'}
+            </ScrollButton>
+            <ScrollButton id="moveRight" onClick={this.moveRight}>
+              {'>'}
+            </ScrollButton>
           </div>
         </Header>
         <Wrapper className="wrap" left={this.state.left}>
