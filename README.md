@@ -1,10 +1,22 @@
-# Project Name
+# Descritpion Service
 
-> Project description
+This service is composed of multiple components that provide a potential guests with relevant information about the listing including host information, amenities, a description etc.
+
+> Below are some of the components that were a part of the Descriptions Service (all part of the Descriptions Service)
+> <a href="url"><img src="demos/Overview.png"  height="800" ></a>
+
+## Components
+
+> ![Description of the Airbnb listing](demos/Description.gif)
+
+> ![Amenities of the Airbnb listing](demos/Amenities.gif)
+
+> ![Things To Do Carousel listing](demos/ThingsToDo.gif)
+
+> ![Things To Know Modals](demos/ThingsToKnowModals.gif)
 
 ## Related Projects
 
-- https://github.com/Wilberg-Airbnb/description
 - https://github.com/Wilberg-Airbnb/reservation
 - https://github.com/Wilberg-Airbnb/reviews
 - https://github.com/Wilberg-Airbnb/location
@@ -22,12 +34,14 @@
 
 ## Usage
 
-> Some usage instructions:
-> "npm install" to install all of the dependcies
-> Running Webpack: "npm run react-dev",
-> Seeding the database: "npm run seed"
-> Running the Server: "npm run server"
-> Port number: 4000
+Some usage instructions:
+
+> 1.  "npm install" to install all of the dependcies
+> 2.  Running Webpack: "npm run react-dev",
+> 3.  Seeding the database: "npm run seed"
+> 4.  Running the Server: "npm run server"
+> 5.  Port number: 4000
+> 6.  Navigate to http://localhost:4000/${Listing between 0 - 99}/
 
 ## Requirements
 

@@ -7,6 +7,7 @@ const compression = require('compression');
 // Apply cors middleware to enable ALL cors request
 app.use(compression());
 app.use(cors());
+
 app.use('/:listingId', express.static('public'));
 app.get('/api/description/:listingId', (req, res) => {
   Document.findOne({ listingId: req.params.listingId })
