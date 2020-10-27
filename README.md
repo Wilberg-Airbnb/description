@@ -1,4 +1,4 @@
-# Descritpion Service
+# Description Service
 
 This service is composed of multiple components that provide a potential guests with relevant information about the listing including host information, amenities, a description etc.
 
@@ -22,9 +22,7 @@ This service is composed of multiple components that provide a potential guests 
 - https://github.com/Wilberg-Airbnb/location
 - https://github.com/Wilberg-Airbnb/suggestion
 - https://github.com/Wilberg-Airbnb/photos
-- https://github.com/Wilberg-Airbnb/explore
 - https://github.com/Wilberg-Airbnb/host
-- https://github.com/Wilberg-Airbnb/reviews-placeSuggestions
 
 ## Table of Contents
 

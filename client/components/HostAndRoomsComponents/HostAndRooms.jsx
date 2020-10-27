@@ -46,7 +46,7 @@ class HostAndRooms extends React.Component {
   // Call for Host service   here
   componentDidMount() {
     axios
-      .get(`http://localhost:2000/api/host/${this.props.listingId}`)
+      .get(`http://3.12.169.208:2000/api/host/${this.props.listingId}`)
       .then(({ data }) => {
         this.setState({
           personImage: data.photoUrl,
