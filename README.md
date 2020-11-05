@@ -3,7 +3,7 @@
 This service is composed of multiple components that provide a potential guests with relevant information about the listing including host information, amenities, a description etc.
 
 > Below are some of the components that were a part of the Descriptions Service (all part of the Descriptions Service)
-> <a href="url"><img src="demos/Overview.png"  height="800" ></a>
+> <br> <a href="url"><img src="demos/Overview.png"  height="800" ></a>
 
 ## Components
 
@@ -15,13 +15,16 @@ This service is composed of multiple components that provide a potential guests 
 
 > ![Things To Know Modals](demos/ThingsToKnowModals.gif)
 
+## Photos Microservice I developed
+
+- https://github.com/Wilberg-Airbnb/photos
+
 ## Related Projects
 
 - https://github.com/Wilberg-Airbnb/reservation
 - https://github.com/Wilberg-Airbnb/reviews
 - https://github.com/Wilberg-Airbnb/location
 - https://github.com/Wilberg-Airbnb/suggestion
-- https://github.com/Wilberg-Airbnb/photos
 - https://github.com/Wilberg-Airbnb/host
 
 ## Table of Contents
